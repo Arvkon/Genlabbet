@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Genlabbet
-//
-//  Created by Arvid Kongstad on 10/05/15.
-//  Copyright (c) 2015 Arvid Kongstad. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
