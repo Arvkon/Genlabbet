@@ -52,6 +52,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85429E1D1B03B98F00846BF1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				85C689CD1AFED1D60021CB0E /* CharacterListViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		85429E1E1B03B9BA00846BF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		85429E1F1B03B9CE00846BF1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		85429E201B03B9DC00846BF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		85C689BD1AFED1D60021CB0E = {
 			isa = PBXGroup;
 			children = (
@@ -74,9 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				85C689CB1AFED1D60021CB0E /* AppDelegate.swift */,
-				85C689CD1AFED1D60021CB0E /* CharacterListViewController.swift */,
 				85C689D21AFED1D70021CB0E /* Images.xcassets */,
+				85429E1F1B03B9CE00846BF1 /* Assets */,
+				85429E201B03B9DC00846BF1 /* Models */,
 				85C689C91AFED1D60021CB0E /* Supporting Files */,
+				85429E1D1B03B98F00846BF1 /* ViewControllers */,
+				85429E1E1B03B9BA00846BF1 /* Views */,
 			);
 			path = Genlabbet;
 			sourceTree = "<group>";
