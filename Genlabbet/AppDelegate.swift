@@ -6,10 +6,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Initiate Window
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.whiteColor()
-        self.window?.makeKeyAndVisible()
+        
+        // Setup General Appearance
+        self.window!.backgroundColor = UIColor.whiteColor()
+        
+        // Setup Root View Controller
+        let characterListViewController = CharacterListViewController()
+        self.window!.rootViewController = characterListViewController
+        self.window!.makeKeyAndVisible()
+        
         return true
     }
 }
