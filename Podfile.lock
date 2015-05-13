@@ -1,0 +1,13 @@
+PODS:
+  - Cartography (0.5.0)
+  - TTTAttributedLabel (1.13.3)
+
+DEPENDENCIES:
+  - Cartography
+  - TTTAttributedLabel
+
+SPEC CHECKSUMS:
+  Cartography: 774e5cc446f5a6bca5d4345c5aa6af9a1fe74dc6
+  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
+
+COCOAPODS: 0.37.1
