@@ -11,10 +11,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup General Appearance
         self.window!.backgroundColor = UIColor.whiteColor()
+        if let titleFont = UIFont(name: "Colfax-Regular", size: 17.0) {
+            let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: UIColor.blackColor()]
+            UINavigationBar.appearance().titleTextAttributes = attributes
+        }
         
         // Setup Root View Controller
         let characterListViewController = CharacterListViewController()
-        self.window!.rootViewController = characterListViewController
+        let navigationController = UINavigationController(rootViewController: characterListViewController)
+        self.window!.rootViewController = navigationController
         self.window!.makeKeyAndVisible()
         
         return true
