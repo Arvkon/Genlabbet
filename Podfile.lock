@@ -1,13 +1,16 @@
 PODS:
   - Cartography (0.5.0)
+  - PSTAlertController (1.1.0)
   - TTTAttributedLabel (1.13.3)
 
 DEPENDENCIES:
   - Cartography
+  - PSTAlertController
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Cartography: 774e5cc446f5a6bca5d4345c5aa6af9a1fe74dc6
+  PSTAlertController: cb21afcfa76c3229feec7db044afd4f60dab5892
   TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
