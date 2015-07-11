@@ -9,12 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initiate Window
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        // Setup General Appearance
-        self.window!.backgroundColor = UIColor.whiteColor()
-        if let titleFont = UIFont(name: "Colfax-Regular", size: 17.0) {
-            let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: UIColor.blackColor()]
-            UINavigationBar.appearance().titleTextAttributes = attributes
-        }
+        self.setupAppAppearance()
         
         // Setup Root View Controller
         let characterListViewController = CharacterListViewController()
@@ -23,5 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         return true
+    }
+    
+    private func setupAppAppearance() {
+        self.window!.backgroundColor = UIColor.whiteColor()
+        
+        // Navigation bar title
+        if let titleFont = UIFont(name: "Colfax-Regular", size: 17.0) {
+            let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: UIColor.blackColor()]
+            UINavigationBar.appearance().titleTextAttributes = attributes
+        }
+        
+        // Back button image
+        let backButtonImage = UIImage(named: "NavbarBackButton")!.imageWithRenderingMode(.AlwaysOriginal)
+        UINavigationBar.appearance().backIndicatorImage = backButtonImage
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
     }
 }
