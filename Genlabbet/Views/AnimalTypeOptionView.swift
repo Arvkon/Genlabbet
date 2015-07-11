@@ -11,18 +11,22 @@ class AnimalTypeOptionView: UIView {
     
     // MARK: - Initialization
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(animalType: AnimalType) {
+        self.animalType = animalType
+        super.init(frame: CGRectZero)
         
         self.addSubview(self.label)
         self.addSubview(self.imageView)
-    }
-    
-    convenience init(text: String, imageName: String) {
-        self.init(frame: CGRectZero)
         
-        self.label.text = text
-        self.imageView.image = UIImage(named: imageName)
+        self.label.text = animalType.rawValue
+        
+        if animalType == .Björn {
+            self.imageView.image = UIImage(named: "Bjorn")
+        } else if animalType == .Mårddjur {
+            self.imageView.image = UIImage(named: "Marddjur")
+        } else {
+            self.imageView.image = UIImage(named: animalType.rawValue)
+        }
     }
     
     // MARK: - Methods
@@ -66,7 +70,9 @@ class AnimalTypeOptionView: UIView {
     
     private let imageView = UIImageView(frame: CGRectZero)
     
-    // MARK: - Constants
+    // MARK: - Properties & Constants
     
-    static let labelHeight = 35.0 as Double
+    internal let animalType: AnimalType
+    
+    static internal let labelHeight = 35.0 as Double
 }
