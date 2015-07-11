@@ -3,6 +3,15 @@ import Cartography
 
 class CharacterCreationStepViewController: UIViewController {
     
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(character: Character) {
+        self.character = character
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,4 +37,8 @@ class CharacterCreationStepViewController: UIViewController {
     
     internal let contentView = UIView(frame: CGRectZero)
     internal let progressBar = ProgressBarView(frame: CGRectZero)
+    
+    // MARK: - Properties
+    
+    internal let character: Character
 }
