@@ -3,4 +3,5 @@ use_frameworks!
 
 pod 'Cartography'
 pod 'PSTAlertController'
+pod 'SwiftColor'
 pod 'TTTAttributedLabel'
