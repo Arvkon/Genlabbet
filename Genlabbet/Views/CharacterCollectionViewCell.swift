@@ -29,7 +29,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         self.cellPressAction = nil
     }
     
-    // MARK: - Views
+    // MARK: - Subviews
     
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel(frame: CGRect(x: 15.0, y: 0.0, width: self.contentView.frame.width - 15.0, height: 44.0))
