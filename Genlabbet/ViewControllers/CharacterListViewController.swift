@@ -35,6 +35,7 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
     
     func beginCharacterCreation() {
         let animalViewController = AnimalViewController(character: Character())
+        //let animalViewController = RoleViewController(character: Character())
         let navigationController = UINavigationController(rootViewController: animalViewController)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
@@ -58,7 +59,8 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
         } else {
             cell.setLabelText("Rollperson \(indexPath.row + 1)")
             cell.cellPressAction = { () -> Void in
-                println("Did Press Character Cell at index \(indexPath.row)!")
+                let message = "Did press character cell at index: \(indexPath.row)"
+                UIAlertView(title: "Not implemented yet", message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
             }
         }
         
