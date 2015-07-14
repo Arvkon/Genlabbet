@@ -18,14 +18,14 @@ class AnimalTypeOptionView: UIView {
         self.addSubview(self.label)
         self.addSubview(self.imageView)
         
-        self.label.text = animalType.rawValue
+        self.label.text = animalType.string()
         
         if animalType == .Björn {
             self.imageView.image = UIImage(named: "Bjorn")
         } else if animalType == .Mårddjur {
             self.imageView.image = UIImage(named: "Marddjur")
         } else {
-            self.imageView.image = UIImage(named: animalType.rawValue)
+            self.imageView.image = UIImage(named: animalType.string())
         }
     }
     

@@ -103,7 +103,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             
             // Helper function
             func createPSTAlertActionForSpecies(species: Species) -> PSTAlertAction {
-                return PSTAlertAction(title: species.rawValue, style: .Default) { (action: PSTAlertAction!) -> Void in
+                return PSTAlertAction(title: species.string(), style: .Default) { (action: PSTAlertAction!) -> Void in
                     self.character.art = species
                     let viewController = RoleViewController(character: self.character)
                     self.navigationController!.pushViewController(viewController, animated: true)
