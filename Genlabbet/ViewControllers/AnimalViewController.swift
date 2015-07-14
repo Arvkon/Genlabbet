@@ -71,8 +71,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             reptilia.top    == mustelidae.top
         }
         
-        let contentHeight = CGFloat(optionViewHeight * 4 + verticalSpacing * 5)
-        self.contentView.contentSize = CGSize(width: self.view.bounds.width, height: contentHeight)
+        self.contentView.contentSize = self.contentView.totalContentSize(addedHeight: 20.0)
         
         self.addGestureRecognizersToOptionViews()
     }
