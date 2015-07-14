@@ -9,7 +9,7 @@ class AnimalViewController: CharacterCreationStepViewController {
         
         self.title = "Djurtyp och art"
         
-        let closeButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 19.0, height: 19.0))
+        let closeButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 18.0, height: 18.0))
         closeButton.setImage(UIImage(named: "NavbarCloseButton"), forState: .Normal)
         closeButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeButton)
