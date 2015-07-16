@@ -41,10 +41,8 @@ class ProgressBarView: UIView {
     private lazy var dummyLabel: UILabel = {
         let dummyLabel = UILabel(frame: CGRectZero)
         dummyLabel.font = UIFont(name: "HelveticaNeue", size: 15.0)
-        dummyLabel.textColor = UIColor.blackColor()
-        dummyLabel.textAlignment = .Center
         dummyLabel.text = "Progress Bar Dummy Label"
-        dummyLabel.numberOfLines = 1
+        dummyLabel.textAlignment = .Center
         
         return dummyLabel
     }()

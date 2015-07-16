@@ -60,10 +60,8 @@ class AnimalTypeOptionView: UIView {
     private lazy var label: UILabel = {
         let label = UILabel(frame: CGRectZero)
         label.font = UIFont(name: "HelveticaNeue-Medium", size: 17.0)
-        label.textColor = UIColor.blackColor()
         label.textAlignment = .Center
         label.text = "No text set"
-        label.numberOfLines = 1
         
         return label
     }()

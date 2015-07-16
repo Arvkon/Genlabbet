@@ -91,10 +91,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     private lazy var headerLabel: UILabel = {
         let headerLabel = UILabel(frame: CGRectZero)
         headerLabel.font = UIFont(name: "Colfax-Regular", size: 22.0)
-        headerLabel.textColor = UIColor.blackColor()
-        headerLabel.textAlignment = .Center
         headerLabel.text = self.role.string()
-        headerLabel.numberOfLines = 1
+        headerLabel.textAlignment = .Center
         
         return headerLabel
     }()
@@ -124,8 +122,6 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         keyAttributeLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
         keyAttributeLabel.addLinkToURL(NSURL(string: "info://attribute"), withRange: NSMakeRange(21, count(keyAttribute)))
         keyAttributeLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
-        keyAttributeLabel.textAlignment = .Left
-        keyAttributeLabel.numberOfLines = 1
         keyAttributeLabel.delegate = self
         
         return keyAttributeLabel
@@ -143,8 +139,6 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         specialistSkillLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
         specialistSkillLabel.addLinkToURL(NSURL(string: "info://skill"), withRange: NSMakeRange(18, count(specialistSkill)))
         specialistSkillLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
-        specialistSkillLabel.textAlignment = .Left
-        specialistSkillLabel.numberOfLines = 1
         specialistSkillLabel.delegate = self
         
         return specialistSkillLabel
@@ -167,13 +161,13 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[1], count(talentNames[1])))
         talentsLabel.addLinkToURL(NSURL(string: "info://talent3"), withRange: NSMakeRange(talentStart[2], count(talentNames[2])))
         talentsLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
-        talentsLabel.textAlignment = .Left
         talentsLabel.numberOfLines = 2
         talentsLabel.delegate = self
         
         return talentsLabel
     }()
     
+    // TODO: Choose image based on self.role
     private let imageView = UIImageView(image: UIImage(named: "Krigare"))
     
     // MARK: - Methods

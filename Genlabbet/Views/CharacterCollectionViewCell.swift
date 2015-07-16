@@ -1,4 +1,5 @@
 import UIKit
+import Cartography
 
 class CharacterCollectionViewCell: UICollectionViewCell {
     
@@ -21,7 +22,14 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         selectedBackgroundView.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         self.selectedBackgroundView = selectedBackgroundView
         
+        self.setLabelText("Text has not been set")
         self.contentView.addSubview(self.nameLabel)
+        
+        layout(self.nameLabel) { nameLabel in
+            nameLabel.width == nameLabel.superview!.width - 15.0
+            nameLabel.left  == nameLabel.superview!.left + 15.0
+            nameLabel.centerY == nameLabel.superview!.centerY
+        }
     }
     
     override func prepareForReuse() {
@@ -31,14 +39,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Subviews
     
-    private lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel(frame: CGRect(x: 15.0, y: 0.0, width: self.contentView.frame.width - 15.0, height: 44.0))
-        nameLabel.textColor = UIColor.blackColor()
-        nameLabel.text = "Text has not been set"
-        nameLabel.numberOfLines = 1
-        
-        return nameLabel
-    }()
+    private let nameLabel = UILabel(frame: CGRectZero)
     
     func setLabelText(text: String) {
         self.nameLabel.text = text
