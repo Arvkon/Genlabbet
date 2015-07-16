@@ -70,7 +70,9 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     // MARK: - Methods
     
     func chooseButtonPressed(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        self.character.syssla = self.viewControllerAtIndex(self.pageControl.currentPage)!.role
+        let viewController = AppearanceViewController(character: self.character)
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
     private func viewControllerAtIndex(index: Int) -> RolePageContentViewController? {
