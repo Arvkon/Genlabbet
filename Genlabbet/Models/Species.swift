@@ -78,4 +78,17 @@ enum Species {
         case .Ödla:       return "Ödla"
         }
     }
+    
+    func animalType() -> AnimalType {
+        switch self {
+        case .Gorilla, .Orangutang, .Schimpans:  return .Apa
+        case .Brunbjörn, .Tvättbjörn:            return .Björn
+        case .Hamster, .Mus, .Råtta, .Sork:      return .Gnagare
+        case .Hare, .Kanin:                      return .Hardjur
+        case .Hund, .Räv, .Varg:                 return .Hunddjur
+        case .Katt, .Lodjur:                     return .Kattdjur
+        case .Grävling, .Järv, .Mård, .Vessla:   return .Mårddjur
+        case .Groda, .Padda, .Sköldpadda, .Ödla: return .Reptil
+        }
+    }
 }
