@@ -65,4 +65,49 @@ enum Role {
         case .Samlare: return (.Gömsle, .Packråtta, .Vapensamlare)
         }
     }
+    
+    func faceOptions() -> [String] {
+        switch self {
+        case .Helare:
+            return ["Vänlig blick", "Frånvarande blick", "Tårögd blick", "Ärrat ansikte", "Stetoskop runt halsen"]
+        case .Jägare:
+            return ["Vakande blick", "Frånvarande blick", "Väderbitet ansikte", "Ärrat ansikte", "Troféer runt halsen"]
+        case .Krigare:
+            return ["Vakande blick", "Intensiv blick", "Död blick", "Ärrat ansikte", "Krigsmålning"]
+        case .Nåjd:
+            return ["Galen blick", "Oseende blick", "Tomtemask", "Amuletter runt halsen", "Rituella ansiktsmålningar"]
+        case .Samlare:
+            return ["Sökande blick", "Flackande blick", "Nervöst sniffande", "Skrot i halskedja", "Kastrull på huvudet"]
+        }
+    }
+    
+    func bodyOptions() -> [String] {
+        switch self {
+        case .Helare:
+            return ["Krum hållning", "Spenslig", "Fet", "Kortväxt", "Halt"]
+        case .Jägare:
+            return ["Hukande", "Knotig", "Mager", "Smidig", "Kortväxt"]
+        case .Krigare:
+            return ["Kraftfull", "Smidig", "Muskulös", "Storväxt", "Knotig"]
+        case .Nåjd:
+            return ["Krum", "Gänglig", "Spenslig", "Knotig", "Fet"]
+        case .Samlare:
+            return ["Knotig", "Kortväxt", "Senig", "Krum", "Kraftig"]
+        }
+    }
+    
+    func wearOptions() -> [String] {
+        switch self {
+        case .Helare:
+            return ["Sliten läkarrock", "Overall", "Bandagerad kroppsdel", "Pannspegel", "Läkarväska"]
+        case .Jägare:
+            return ["Sliten täckjacka", "Regnrock med huva", "Kamouflagekläder", "Skidmössa", "Ryggsäck"]
+        case .Krigare:
+            return ["Kamouflagekläder", "Vapenrock", "Kaptensmössa", "Hockeyskydd", "Hockeymask"]
+        case .Nåjd:
+            return ["Trasig frack", "Färgstark regnrock", "Clowndräkt", "Skrot och krimskrams", "Blommigt duschdraperi"]
+        case .Samlare:
+            return ["Regnrock med huva", "Lusekofta", "Sliten täckjacka", "T-shirt med tryck", "Militärkeps"]
+        }
+    }
 }
