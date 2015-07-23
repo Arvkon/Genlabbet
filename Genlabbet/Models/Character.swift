@@ -3,11 +3,18 @@ import Foundation
 class Character {
     var labbnamn: String?
     var upprorsnamn: String?
-    var djurtyp: AnimalType? // TODO: Deduce from Species?
+    var djurtyp: AnimalType? {
+        return self.art?.animalType() ?? .Apa // nil
+    }
     var art: Species?
     var ålder: Age?
+    var syssla: Role?
     var rang: Int?
     var kön: Gender?
+    
+    var ansikte: String?
+    var kropp: String?
+    var kläder: String?
     
     // Attribute scores
     var styrka: Int?
