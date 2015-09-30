@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		1DF84E2D8C8FA2EC8368C1DF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D8BA64C78299AB2BBAC47A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */; };
+		851B2A451B55F1DC002CDD3B /* ChoiceHeadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */; };
+		851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A461B560353002CDD3B /* ChoiceTextField.swift */; };
+		851B2A491B561C0D002CDD3B /* SkipCreationStepLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A481B561C0D002CDD3B /* SkipCreationStepLabel.swift */; };
 		85429E281B03CF6200846BF1 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E271B03CF6200846BF1 /* CharacterListViewController.swift */; };
 		85429E2C1B03F5AD00846BF1 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E2B1B03F5AD00846BF1 /* AnimalViewController.swift */; };
 		85429E2E1B03F5F800846BF1 /* CharacterCreationStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E2D1B03F5F800846BF1 /* CharacterCreationStepViewController.swift */; };
 		85429E301B03FA7600846BF1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E2F1B03FA7600846BF1 /* Character.swift */; };
+		8571D2CC1B5ACF6800E8C5FA /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8571D2CB1B5ACF6800E8C5FA /* RadioButtonView.swift */; };
+		85AF5A061B5673DC0089BD5E /* GenderNameAgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF5A051B5673DC0089BD5E /* GenderNameAgeViewController.swift */; };
 		85B0672F1B4562F700380B70 /* Colfax-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85B0672D1B4562F700380B70 /* Colfax-Medium.otf */; };
 		85B067301B4562F700380B70 /* Colfax-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85B0672E1B4562F700380B70 /* Colfax-Regular.otf */; };
 		85B067321B456D6300380B70 /* AnimalTypeOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B067311B456D6300380B70 /* AnimalTypeOptionView.swift */; };
@@ -44,7 +50,6 @@
 		85B56B3B1B5577CC00F3B735 /* Talent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B56B3A1B5577CC00F3B735 /* Talent.swift */; };
 		85B56B3D1B55A2D300F3B735 /* AnimalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B56B3C1B55A2D300F3B735 /* AnimalType.swift */; };
 		85B56B3F1B55A37400F3B735 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B56B3E1B55A37400F3B735 /* Species.swift */; };
-		85B56B451B55AF6D00F3B735 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B56B441B55AF6D00F3B735 /* Default-568h@2x.png */; };
 		85C689CC1AFED1D60021CB0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C689CB1AFED1D60021CB0E /* AppDelegate.swift */; };
 		85C689D31AFED1D70021CB0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C689D21AFED1D70021CB0E /* Images.xcassets */; };
 		85C689E21AFED1D70021CB0E /* GenlabbetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C689E11AFED1D70021CB0E /* GenlabbetTests.swift */; };
@@ -63,10 +68,16 @@
 /* Begin PBXFileReference section */
 		09D8BA64C78299AB2BBAC47A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1835035F188970F1C0691F5B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppearanceViewController.swift; path = ViewControllers/AppearanceViewController.swift; sourceTree = "<group>"; };
+		851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceHeadingLabel.swift; path = Views/ChoiceHeadingLabel.swift; sourceTree = "<group>"; };
+		851B2A461B560353002CDD3B /* ChoiceTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTextField.swift; path = Views/ChoiceTextField.swift; sourceTree = "<group>"; };
+		851B2A481B561C0D002CDD3B /* SkipCreationStepLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipCreationStepLabel.swift; path = Views/SkipCreationStepLabel.swift; sourceTree = "<group>"; };
 		85429E271B03CF6200846BF1 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterListViewController.swift; path = ViewControllers/CharacterListViewController.swift; sourceTree = "<group>"; };
 		85429E2B1B03F5AD00846BF1 /* AnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalViewController.swift; path = ViewControllers/AnimalViewController.swift; sourceTree = "<group>"; };
 		85429E2D1B03F5F800846BF1 /* CharacterCreationStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCreationStepViewController.swift; path = ViewControllers/CharacterCreationStepViewController.swift; sourceTree = "<group>"; };
 		85429E2F1B03FA7600846BF1 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = Models/Character.swift; sourceTree = "<group>"; };
+		8571D2CB1B5ACF6800E8C5FA /* RadioButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadioButtonView.swift; path = Views/RadioButtonView.swift; sourceTree = "<group>"; };
+		85AF5A051B5673DC0089BD5E /* GenderNameAgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenderNameAgeViewController.swift; path = ViewControllers/GenderNameAgeViewController.swift; sourceTree = "<group>"; };
 		85B0672D1B4562F700380B70 /* Colfax-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Colfax-Medium.otf"; path = "Assets/Fonts/Colfax-Medium.otf"; sourceTree = "<group>"; };
 		85B0672E1B4562F700380B70 /* Colfax-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Colfax-Regular.otf"; path = "Assets/Fonts/Colfax-Regular.otf"; sourceTree = "<group>"; };
 		85B067311B456D6300380B70 /* AnimalTypeOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalTypeOptionView.swift; path = Views/AnimalTypeOptionView.swift; sourceTree = "<group>"; };
@@ -99,7 +110,6 @@
 		85B56B3A1B5577CC00F3B735 /* Talent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Talent.swift; path = Models/Talent.swift; sourceTree = "<group>"; };
 		85B56B3C1B55A2D300F3B735 /* AnimalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalType.swift; path = Models/AnimalType.swift; sourceTree = "<group>"; };
 		85B56B3E1B55A37400F3B735 /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Species.swift; path = Models/Species.swift; sourceTree = "<group>"; };
-		85B56B441B55AF6D00F3B735 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Assets/Default-568h@2x.png"; sourceTree = "<group>"; };
 		85C682751B0BCA1B0056DC33 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = "Pods/../build/Debug-iphoneos/Pods/Cartography.framework"; sourceTree = "<group>"; };
 		85C689C61AFED1D60021CB0E /* Genlabbet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Genlabbet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C689CA1AFED1D60021CB0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +148,8 @@
 				85429E2B1B03F5AD00846BF1 /* AnimalViewController.swift */,
 				85B56AF91B4ED3EC00F3B735 /* RoleViewController.swift */,
 				85B56B031B5059C900F3B735 /* RolePageContentViewController.swift */,
+				851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */,
+				85AF5A051B5673DC0089BD5E /* GenderNameAgeViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -147,8 +159,12 @@
 			children = (
 				85B067311B456D6300380B70 /* AnimalTypeOptionView.swift */,
 				85B56B091B50FFA100F3B735 /* CharacterCollectionViewCell.swift */,
+				851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */,
+				851B2A461B560353002CDD3B /* ChoiceTextField.swift */,
 				85B067461B45B17D00380B70 /* ProgressBarView.swift */,
+				8571D2CB1B5ACF6800E8C5FA /* RadioButtonView.swift */,
 				85B56B1C1B51347300F3B735 /* RoleDescriptionLabel.swift */,
+				851B2A481B561C0D002CDD3B /* SkipCreationStepLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -156,10 +172,10 @@
 		85429E1F1B03B9CE00846BF1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				85C689D21AFED1D70021CB0E /* Images.xcassets */,
 				85B0672C1B4562E600380B70 /* Fonts */,
 				85B56B111B51101F00F3B735 /* NavigationBar */,
 				85B067351B45986100380B70 /* Portraits */,
-				85B56B441B55AF6D00F3B735 /* Default-568h@2x.png */,
 				85B56B071B50F24700F3B735 /* Krigare.png */,
 			);
 			name = Assets;
@@ -250,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				85C689CB1AFED1D60021CB0E /* AppDelegate.swift */,
-				85C689D21AFED1D70021CB0E /* Images.xcassets */,
 				85429E1F1B03B9CE00846BF1 /* Assets */,
 				85B56B371B55708A00F3B735 /* Extensions */,
 				85429E201B03B9DC00846BF1 /* Models */,
@@ -392,7 +407,6 @@
 				85B067451B4598A400380B70 /* Reptil.png in Resources */,
 				85B0673F1B4598A400380B70 /* Bjorn.png in Resources */,
 				85B56B191B51104800F3B735 /* NavbarCloseButton@3x.png in Resources */,
-				85B56B451B55AF6D00F3B735 /* Default-568h@2x.png in Resources */,
 				85B56B081B50F24700F3B735 /* Krigare.png in Resources */,
 				85B067431B4598A400380B70 /* Kattdjur.png in Resources */,
 				85B56B2A1B51738500F3B735 /* Colfax-Light.otf in Resources */,
@@ -473,10 +487,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AF5A061B5673DC0089BD5E /* GenderNameAgeViewController.swift in Sources */,
 				85B56B0A1B50FFA100F3B735 /* CharacterCollectionViewCell.swift in Sources */,
 				85B067321B456D6300380B70 /* AnimalTypeOptionView.swift in Sources */,
+				851B2A451B55F1DC002CDD3B /* ChoiceHeadingLabel.swift in Sources */,
 				85429E2E1B03F5F800846BF1 /* CharacterCreationStepViewController.swift in Sources */,
 				85429E281B03CF6200846BF1 /* CharacterListViewController.swift in Sources */,
+				8571D2CC1B5ACF6800E8C5FA /* RadioButtonView.swift in Sources */,
 				85429E301B03FA7600846BF1 /* Character.swift in Sources */,
 				85B067471B45B17D00380B70 /* ProgressBarView.swift in Sources */,
 				85B56B041B5059C900F3B735 /* RolePageContentViewController.swift in Sources */,
@@ -484,8 +501,11 @@
 				85B56B1D1B51347300F3B735 /* RoleDescriptionLabel.swift in Sources */,
 				85429E2C1B03F5AD00846BF1 /* AnimalViewController.swift in Sources */,
 				85B56B391B5570E800F3B735 /* UIView.swift in Sources */,
+				851B2A491B561C0D002CDD3B /* SkipCreationStepLabel.swift in Sources */,
 				85C689CC1AFED1D60021CB0E /* AppDelegate.swift in Sources */,
 				85B56AFA1B4ED3EC00F3B735 /* RoleViewController.swift in Sources */,
+				851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */,
+				851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */,
 				85B56B331B5426B800F3B735 /* Attribute.swift in Sources */,
 				85B56B311B53A33D00F3B735 /* Role.swift in Sources */,
 				85B56B3D1B55A2D300F3B735 /* AnimalType.swift in Sources */,
@@ -599,6 +619,7 @@
 			baseConfigurationReference = DF3F80443563ADAEC1E08935 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Genlabbet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -610,6 +631,7 @@
 			baseConfigurationReference = 1835035F188970F1C0691F5B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Genlabbet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

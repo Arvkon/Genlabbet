@@ -13,7 +13,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         self.navigationItem.rightBarButtonItem!.enabled = false
         
         self.skipCreationStepLabel.linkAction = { () -> Void in
-            UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+            let viewController = GenderNameAgeViewController(character: self.character)
+            self.navigationController!.pushViewController(viewController, animated: true)
         }
         
         // Layout
@@ -134,7 +135,12 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: - Methods
     
     func chooseButtonPressed(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        self.character.ansikte = self.faceTextField.text
+        self.character.kropp   = self.bodyTextField.text
+        self.character.kläder  = self.wearTextField.text
+        
+        let viewController = GenderNameAgeViewController(character: self.character)
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
     private func allTextFieldsContainText() -> Bool {
