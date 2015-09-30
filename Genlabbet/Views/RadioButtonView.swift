@@ -18,6 +18,7 @@ class RadioButtonView: UIView {
         self.addSubview(self.imageView)
         self.addSubview(self.label)
         
+        // TODO: Put in layoutSubviews()?
         layout(self.imageView, self.label) { image, label in
             image.width   == self.imageSide
             image.height  == self.imageSide
