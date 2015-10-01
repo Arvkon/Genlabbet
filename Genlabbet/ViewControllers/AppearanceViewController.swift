@@ -27,11 +27,11 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         self.contentView.addSubview(self.bodyTextField)
         self.contentView.addSubview(self.wearTextField)
         
-        let totalSideMargin = 30.0
-        let labelTopSpacing = 15.0
-        let fieldTopSpacing = 10.0
+        let totalSideMargin = 30.0 as CGFloat
+        let labelTopSpacing = 15.0 as CGFloat
+        let fieldTopSpacing = 10.0 as CGFloat
         
-        layout(self.skipCreationStepLabel, self.faceLabel, self.faceTextField) { skipLabel, faceLabel, faceField in
+        constrain(self.skipCreationStepLabel, self.faceLabel, self.faceTextField) { skipLabel, faceLabel, faceField in
             skipLabel.width   == skipLabel.superview!.width - totalSideMargin
             skipLabel.height  == 35.0
             skipLabel.top     == skipLabel.superview!.top + 10.0
@@ -46,7 +46,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
             faceField.centerX == faceField.superview!.centerX
         }
         
-        layout(self.faceTextField, self.bodyLabel, self.bodyTextField) { faceField, bodyLabel, bodyField in
+        constrain(self.faceTextField, self.bodyLabel, self.bodyTextField) { faceField, bodyLabel, bodyField in
             bodyLabel.width   == bodyLabel.superview!.width - totalSideMargin
             bodyLabel.top     == faceField.bottom + labelTopSpacing
             bodyLabel.centerX == bodyLabel.superview!.centerX
@@ -56,7 +56,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
             bodyField.centerX == bodyField.superview!.centerX
         }
         
-        layout(self.bodyTextField, self.wearLabel, self.wearTextField) { bodyField, wearLabel, wearField in
+        constrain(self.bodyTextField, self.wearLabel, self.wearTextField) { bodyField, wearLabel, wearField in
             wearLabel.width   == wearLabel.superview!.width - totalSideMargin
             wearLabel.top     == bodyField.bottom + labelTopSpacing
             wearLabel.centerX == wearLabel.superview!.centerX
@@ -144,9 +144,13 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     }
     
     private func allTextFieldsContainText() -> Bool {
-        let faceChosen = count(self.faceTextField.text) > 0
-        let bodyChosen = count(self.bodyTextField.text) > 0
-        let wearChosen = count(self.wearTextField.text) > 0
+        guard let faceText = self.faceTextField.text else { return false }
+        guard let bodyText = self.bodyTextField.text else { return false }
+        guard let wearText = self.wearTextField.text else { return false }
+        
+        let faceChosen = faceText.characters.count > 0
+        let bodyChosen = bodyText.characters.count > 0
+        let wearChosen = wearText.characters.count > 0
         
         return faceChosen && bodyChosen && wearChosen
     }
@@ -160,11 +164,11 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField === self.faceTextField && self.faceTextField.text.isEmpty {
+        if textField === self.faceTextField && self.faceTextField.text!.isEmpty {
             self.faceTextField.text = self.faceOptions.first
-        } else if textField === self.bodyTextField && self.bodyTextField.text.isEmpty {
+        } else if textField === self.bodyTextField && self.bodyTextField.text!.isEmpty {
             self.bodyTextField.text = self.bodyOptions.first
-        } else if textField === self.wearTextField && self.wearTextField.text.isEmpty {
+        } else if textField === self.wearTextField && self.wearTextField.text!.isEmpty {
             self.wearTextField.text = self.wearOptions.first
         }
         
@@ -173,7 +177,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - UIPickerViewDelegate
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView === self.facePickerView {
             return self.faceOptions[row]
         } else if pickerView === self.bodyPickerView {

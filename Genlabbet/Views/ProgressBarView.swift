@@ -5,7 +5,7 @@ class ProgressBarView: UIView {
     
     // MARK: - NSObject
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -25,7 +25,7 @@ class ProgressBarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layout(self.dividerLine, self.dummyLabel) { divider, label in
+        constrain(self.dividerLine, self.dummyLabel) { divider, label in
             divider.width   == divider.superview!.width
             divider.height  == 0.5
             divider.top     == divider.superview!.top

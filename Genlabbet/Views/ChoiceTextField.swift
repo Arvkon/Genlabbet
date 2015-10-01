@@ -4,7 +4,7 @@ class ChoiceTextField: UITextField {
     
     // MARK: - Initialization
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -23,7 +23,7 @@ class ChoiceTextField: UITextField {
     
     // MARK: - Methods
     
-    override func caretRectForPosition(position: UITextPosition!) -> CGRect {
+    override func caretRectForPosition(position: UITextPosition) -> CGRect {
         return CGRectZero // Hide caret
     }
 }

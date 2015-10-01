@@ -4,7 +4,7 @@ import TTTAttributedLabel
 
 class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegate {
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -20,7 +20,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         
         self.view.addSubview(self.scrollView)
         
-        layout(self.scrollView) { scrollView in
+        constrain(self.scrollView) { scrollView in
             scrollView.left   == scrollView.superview!.left
             scrollView.right  == scrollView.superview!.right
             scrollView.top    == scrollView.superview!.top
@@ -34,10 +34,10 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         self.scrollView.addSubview(self.talentsLabel)
         self.scrollView.addSubview(self.imageView)
         
-        let verticalSpacing = 10.0 as Double
-        let labelSideMargin = 30.0 as Double
+        let verticalSpacing = 10.0 as CGFloat
+        let labelSideMargin = 30.0 as CGFloat
         
-        layout(self.headerLabel, self.descriptionLabel, self.keyAttributeLabel) { header, description, attribute in
+        constrain(self.headerLabel, self.descriptionLabel, self.keyAttributeLabel) { header, description, attribute in
             header.width   == header.superview!.width
             header.top     == header.superview!.top
             header.centerX == header.superview!.centerX
@@ -51,7 +51,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             attribute.centerX == attribute.superview!.centerX
         }
         
-        layout(self.keyAttributeLabel, self.specialistSkillLabel, self.talentsLabel) { attribute, skill, talents in
+        constrain(self.keyAttributeLabel, self.specialistSkillLabel, self.talentsLabel) { attribute, skill, talents in
             skill.width   == skill.superview!.width - labelSideMargin
             skill.top     == attribute.bottom + verticalSpacing
             skill.centerX == skill.superview!.centerX
@@ -61,12 +61,14 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             talents.centerX == talents.superview!.centerX
         }
         
-        layout(self.talentsLabel, self.imageView) { talents, image in
+        constrain(self.talentsLabel, self.imageView) { talents, image in
             image.width   == image.superview!.width
             image.height  == image.width * 1.359
             image.top     == talents.bottom + verticalSpacing
             image.centerX == image.superview!.centerX
         }
+        
+        self.view.layoutIfNeeded()
         
         self.scrollView.contentSize = self.scrollView.totalContentSize(addedHeight: 10.0)
     }
@@ -120,7 +122,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let keyAttribute = self.role.keyAttribute().string()
         let text = "Bästa grundegenskap: \(keyAttribute)"
         keyAttributeLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
-        keyAttributeLabel.addLinkToURL(NSURL(string: "info://attribute"), withRange: NSMakeRange(21, count(keyAttribute)))
+        keyAttributeLabel.addLinkToURL(NSURL(string: "info://attribute"), withRange: NSMakeRange(21, keyAttribute.characters.count))
         keyAttributeLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         keyAttributeLabel.delegate = self
         
@@ -137,7 +139,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let specialistSkill = self.role.specialistSkill().string()
         let text = "Specialfärdighet: \(specialistSkill)"
         specialistSkillLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
-        specialistSkillLabel.addLinkToURL(NSURL(string: "info://skill"), withRange: NSMakeRange(18, count(specialistSkill)))
+        specialistSkillLabel.addLinkToURL(NSURL(string: "info://skill"), withRange: NSMakeRange(18, specialistSkill.characters.count))
         specialistSkillLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         specialistSkillLabel.delegate = self
         
@@ -153,13 +155,13 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         
         let talents = self.role.talents()
         let talentNames = [talents.0.string(), talents.1.string(), talents.2.string()]
-        let talentStart = [10, count(talentNames[0]) + 12, count(talentNames[0]) + count(talentNames[1]) + 14]
+        let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
         
         let text = "Talanger: \(talentNames[0]), \(talentNames[1]), \(talentNames[2])"
         talentsLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent1"), withRange: NSMakeRange(talentStart[0], count(talentNames[0])))
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[1], count(talentNames[1])))
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent3"), withRange: NSMakeRange(talentStart[2], count(talentNames[2])))
+        talentsLabel.addLinkToURL(NSURL(string: "info://talent1"), withRange: NSMakeRange(talentStart[0], talentNames[0].characters.count))
+        talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[1], talentNames[1].characters.count))
+        talentsLabel.addLinkToURL(NSURL(string: "info://talent3"), withRange: NSMakeRange(talentStart[2], talentNames[2].characters.count))
         talentsLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         talentsLabel.numberOfLines = 2
         talentsLabel.delegate = self

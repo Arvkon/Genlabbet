@@ -3,7 +3,7 @@ import Cartography
 
 class CharacterCreationStepViewController: UIViewController {
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -23,7 +23,7 @@ class CharacterCreationStepViewController: UIViewController {
         self.view.addSubview(self.contentView)
         self.view.addSubview(self.progressBar)
         
-        layout(self.contentView, self.progressBar) { contentView, progressBar in
+        constrain(self.contentView, self.progressBar) { contentView, progressBar in
             contentView.width   == contentView.superview!.width
             contentView.height  == contentView.superview!.height - 44.0
             contentView.top     == contentView.superview!.top
@@ -34,6 +34,8 @@ class CharacterCreationStepViewController: UIViewController {
             progressBar.bottom  == progressBar.superview!.bottom
             progressBar.centerX == progressBar.superview!.centerX
         }
+        
+        self.view.layoutIfNeeded()
     }
     
     // MARK: - Views

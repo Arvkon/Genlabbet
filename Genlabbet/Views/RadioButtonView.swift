@@ -6,7 +6,7 @@ class RadioButtonView: UIView {
     
     // MARK: - Initialization
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -19,7 +19,7 @@ class RadioButtonView: UIView {
         self.addSubview(self.label)
         
         // TODO: Put in layoutSubviews()?
-        layout(self.imageView, self.label) { image, label in
+        constrain(self.imageView, self.label) { image, label in
             image.width   == self.imageSide
             image.height  == self.imageSide
             image.left    == image.superview!.left
@@ -33,7 +33,7 @@ class RadioButtonView: UIView {
     
     // MARK: - Subviews
     
-    private lazy var imageView = UIImageView(image: UIImage(named: "RadioButtonUnselected"))
+    private let imageView = UIImageView(image: UIImage(named: "RadioButtonUnselected"))
     
     private lazy var label: UILabel = {
         let label = UILabel(frame: CGRectZero)
@@ -47,8 +47,8 @@ class RadioButtonView: UIView {
     
     func intrinsicWidth() -> CGFloat {
         if let labelText = self.label.text {
-            var attributedString = NSMutableAttributedString(string: labelText)
-            attributedString.addAttribute(NSFontAttributeName, value: self.labelFont, range: NSMakeRange(0, count(labelText)))
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(NSFontAttributeName, value: self.labelFont, range: NSMakeRange(0, labelText.characters.count))
             let boundingSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
             let labelWidth = attributedString.boundingRectWithSize(boundingSize, options: .UsesLineFragmentOrigin, context: nil).width
             

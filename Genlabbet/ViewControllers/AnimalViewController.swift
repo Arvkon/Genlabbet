@@ -18,12 +18,12 @@ class AnimalViewController: CharacterCreationStepViewController {
         
         self.populateContentView()
         
-        let optionViewWidth  = Double(100.0)
+        let optionViewWidth  = CGFloat(100.0)
         let optionViewHeight = optionViewWidth + AnimalTypeOptionView.labelHeight
-        let verticalSpacing  = Double(15.0)
-        let horizontalOffset = Double(20.0)
+        let verticalSpacing  = CGFloat(15.0)
+        let horizontalOffset = CGFloat(20.0)
         
-        layout(self.primateOptionView, self.ursidaeOptionView) { primate, ursidae in
+        constrain(self.primateOptionView, self.ursidaeOptionView) { primate, ursidae in
             primate.width  == optionViewWidth
             primate.height == optionViewHeight
             primate.right  == primate.superview!.centerX - horizontalOffset
@@ -35,7 +35,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             ursidae.top    == primate.top
         }
         
-        layout(self.ursidaeOptionView, self.rodentiaOptionView, self.leporidaeOptionView) { ursidae, rodentia, leporidae in
+        constrain(self.ursidaeOptionView, self.rodentiaOptionView, self.leporidaeOptionView) { ursidae, rodentia, leporidae in
             rodentia.width  == optionViewWidth
             rodentia.height == optionViewHeight
             rodentia.right  == rodentia.superview!.centerX - horizontalOffset
@@ -47,7 +47,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             leporidae.top    == rodentia.top
         }
         
-        layout(self.leporidaeOptionView, self.canidaeOptionView, self.felidaeOptionView) { leporidae, canidae, felidae in
+        constrain(self.leporidaeOptionView, self.canidaeOptionView, self.felidaeOptionView) { leporidae, canidae, felidae in
             canidae.width  == optionViewWidth
             canidae.height == optionViewHeight
             canidae.right  == canidae.superview!.centerX - horizontalOffset
@@ -59,7 +59,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             felidae.top    == canidae.top
         }
         
-        layout(self.felidaeOptionView, self.mustelidaeOptionView, self.reptiliaOptionView) { felidae, mustelidae, reptilia in
+        constrain(self.felidaeOptionView, self.mustelidaeOptionView, self.reptiliaOptionView) { felidae, mustelidae, reptilia in
             mustelidae.width  == optionViewWidth
             mustelidae.height == optionViewHeight
             mustelidae.right  == mustelidae.superview!.centerX - horizontalOffset
@@ -70,6 +70,8 @@ class AnimalViewController: CharacterCreationStepViewController {
             reptilia.left   == reptilia.superview!.centerX + horizontalOffset
             reptilia.top    == mustelidae.top
         }
+        
+        self.contentView.layoutIfNeeded()
         
         self.contentView.contentSize = self.contentView.totalContentSize(addedHeight: 20.0)
         

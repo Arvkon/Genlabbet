@@ -5,7 +5,7 @@ class AnimalTypeOptionView: UIView {
     
     // MARK: - NSObject
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -32,11 +32,11 @@ class AnimalTypeOptionView: UIView {
     // MARK: - Methods
     
     func select() {
-        println("TODO: Mark '\(self.label.text!)' as selected")
+        print("TODO: Mark '\(self.label.text!)' as selected")
     }
     
     func deselect() {
-        println("TODO: Deselect '\(self.label.text!)'")
+        print("TODO: Deselect '\(self.label.text!)'")
     }
     
     // MARK: - Subviews
@@ -44,7 +44,7 @@ class AnimalTypeOptionView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layout(self.label, self.imageView) { label, image in
+        constrain(self.label, self.imageView) { label, image in
             label.width   == label.superview!.width
             label.height  == AnimalTypeOptionView.labelHeight
             label.top     == label.superview!.top
@@ -72,5 +72,5 @@ class AnimalTypeOptionView: UIView {
     
     internal let animalType: AnimalType
     
-    static internal let labelHeight = 35.0 as Double
+    static internal let labelHeight = 35.0 as CGFloat
 }

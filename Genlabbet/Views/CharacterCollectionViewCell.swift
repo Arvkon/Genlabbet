@@ -5,7 +5,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     // MARK: - NSObject
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -25,7 +25,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         self.setLabelText("Text has not been set")
         self.contentView.addSubview(self.nameLabel)
         
-        layout(self.nameLabel) { nameLabel in
+        constrain(self.nameLabel) { nameLabel in
             nameLabel.width == nameLabel.superview!.width - 15.0
             nameLabel.left  == nameLabel.superview!.left + 15.0
             nameLabel.centerY == nameLabel.superview!.centerY

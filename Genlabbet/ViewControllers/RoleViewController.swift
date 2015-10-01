@@ -19,11 +19,11 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
         let navigationHeight  = self.navigationController!.navigationBar.frame.height
         let progressBarHeight = self.progressBar.frame.height
         
-        let combinedBarHeight = Double(statusBarHeight + navigationHeight + progressBarHeight)
-        let pageControlHeight = Double(30.0)
-        let pageDisplayHeight = Double(self.view.frame.height) - combinedBarHeight - pageControlHeight
+        let combinedBarHeight = CGFloat(statusBarHeight + navigationHeight + progressBarHeight)
+        let pageControlHeight = CGFloat(30.0)
+        let pageDisplayHeight = CGFloat(self.view.frame.height) - combinedBarHeight - pageControlHeight
         
-        layout(self.pageControl, self.pageViewController.view) { pageControl, pageDisplay in
+        constrain(self.pageControl, self.pageViewController.view) { pageControl, pageDisplay in
             pageControl.width   == pageControl.superview!.width
             pageControl.height  == pageControlHeight
             pageControl.top     == pageControl.superview!.top
@@ -97,8 +97,8 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     
     // MARK: - UIPageViewControllerDelegate
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
-        if let currentViewController = pageViewController.viewControllers[0] as? RolePageContentViewController {
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if let currentViewController = pageViewController.viewControllers?.first as? RolePageContentViewController {
             self.pageControl.currentPage = currentViewController.pageIndex
         }
     }
