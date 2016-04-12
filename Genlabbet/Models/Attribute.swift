@@ -17,6 +17,19 @@ enum Attribute {
         }
     }
     
+    func abbreviation() -> String {
+        switch self {
+        case .Agility:  return "KYL"
+        case .Instinct: return "INS"
+        case .Strength: return "STY"
+        case .Wits:     return "SKP"
+        }
+    }
+    
+    func stringWithAbbreviation() -> String {
+        return string() + " (" + abbreviation() + ")"
+    }
+    
     func description() -> String {
         switch self {
         case .Agility:
