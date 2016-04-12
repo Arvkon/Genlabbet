@@ -22,10 +22,10 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         selectedBackgroundView.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         self.selectedBackgroundView = selectedBackgroundView
         
-        self.setLabelText("Text has not been set")
-        self.contentView.addSubview(self.nameLabel)
+        setLabelText("Text has not been set")
+        contentView.addSubview(nameLabel)
         
-        constrain(self.nameLabel) { nameLabel in
+        constrain(nameLabel) { nameLabel in
             nameLabel.width == nameLabel.superview!.width - 15.0
             nameLabel.left  == nameLabel.superview!.left + 15.0
             nameLabel.centerY == nameLabel.superview!.centerY
@@ -34,7 +34,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.cellPressAction = nil
+        cellPressAction = nil
     }
     
     // MARK: - Subviews
@@ -42,7 +42,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     private let nameLabel = UILabel(frame: CGRectZero)
     
     func setLabelText(text: String) {
-        self.nameLabel.text = text
+        nameLabel.text = text
     }
     
     // MARK: - User Interaction
@@ -50,8 +50,6 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     var cellPressAction: (() -> Void)?
     
     func performCellPressAction() {
-        if let cellPressAction = self.cellPressAction {
-            cellPressAction()
-        }
+        cellPressAction?()
     }
 }

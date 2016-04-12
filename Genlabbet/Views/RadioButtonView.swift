@@ -13,20 +13,20 @@ class RadioButtonView: UIView {
     init(text labelText: String) {
         super.init(frame: CGRectZero)
         
-        self.label.text = labelText
+        label.text = labelText
         
-        self.addSubview(self.imageView)
-        self.addSubview(self.label)
+        addSubview(imageView)
+        addSubview(label)
         
         // TODO: Put in layoutSubviews()?
-        constrain(self.imageView, self.label) { image, label in
-            image.width   == self.imageSide
-            image.height  == self.imageSide
+        constrain(imageView, label) { image, label in
+            image.width   == imageSide
+            image.height  == imageSide
             image.left    == image.superview!.left
             image.centerY == image.superview!.centerY
             
             label.height  == label.superview!.height
-            label.left    == image.right + self.spacing
+            label.left    == image.right + spacing
             label.centerY == label.superview!.centerY
         }
     }
@@ -46,13 +46,13 @@ class RadioButtonView: UIView {
     // MARK: - Methods
     
     func intrinsicWidth() -> CGFloat {
-        if let labelText = self.label.text {
+        if let labelText = label.text {
             let attributedString = NSMutableAttributedString(string: labelText)
-            attributedString.addAttribute(NSFontAttributeName, value: self.labelFont, range: NSMakeRange(0, labelText.characters.count))
+            attributedString.addAttribute(NSFontAttributeName, value: labelFont, range: NSMakeRange(0, labelText.characters.count))
             let boundingSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
             let labelWidth = attributedString.boundingRectWithSize(boundingSize, options: .UsesLineFragmentOrigin, context: nil).width
             
-            return min(labelWidth + self.spacing + self.imageSide, UIScreen.mainScreen().bounds.size.width)
+            return min(labelWidth + spacing + imageSide, UIScreen.mainScreen().bounds.size.width)
         } else {
             return -1.0
         }
@@ -67,11 +67,11 @@ class RadioButtonView: UIView {
     var selected = false {
         didSet {
             if selected == true {
-                self.imageView.image = UIImage(named: "RadioButtonSelected")
-                self.label.textColor = UIColor("3f4854")
+                imageView.image = UIImage(named: "RadioButtonSelected")
+                label.textColor = UIColor("3f4854")
             } else {
-                self.imageView.image = UIImage(named: "RadioButtonUnselected")
-                self.label.textColor = UIColor("91969d")
+                imageView.image = UIImage(named: "RadioButtonUnselected")
+                label.textColor = UIColor("91969d")
             }
         }
     }

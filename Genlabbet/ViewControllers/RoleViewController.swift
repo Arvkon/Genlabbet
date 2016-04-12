@@ -6,24 +6,24 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Syssla"
+        title = "Syssla"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
         
         // Layout
         
-        self.contentView.addSubview(self.pageControl)
-        self.contentView.addSubview(self.pageViewController.view)
+        contentView.addSubview(pageControl)
+        contentView.addSubview(pageViewController.view)
         
         let statusBarHeight   = UIApplication.sharedApplication().statusBarFrame.height
-        let navigationHeight  = self.navigationController!.navigationBar.frame.height
-        let progressBarHeight = self.progressBar.frame.height
+        let navigationHeight  = navigationController!.navigationBar.frame.height
+        let progressBarHeight = progressBar.frame.height
         
         let combinedBarHeight = CGFloat(statusBarHeight + navigationHeight + progressBarHeight)
         let pageControlHeight = CGFloat(30.0)
-        let pageDisplayHeight = CGFloat(self.view.frame.height) - combinedBarHeight - pageControlHeight
+        let pageDisplayHeight = CGFloat(view.frame.height) - combinedBarHeight - pageControlHeight
         
-        constrain(self.pageControl, self.pageViewController.view) { pageControl, pageDisplay in
+        constrain(pageControl, pageViewController.view) { pageControl, pageDisplay in
             pageControl.width   == pageControl.superview!.width
             pageControl.height  == pageControlHeight
             pageControl.top     == pageControl.superview!.top
@@ -35,7 +35,7 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
             pageDisplay.centerX == pageDisplay.superview!.centerX
         }
         
-        self.contentView.scrollEnabled = false
+        contentView.scrollEnabled = false
     }
     
     // MARK: - Views
@@ -70,9 +70,9 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        self.character.syssla = self.viewControllerAtIndex(self.pageControl.currentPage)!.role
-        let viewController = AppearanceViewController(character: self.character)
-        self.navigationController!.pushViewController(viewController, animated: true)
+        character.syssla = viewControllerAtIndex(pageControl.currentPage)!.role
+        let viewController = AppearanceViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     private func viewControllerAtIndex(index: Int) -> RolePageContentViewController? {
@@ -99,7 +99,7 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let currentViewController = pageViewController.viewControllers?.first as? RolePageContentViewController {
-            self.pageControl.currentPage = currentViewController.pageIndex
+            pageControl.currentPage = currentViewController.pageIndex
         }
     }
 }

@@ -6,14 +6,14 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Kön, namn och ålder"
+        title = "Kön, namn och ålder"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        self.navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem!.enabled = false
         
         // Layout
         
-        self.populateContentView()
+        populateContentView()
         
         // TODO: Layout code below needs improvement
         
@@ -21,10 +21,10 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         let labelTopSpacing = 15.0 as CGFloat
         let fieldTopSpacing = 10.0 as CGFloat
         
-        let maleWidth   = self.XYRadioButton.intrinsicWidth()
-        let femaleWidth = self.XXRadioButton.intrinsicWidth()
+        let maleWidth   = XYRadioButton.intrinsicWidth()
+        let femaleWidth = XXRadioButton.intrinsicWidth()
         
-        constrain(self.genderHeading, self.XYRadioButton, self.XXRadioButton) { gender, male, female in
+        constrain(genderHeading, XYRadioButton, XXRadioButton) { gender, male, female in
             gender.width   == gender.superview!.width - totalSideMargin
             gender.top     == gender.superview!.top + 10.0
             gender.centerX == gender.superview!.centerX
@@ -38,13 +38,13 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
             female.centerY == gender.centerY
         }
         
-        constrain(self.genderHeading, self.genderInfoLabel) { gender, genderInfo in
+        constrain(genderHeading, genderInfoLabel) { gender, genderInfo in
             genderInfo.width   == genderInfo.superview!.width - totalSideMargin
             genderInfo.top     == gender.bottom + labelTopSpacing
             genderInfo.centerX == genderInfo.superview!.centerX
         }
         
-        constrain(self.genderInfoLabel, self.labNameHeading, self.labNameInfoLabel) { genderInfo, labName, labInfo in
+        constrain(genderInfoLabel, labNameHeading, labNameInfoLabel) { genderInfo, labName, labInfo in
             labName.width   == labName.superview!.width - totalSideMargin
             labName.top     == genderInfo.bottom + labelTopSpacing
             labName.centerX == labName.superview!.centerX
@@ -54,13 +54,13 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
             labInfo.centerX == labInfo.superview!.centerX
         }
         
-        constrain(self.labNameInfoLabel, self.labNameTextField) { labInfo, nameField in
+        constrain(labNameInfoLabel, labNameTextField) { labInfo, nameField in
             nameField.width   == nameField.superview!.width - totalSideMargin
             nameField.top     == labInfo.bottom + fieldTopSpacing
             nameField.centerX == nameField.superview!.centerX
         }
         
-        constrain(self.labNameTextField, self.rebelNameHeading, self.rebelNameInfoLabel) { nameField, rebelName, rebelInfo in
+        constrain(labNameTextField, rebelNameHeading, rebelNameInfoLabel) { nameField, rebelName, rebelInfo in
             rebelName.width   == rebelName.superview!.width - totalSideMargin
             rebelName.top     == nameField.bottom + labelTopSpacing
             rebelName.centerX == rebelName.superview!.centerX
@@ -70,7 +70,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
             rebelInfo.centerX == rebelInfo.superview!.centerX
         }
         
-        constrain(self.rebelNameInfoLabel, self.rebelNameTextField) { rebelInfo, nameField in
+        constrain(rebelNameInfoLabel, rebelNameTextField) { rebelInfo, nameField in
             nameField.width   == nameField.superview!.width - totalSideMargin
             nameField.top     == rebelInfo.bottom + fieldTopSpacing
             nameField.centerX == nameField.superview!.centerX
@@ -78,11 +78,11 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         
         // TODO: Radio buttons in container view?
         
-        let youngWidth = self.youngRadioButton.intrinsicWidth()
-        let adultWidth = self.adultRadioButton.intrinsicWidth()
-        let elderWidth = self.elderRadioButton.intrinsicWidth()
+        let youngWidth = youngRadioButton.intrinsicWidth()
+        let adultWidth = adultRadioButton.intrinsicWidth()
+        let elderWidth = elderRadioButton.intrinsicWidth()
         
-        constrain(self.rebelNameTextField, self.ageGroupHeading, self.youngRadioButton) { nameField, ageLabel, youngButton in
+        constrain(rebelNameTextField, ageGroupHeading, youngRadioButton) { nameField, ageLabel, youngButton in
             ageLabel.width   == ageLabel.superview!.width - totalSideMargin
             ageLabel.top     == nameField.bottom + labelTopSpacing
             ageLabel.centerX == ageLabel.superview!.centerX
@@ -92,7 +92,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
             youngButton.centerY == ageLabel.centerY
         }
         
-        constrain(self.youngRadioButton, self.adultRadioButton, self.elderRadioButton) { young, adult, elder in
+        constrain(youngRadioButton, adultRadioButton, elderRadioButton) { young, adult, elder in
             adult.width   == adultWidth
             adult.left    == young.right + 15.0
             adult.centerY == young.centerY
@@ -102,10 +102,10 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
             elder.centerY == young.centerY
         }
         
-        self.addGestureRecognizersToRadioButtons()
+        addGestureRecognizersToRadioButtons()
         
         // Hide keyboard if user taps outside text fields
-        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: .endEditing))
+        contentView.addGestureRecognizer(UITapGestureRecognizer(target: view, action: .endEditing))
     }
     
     // MARK: - Labels
@@ -197,64 +197,64 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     func genderButtonTapped(sender: UITapGestureRecognizer?) {
         if let tappedRadioButton = sender?.view as? RadioButtonView {
-            self.XYRadioButton.selected = false
-            self.XXRadioButton.selected = false
+            XYRadioButton.selected = false
+            XXRadioButton.selected = false
             
             tappedRadioButton.selected = true
             
-            self.navigationItem.rightBarButtonItem!.enabled = self.allMandatoryInformationProvided()
+            navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
         }
     }
     
     func ageButtonTapped(sender: UITapGestureRecognizer?) {
         if let tappedRadioButton = sender?.view as? RadioButtonView {
-            self.youngRadioButton.selected = false
-            self.adultRadioButton.selected = false
-            self.elderRadioButton.selected = false
+            youngRadioButton.selected = false
+            adultRadioButton.selected = false
+            elderRadioButton.selected = false
             
             tappedRadioButton.selected = true
             
-            self.navigationItem.rightBarButtonItem!.enabled = self.allMandatoryInformationProvided()
+            navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
         }
     }
     
     private func allMandatoryInformationProvided() -> Bool {
-        guard self.labNameTextField.text != nil else { return false }
+        guard labNameTextField.text != nil else { return false }
         
-        let genderChosen  = self.XYRadioButton.selected == true || self.XXRadioButton.selected == true
-        let labNameChosen = self.labNameTextField.text!.characters.count > 0
-        let ageChosen     = self.youngRadioButton.selected == true || self.adultRadioButton.selected == true || self.elderRadioButton.selected == true
+        let genderChosen  = XYRadioButton.selected == true || XXRadioButton.selected == true
+        let labNameChosen = labNameTextField.text!.characters.count > 0
+        let ageChosen     = youngRadioButton.selected == true || adultRadioButton.selected == true || elderRadioButton.selected == true
         
         return genderChosen && labNameChosen && ageChosen
     }
     
     private func populateContentView() {
-        self.contentView.addSubview(self.genderHeading)
-        self.contentView.addSubview(self.XYRadioButton)
-        self.contentView.addSubview(self.XXRadioButton)
-        self.contentView.addSubview(self.genderInfoLabel)
+        contentView.addSubview(genderHeading)
+        contentView.addSubview(XYRadioButton)
+        contentView.addSubview(XXRadioButton)
+        contentView.addSubview(genderInfoLabel)
         
-        self.contentView.addSubview(self.labNameHeading)
-        self.contentView.addSubview(self.labNameInfoLabel)
-        self.contentView.addSubview(self.labNameTextField)
+        contentView.addSubview(labNameHeading)
+        contentView.addSubview(labNameInfoLabel)
+        contentView.addSubview(labNameTextField)
         
-        self.contentView.addSubview(self.rebelNameHeading)
-        self.contentView.addSubview(self.rebelNameInfoLabel)
-        self.contentView.addSubview(self.rebelNameTextField)
+        contentView.addSubview(rebelNameHeading)
+        contentView.addSubview(rebelNameInfoLabel)
+        contentView.addSubview(rebelNameTextField)
         
-        self.contentView.addSubview(self.ageGroupHeading)
-        self.contentView.addSubview(self.youngRadioButton)
-        self.contentView.addSubview(self.adultRadioButton)
-        self.contentView.addSubview(self.elderRadioButton)
+        contentView.addSubview(ageGroupHeading)
+        contentView.addSubview(youngRadioButton)
+        contentView.addSubview(adultRadioButton)
+        contentView.addSubview(elderRadioButton)
     }
     
     private func addGestureRecognizersToRadioButtons() {
-        self.XYRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
-        self.XXRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
+        XYRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
+        XXRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
         
-        self.youngRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
-        self.adultRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
-        self.elderRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
+        youngRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
+        adultRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
+        elderRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
     }
     
     // MARK: - Properties
@@ -266,23 +266,23 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField === self.labNameTextField && self.labNameTextField.text!.isEmpty {
-            self.labNameTextField.text = self.labNames.first
+        if textField === labNameTextField && labNameTextField.text!.isEmpty {
+            labNameTextField.text = labNames.first
         }
-        self.navigationItem.rightBarButtonItem!.enabled = self.allMandatoryInformationProvided()
+        navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
     }
     
     // MARK: - UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView === self.labNamePickerView ? self.labNames[row] : self.rebelNames[row]
+        return pickerView === labNamePickerView ? labNames[row] : rebelNames[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView === self.labNamePickerView {
-            self.labNameTextField.text = self.labNames[row]
+        if pickerView === labNamePickerView {
+            labNameTextField.text = labNames[row]
         } else {
-            self.rebelNameTextField.text = self.rebelNames[row]
+            rebelNameTextField.text = rebelNames[row]
         }
     }
     
@@ -293,7 +293,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerView === self.labNamePickerView ? self.labNames.count : self.rebelNames.count
+        return pickerView === labNamePickerView ? labNames.count : rebelNames.count
     }
 }
 

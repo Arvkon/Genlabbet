@@ -15,28 +15,28 @@ class AnimalTypeOptionView: UIView {
         self.animalType = animalType
         super.init(frame: CGRectZero)
         
-        self.addSubview(self.label)
-        self.addSubview(self.imageView)
+        addSubview(label)
+        addSubview(imageView)
         
-        self.label.text = animalType.string()
+        label.text = animalType.string()
         
         if animalType == .Björn {
-            self.imageView.image = UIImage(named: "Bjorn")
+            imageView.image = UIImage(named: "Bjorn")
         } else if animalType == .Mårddjur {
-            self.imageView.image = UIImage(named: "Marddjur")
+            imageView.image = UIImage(named: "Marddjur")
         } else {
-            self.imageView.image = UIImage(named: animalType.string())
+            imageView.image = UIImage(named: animalType.string())
         }
     }
     
     // MARK: - Methods
     
     func select() {
-        print("TODO: Mark '\(self.label.text!)' as selected")
+        print("TODO: Mark '\(label.text!)' as selected")
     }
     
     func deselect() {
-        print("TODO: Deselect '\(self.label.text!)'")
+        print("TODO: Deselect '\(label.text!)'")
     }
     
     // MARK: - Subviews
@@ -44,7 +44,7 @@ class AnimalTypeOptionView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        constrain(self.label, self.imageView) { label, image in
+        constrain(label, imageView) { label, image in
             label.width   == label.superview!.width
             label.height  == AnimalTypeOptionView.labelHeight
             label.top     == label.superview!.top

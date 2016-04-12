@@ -11,14 +11,14 @@ class ChoiceTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.borderStyle = .RoundedRect
-        self.backgroundColor = UIColor("f9f9f9")
-        self.font = UIFont(name: "Colfax-Regular", size: 16.0)
-        self.placeholder = "Tryck för att välja"
-        self.contentVerticalAlignment = .Center
-        self.textColor = UIColor.blackColor()
-        self.tintColor = UIColor.blackColor()
-        self.autocorrectionType = .No
+        borderStyle = .RoundedRect
+        backgroundColor = UIColor("f9f9f9")
+        font = UIFont(name: "Colfax-Regular", size: 16.0)
+        placeholder = "Tryck för att välja"
+        contentVerticalAlignment = .Center
+        textColor = UIColor.blackColor()
+        tintColor = UIColor.blackColor()
+        autocorrectionType = .No
     }
     
     // MARK: - Methods

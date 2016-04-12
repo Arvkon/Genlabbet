@@ -5,9 +5,9 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Rollpersoner"
+        title = "Rollpersoner"
         
-        self.view.addSubview(self.characterCollectionView)
+        view.addSubview(characterCollectionView)
     }
     
     // MARK: - Views
@@ -37,7 +37,7 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
         let animalViewController = AnimalViewController(character: Character())
         //let animalViewController = RoleViewController(character: Character())
         let navigationController = UINavigationController(rootViewController: animalViewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
+        presentViewController(navigationController, animated: true, completion: nil)
     }
     
     // MARK: - UICollectionViewDataSource
@@ -51,7 +51,7 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CharacterCollectionViewCell", forIndexPath: indexPath) as! CharacterCollectionViewCell
         
-        if indexPath.row == self.numberOfItemsInList - 1 {
+        if indexPath.row == numberOfItemsInList - 1 {
             cell.setLabelText("Skapa ny rollperson")
             cell.cellPressAction = { () -> Void in
                 self.beginCharacterCreation()

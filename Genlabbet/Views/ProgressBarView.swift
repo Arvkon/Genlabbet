@@ -14,10 +14,10 @@ class ProgressBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         
-        self.addSubview(self.dividerLine)
-        self.addSubview(self.dummyLabel)
+        addSubview(dividerLine)
+        addSubview(dummyLabel)
     }
     
     // MARK: - Subviews
@@ -25,7 +25,7 @@ class ProgressBarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        constrain(self.dividerLine, self.dummyLabel) { divider, label in
+        constrain(dividerLine, dummyLabel) { divider, label in
             divider.width   == divider.superview!.width
             divider.height  == 0.5
             divider.top     == divider.superview!.top

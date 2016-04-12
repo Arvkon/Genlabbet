@@ -18,26 +18,23 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(self.scrollView)
+        view.addSubview(scrollView)
         
-        constrain(self.scrollView) { scrollView in
-            scrollView.left   == scrollView.superview!.left
-            scrollView.right  == scrollView.superview!.right
-            scrollView.top    == scrollView.superview!.top
-            scrollView.bottom == scrollView.superview!.bottom
+        constrain(scrollView) { scrollView in
+            scrollView.edges == scrollView.superview!.edges
         }
         
-        self.scrollView.addSubview(self.headerLabel)
-        self.scrollView.addSubview(self.descriptionLabel)
-        self.scrollView.addSubview(self.keyAttributeLabel)
-        self.scrollView.addSubview(self.specialistSkillLabel)
-        self.scrollView.addSubview(self.talentsLabel)
-        self.scrollView.addSubview(self.imageView)
+        scrollView.addSubview(headerLabel)
+        scrollView.addSubview(descriptionLabel)
+        scrollView.addSubview(keyAttributeLabel)
+        scrollView.addSubview(specialistSkillLabel)
+        scrollView.addSubview(talentsLabel)
+        scrollView.addSubview(imageView)
         
         let verticalSpacing = 10.0 as CGFloat
         let labelSideMargin = 30.0 as CGFloat
         
-        constrain(self.headerLabel, self.descriptionLabel, self.keyAttributeLabel) { header, description, attribute in
+        constrain(headerLabel, descriptionLabel, keyAttributeLabel) { header, description, attribute in
             header.width   == header.superview!.width
             header.top     == header.superview!.top
             header.centerX == header.superview!.centerX
@@ -51,7 +48,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             attribute.centerX == attribute.superview!.centerX
         }
         
-        constrain(self.keyAttributeLabel, self.specialistSkillLabel, self.talentsLabel) { attribute, skill, talents in
+        constrain(keyAttributeLabel, specialistSkillLabel, talentsLabel) { attribute, skill, talents in
             skill.width   == skill.superview!.width - labelSideMargin
             skill.top     == attribute.bottom + verticalSpacing
             skill.centerX == skill.superview!.centerX
@@ -61,16 +58,16 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             talents.centerX == talents.superview!.centerX
         }
         
-        constrain(self.talentsLabel, self.imageView) { talents, image in
+        constrain(talentsLabel, imageView) { talents, image in
             image.width   == image.superview!.width
             image.height  == image.width * 1.359
             image.top     == talents.bottom + verticalSpacing
             image.centerX == image.superview!.centerX
         }
         
-        self.view.layoutIfNeeded()
+        view.layoutIfNeeded()
         
-        self.scrollView.contentSize = self.scrollView.totalContentSize(addedHeight: 10.0)
+        scrollView.contentSize = scrollView.totalContentSize(addedHeight: 10.0)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -83,7 +80,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        self.descriptionLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
+        descriptionLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
     }
     
     // MARK: - Views
@@ -197,23 +194,23 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             var message = "Ingen text"
             
             if url.host == "attribute" {
-                let attribute = self.role.keyAttribute()
+                let attribute = role.keyAttribute()
                 title = attribute.string()
                 message = attribute.description()
             } else if url.host == "skill" {
-                let skill = self.role.specialistSkill()
+                let skill = role.specialistSkill()
                 title = skill.string()
                 message = skill.description()
             } else if url.host == "talent1" {
-                let talent = self.role.talents().0
+                let talent = role.talents().0
                 title = talent.string()
                 message = talent.description()
             } else if url.host == "talent2" {
-                let talent = self.role.talents().1
+                let talent = role.talents().1
                 title = talent.string()
                 message = talent.description()
             } else if url.host == "talent3" {
-                let talent = self.role.talents().2
+                let talent = role.talents().2
                 title = talent.string()
                 message = talent.description()
             }

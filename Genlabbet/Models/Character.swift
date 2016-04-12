@@ -4,7 +4,7 @@ class Character {
     var labbnamn: String?
     var upprorsnamn: String?
     var djurtyp: AnimalType? {
-        return self.art?.animalType() ?? .Apa // nil
+        return art?.animalType() ?? .Apa // nil
     }
     var art: Species?
     var ålder: Age?

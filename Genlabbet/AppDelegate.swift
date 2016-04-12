@@ -7,21 +7,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Initiate Window
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        self.setupAppAppearance()
+        setupAppAppearance()
         
         // Setup Root View Controller
         let characterListViewController = CharacterListViewController()
         let navigationController = UINavigationController(rootViewController: characterListViewController)
-        self.window!.rootViewController = navigationController
-        self.window!.makeKeyAndVisible()
+        window!.rootViewController = navigationController
+        window!.makeKeyAndVisible()
         
         return true
     }
     
     private func setupAppAppearance() {
-        self.window!.backgroundColor = UIColor.whiteColor()
+        window!.backgroundColor = UIColor.whiteColor()
         
         // Navigation bar title
         if let titleFont = UIFont(name: "Colfax-Regular", size: 17.0) {

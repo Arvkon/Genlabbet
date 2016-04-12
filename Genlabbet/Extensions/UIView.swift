@@ -4,7 +4,7 @@ extension UIView {
     
     func totalContentSize(addedHeight addedHeight: CGFloat = 0.0) -> CGSize {
         var contentRect = CGRectZero
-        for view in self.subviews {
+        for view in subviews {
             contentRect = CGRectUnion(contentRect, view.frame)
         }
         

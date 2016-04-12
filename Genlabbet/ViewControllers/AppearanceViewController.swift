@@ -7,31 +7,31 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Utseende"
+        title = "Utseende"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        self.navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem!.enabled = false
         
-        self.skipCreationStepLabel.linkAction = { () -> Void in
+        skipCreationStepLabel.linkAction = { () -> Void in
             let viewController = GenderNameAgeViewController(character: self.character)
             self.navigationController!.pushViewController(viewController, animated: true)
         }
         
         // Layout
         
-        self.contentView.addSubview(self.skipCreationStepLabel)
-        self.contentView.addSubview(self.faceLabel)
-        self.contentView.addSubview(self.bodyLabel)
-        self.contentView.addSubview(self.wearLabel)
-        self.contentView.addSubview(self.faceTextField)
-        self.contentView.addSubview(self.bodyTextField)
-        self.contentView.addSubview(self.wearTextField)
+        contentView.addSubview(skipCreationStepLabel)
+        contentView.addSubview(faceLabel)
+        contentView.addSubview(bodyLabel)
+        contentView.addSubview(wearLabel)
+        contentView.addSubview(faceTextField)
+        contentView.addSubview(bodyTextField)
+        contentView.addSubview(wearTextField)
         
         let totalSideMargin = 30.0 as CGFloat
         let labelTopSpacing = 15.0 as CGFloat
         let fieldTopSpacing = 10.0 as CGFloat
         
-        constrain(self.skipCreationStepLabel, self.faceLabel, self.faceTextField) { skipLabel, faceLabel, faceField in
+        constrain(skipCreationStepLabel, faceLabel, faceTextField) { skipLabel, faceLabel, faceField in
             skipLabel.width   == skipLabel.superview!.width - totalSideMargin
             skipLabel.height  == 35.0
             skipLabel.top     == skipLabel.superview!.top + 10.0
@@ -46,7 +46,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
             faceField.centerX == faceField.superview!.centerX
         }
         
-        constrain(self.faceTextField, self.bodyLabel, self.bodyTextField) { faceField, bodyLabel, bodyField in
+        constrain(faceTextField, bodyLabel, bodyTextField) { faceField, bodyLabel, bodyField in
             bodyLabel.width   == bodyLabel.superview!.width - totalSideMargin
             bodyLabel.top     == faceField.bottom + labelTopSpacing
             bodyLabel.centerX == bodyLabel.superview!.centerX
@@ -56,7 +56,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
             bodyField.centerX == bodyField.superview!.centerX
         }
         
-        constrain(self.bodyTextField, self.wearLabel, self.wearTextField) { bodyField, wearLabel, wearField in
+        constrain(bodyTextField, wearLabel, wearTextField) { bodyField, wearLabel, wearField in
             wearLabel.width   == wearLabel.superview!.width - totalSideMargin
             wearLabel.top     == bodyField.bottom + labelTopSpacing
             wearLabel.centerX == wearLabel.superview!.centerX
@@ -135,18 +135,18 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        self.character.ansikte = self.faceTextField.text
-        self.character.kropp   = self.bodyTextField.text
-        self.character.kläder  = self.wearTextField.text
+        character.ansikte = faceTextField.text
+        character.kropp   = bodyTextField.text
+        character.kläder  = wearTextField.text
         
-        let viewController = GenderNameAgeViewController(character: self.character)
-        self.navigationController!.pushViewController(viewController, animated: true)
+        let viewController = GenderNameAgeViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     private func allTextFieldsContainText() -> Bool {
-        guard let faceText = self.faceTextField.text else { return false }
-        guard let bodyText = self.bodyTextField.text else { return false }
-        guard let wearText = self.wearTextField.text else { return false }
+        guard let faceText = faceTextField.text else { return false }
+        guard let bodyText = bodyTextField.text else { return false }
+        guard let wearText = wearTextField.text else { return false }
         
         let faceChosen = faceText.characters.count > 0
         let bodyChosen = bodyText.characters.count > 0
@@ -164,36 +164,36 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField === self.faceTextField && self.faceTextField.text!.isEmpty {
-            self.faceTextField.text = self.faceOptions.first
-        } else if textField === self.bodyTextField && self.bodyTextField.text!.isEmpty {
-            self.bodyTextField.text = self.bodyOptions.first
-        } else if textField === self.wearTextField && self.wearTextField.text!.isEmpty {
-            self.wearTextField.text = self.wearOptions.first
+        if textField === faceTextField && faceTextField.text!.isEmpty {
+            faceTextField.text = faceOptions.first
+        } else if textField === bodyTextField && bodyTextField.text!.isEmpty {
+            bodyTextField.text = bodyOptions.first
+        } else if textField === wearTextField && wearTextField.text!.isEmpty {
+            wearTextField.text = wearOptions.first
         }
         
-        self.navigationItem.rightBarButtonItem!.enabled = self.allTextFieldsContainText()
+        navigationItem.rightBarButtonItem!.enabled = allTextFieldsContainText()
     }
     
     // MARK: - UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView === self.facePickerView {
-            return self.faceOptions[row]
-        } else if pickerView === self.bodyPickerView {
-            return self.bodyOptions[row]
+        if pickerView === facePickerView {
+            return faceOptions[row]
+        } else if pickerView === bodyPickerView {
+            return bodyOptions[row]
         } else {
-            return self.wearOptions[row]
+            return wearOptions[row]
         }
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView === self.facePickerView {
-            self.faceTextField.text = self.faceOptions[row]
-        } else if pickerView === self.bodyPickerView {
-            self.bodyTextField.text = self.bodyOptions[row]
-        } else if pickerView === self.wearPickerView {
-            self.wearTextField.text = self.wearOptions[row]
+        if pickerView === facePickerView {
+            faceTextField.text = faceOptions[row]
+        } else if pickerView === bodyPickerView {
+            bodyTextField.text = bodyOptions[row]
+        } else if pickerView === wearPickerView {
+            wearTextField.text = wearOptions[row]
         }
     }
     
@@ -204,12 +204,12 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView === self.facePickerView {
-            return self.faceOptions.count
-        } else if pickerView === self.bodyPickerView {
-            return self.bodyOptions.count
+        if pickerView === facePickerView {
+            return faceOptions.count
+        } else if pickerView === bodyPickerView {
+            return bodyOptions.count
         } else {
-            return self.wearOptions.count
+            return wearOptions.count
         }
     }
 }

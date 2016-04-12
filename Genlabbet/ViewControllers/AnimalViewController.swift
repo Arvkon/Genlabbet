@@ -7,23 +7,23 @@ class AnimalViewController: CharacterCreationStepViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Djurtyp och art"
+        title = "Djurtyp och art"
         
         let closeButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 18.0, height: 18.0))
         closeButton.setImage(UIImage(named: "NavbarCloseButton"), forState: .Normal)
         closeButton.addTarget(self, action: .closeButtonTapped, forControlEvents: .TouchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeButton)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeButton)
         
         // Layout
         
-        self.populateContentView()
+        populateContentView()
         
         let optionViewWidth  = CGFloat(100.0)
         let optionViewHeight = optionViewWidth + AnimalTypeOptionView.labelHeight
         let verticalSpacing  = CGFloat(15.0)
         let horizontalOffset = CGFloat(20.0)
         
-        constrain(self.primateOptionView, self.ursidaeOptionView) { primate, ursidae in
+        constrain(primateOptionView, ursidaeOptionView) { primate, ursidae in
             primate.width  == optionViewWidth
             primate.height == optionViewHeight
             primate.right  == primate.superview!.centerX - horizontalOffset
@@ -35,7 +35,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             ursidae.top    == primate.top
         }
         
-        constrain(self.ursidaeOptionView, self.rodentiaOptionView, self.leporidaeOptionView) { ursidae, rodentia, leporidae in
+        constrain(ursidaeOptionView, rodentiaOptionView, leporidaeOptionView) { ursidae, rodentia, leporidae in
             rodentia.width  == optionViewWidth
             rodentia.height == optionViewHeight
             rodentia.right  == rodentia.superview!.centerX - horizontalOffset
@@ -47,7 +47,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             leporidae.top    == rodentia.top
         }
         
-        constrain(self.leporidaeOptionView, self.canidaeOptionView, self.felidaeOptionView) { leporidae, canidae, felidae in
+        constrain(leporidaeOptionView, canidaeOptionView, felidaeOptionView) { leporidae, canidae, felidae in
             canidae.width  == optionViewWidth
             canidae.height == optionViewHeight
             canidae.right  == canidae.superview!.centerX - horizontalOffset
@@ -59,7 +59,7 @@ class AnimalViewController: CharacterCreationStepViewController {
             felidae.top    == canidae.top
         }
         
-        constrain(self.felidaeOptionView, self.mustelidaeOptionView, self.reptiliaOptionView) { felidae, mustelidae, reptilia in
+        constrain(felidaeOptionView, mustelidaeOptionView, reptiliaOptionView) { felidae, mustelidae, reptilia in
             mustelidae.width  == optionViewWidth
             mustelidae.height == optionViewHeight
             mustelidae.right  == mustelidae.superview!.centerX - horizontalOffset
@@ -71,11 +71,11 @@ class AnimalViewController: CharacterCreationStepViewController {
             reptilia.top    == mustelidae.top
         }
         
-        self.contentView.layoutIfNeeded()
+        contentView.layoutIfNeeded()
         
-        self.contentView.contentSize = self.contentView.totalContentSize(addedHeight: 20.0)
+        contentView.contentSize = contentView.totalContentSize(addedHeight: 20.0)
         
-        self.addGestureRecognizersToOptionViews()
+        addGestureRecognizersToOptionViews()
     }
     
     // MARK: - Views
@@ -92,7 +92,7 @@ class AnimalViewController: CharacterCreationStepViewController {
     // MARK: - Methods
     
     func closeButtonTapped(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func optionViewTapped(sender: UITapGestureRecognizer) {
@@ -159,25 +159,25 @@ class AnimalViewController: CharacterCreationStepViewController {
     }
     
     private func populateContentView() {
-        self.contentView.addSubview(self.primateOptionView)
-        self.contentView.addSubview(self.ursidaeOptionView)
-        self.contentView.addSubview(self.rodentiaOptionView)
-        self.contentView.addSubview(self.leporidaeOptionView)
-        self.contentView.addSubview(self.canidaeOptionView)
-        self.contentView.addSubview(self.felidaeOptionView)
-        self.contentView.addSubview(self.mustelidaeOptionView)
-        self.contentView.addSubview(self.reptiliaOptionView)
+        contentView.addSubview(primateOptionView)
+        contentView.addSubview(ursidaeOptionView)
+        contentView.addSubview(rodentiaOptionView)
+        contentView.addSubview(leporidaeOptionView)
+        contentView.addSubview(canidaeOptionView)
+        contentView.addSubview(felidaeOptionView)
+        contentView.addSubview(mustelidaeOptionView)
+        contentView.addSubview(reptiliaOptionView)
     }
     
     private func addGestureRecognizersToOptionViews() {
-        self.primateOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
-        self.ursidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
-        self.rodentiaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))
-        self.leporidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:  self, action: .optionViewTapped))
-        self.canidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
-        self.felidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
-        self.mustelidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .optionViewTapped))
-        self.reptiliaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))
+        primateOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        ursidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        rodentiaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))
+        leporidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:  self, action: .optionViewTapped))
+        canidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        felidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        mustelidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .optionViewTapped))
+        reptiliaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))
     }
 }
 

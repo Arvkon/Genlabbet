@@ -15,15 +15,15 @@ class CharacterCreationStepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.whiteColor()
         
         // Hide back button label
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-        self.view.addSubview(self.contentView)
-        self.view.addSubview(self.progressBar)
+        view.addSubview(contentView)
+        view.addSubview(progressBar)
         
-        constrain(self.contentView, self.progressBar) { contentView, progressBar in
+        constrain(contentView, progressBar) { contentView, progressBar in
             contentView.width   == contentView.superview!.width
             contentView.height  == contentView.superview!.height - 44.0
             contentView.top     == contentView.superview!.top
@@ -35,7 +35,7 @@ class CharacterCreationStepViewController: UIViewController {
             progressBar.centerX == progressBar.superview!.centerX
         }
         
-        self.view.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     // MARK: - Views

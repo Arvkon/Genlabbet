@@ -17,7 +17,7 @@ class RoleDescriptionLabel: UILabel {
     }
     
     func setLineSpacing(lineSpacing: CGFloat) {
-        if let labelText = self.text {
+        if let labelText = text {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = lineSpacing
             
@@ -25,7 +25,7 @@ class RoleDescriptionLabel: UILabel {
             let wholeRange = NSMakeRange(0, attrString.length)
             attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:wholeRange)
             
-            self.attributedText = attrString
+            attributedText = attrString
         }
     }
 }
