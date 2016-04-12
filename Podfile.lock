@@ -1,7 +1,7 @@
 PODS:
   - Cartography (0.6.0)
-  - PSTAlertController (1.1.0)
-  - SwiftColor (0.3.4)
+  - PSTAlertController (1.2.0)
+  - SwiftColor (0.3.5)
   - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
@@ -12,8 +12,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  PSTAlertController: cb21afcfa76c3229feec7db044afd4f60dab5892
-  SwiftColor: c2c3afeead2afdc7e2d3c0caf93b57a6ce49623c
+  PSTAlertController: 9b802dfbda54fee2683bfd6dda7023a6de895d5b
+  SwiftColor: 05004b92aa6ec04c7b9d387bfb17a8e8661d52e6
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
