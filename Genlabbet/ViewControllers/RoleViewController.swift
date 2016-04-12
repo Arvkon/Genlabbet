@@ -8,7 +8,7 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
         
         self.title = "Syssla"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: "chooseButtonPressed:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
         
         // Layout
         
@@ -69,7 +69,7 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     
     // MARK: - Methods
     
-    func chooseButtonPressed(sender: UIBarButtonItem) {
+    func chooseButtonTapped(sender: UIBarButtonItem) {
         self.character.syssla = self.viewControllerAtIndex(self.pageControl.currentPage)!.role
         let viewController = AppearanceViewController(character: self.character)
         self.navigationController!.pushViewController(viewController, animated: true)
@@ -102,4 +102,8 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
             self.pageControl.currentPage = currentViewController.pageIndex
         }
     }
+}
+
+private extension Selector {
+    static let chooseButtonTapped = #selector(RoleViewController.chooseButtonTapped(_:))
 }

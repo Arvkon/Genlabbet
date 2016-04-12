@@ -9,7 +9,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         
         self.title = "Utseende"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: "chooseButtonPressed:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
         self.navigationItem.rightBarButtonItem!.enabled = false
         
         self.skipCreationStepLabel.linkAction = { () -> Void in
@@ -134,7 +134,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Methods
     
-    func chooseButtonPressed(sender: UIBarButtonItem) {
+    func chooseButtonTapped(sender: UIBarButtonItem) {
         self.character.ansikte = self.faceTextField.text
         self.character.kropp   = self.bodyTextField.text
         self.character.kläder  = self.wearTextField.text
@@ -212,4 +212,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
             return self.wearOptions.count
         }
     }
+}
+
+private extension Selector {
+    static let chooseButtonTapped = #selector(AppearanceViewController.chooseButtonTapped(_:))
 }

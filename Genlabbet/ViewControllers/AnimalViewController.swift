@@ -11,7 +11,7 @@ class AnimalViewController: CharacterCreationStepViewController {
         
         let closeButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 18.0, height: 18.0))
         closeButton.setImage(UIImage(named: "NavbarCloseButton"), forState: .Normal)
-        closeButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
+        closeButton.addTarget(self, action: .closeButtonTapped, forControlEvents: .TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeButton)
         
         // Layout
@@ -91,7 +91,7 @@ class AnimalViewController: CharacterCreationStepViewController {
     
     // MARK: - Methods
     
-    func closeButtonPressed(sender: UIBarButtonItem) {
+    func closeButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -170,13 +170,18 @@ class AnimalViewController: CharacterCreationStepViewController {
     }
     
     private func addGestureRecognizersToOptionViews() {
-        self.primateOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: "optionViewTapped:"))
-        self.ursidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: "optionViewTapped:"))
-        self.rodentiaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: "optionViewTapped:"))
-        self.leporidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:  self, action: "optionViewTapped:"))
-        self.canidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: "optionViewTapped:"))
-        self.felidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: "optionViewTapped:"))
-        self.mustelidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "optionViewTapped:"))
-        self.reptiliaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: "optionViewTapped:"))
+        self.primateOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        self.ursidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        self.rodentiaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))
+        self.leporidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:  self, action: .optionViewTapped))
+        self.canidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        self.felidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
+        self.mustelidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .optionViewTapped))
+        self.reptiliaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))
     }
+}
+
+private extension Selector {
+    static let closeButtonTapped = #selector(AnimalViewController.closeButtonTapped(_:))
+    static let optionViewTapped  = #selector(AnimalViewController.optionViewTapped(_:))
 }

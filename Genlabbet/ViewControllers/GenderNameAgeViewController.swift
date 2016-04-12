@@ -8,7 +8,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         
         self.title = "Kön, namn och ålder"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: "chooseButtonPressed:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
         self.navigationItem.rightBarButtonItem!.enabled = false
         
         // Layout
@@ -105,7 +105,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         self.addGestureRecognizersToRadioButtons()
         
         // Hide keyboard if user taps outside text fields
-        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: "endEditing:"))
+        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: .endEditing))
     }
     
     // MARK: - Labels
@@ -191,7 +191,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Methods
     
-    func chooseButtonPressed(sender: UIBarButtonItem) {
+    func chooseButtonTapped(sender: UIBarButtonItem) {
         UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
     }
     
@@ -249,12 +249,12 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }
     
     private func addGestureRecognizersToRadioButtons() {
-        self.XYRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "genderButtonTapped:"))
-        self.XXRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "genderButtonTapped:"))
+        self.XYRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
+        self.XXRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
         
-        self.youngRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "ageButtonTapped:"))
-        self.adultRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "ageButtonTapped:"))
-        self.elderRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "ageButtonTapped:"))
+        self.youngRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
+        self.adultRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
+        self.elderRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .ageButtonTapped))
     }
     
     // MARK: - Properties
@@ -295,4 +295,11 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerView === self.labNamePickerView ? self.labNames.count : self.rebelNames.count
     }
+}
+
+private extension Selector {
+    static let chooseButtonTapped = #selector(GenderNameAgeViewController.chooseButtonTapped(_:))
+    static let genderButtonTapped = #selector(GenderNameAgeViewController.genderButtonTapped(_:))
+    static let ageButtonTapped    = #selector(GenderNameAgeViewController.ageButtonTapped(_:))
+    static let endEditing         = #selector(UIView.endEditing(_:))
 }
