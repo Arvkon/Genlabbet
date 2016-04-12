@@ -192,7 +192,24 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        if XYRadioButton.selected == true {
+            character.kön = .Hane
+        } else if XXRadioButton.selected == true {
+            character.kön = .Hona
+        }
+        
+        character.labbnamn = labNameTextField.text
+        
+        if youngRadioButton.selected == true {
+            character.ålder = .Ungdjur
+        } else if adultRadioButton.selected == true {
+            character.ålder = .Mogen
+        } else if elderRadioButton.selected == true {
+            character.ålder = .Äldste
+        }
+        
+        let viewController = AttributesViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     func genderButtonTapped(sender: UITapGestureRecognizer?) {
@@ -219,10 +236,10 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }
     
     private func allMandatoryInformationProvided() -> Bool {
-        guard labNameTextField.text != nil else { return false }
+        guard let labNameText = labNameTextField.text else { return false }
         
         let genderChosen  = XYRadioButton.selected == true || XXRadioButton.selected == true
-        let labNameChosen = labNameTextField.text!.characters.count > 0
+        let labNameChosen = labNameText.characters.count > 0
         let ageChosen     = youngRadioButton.selected == true || adultRadioButton.selected == true || elderRadioButton.selected == true
         
         return genderChosen && labNameChosen && ageChosen
