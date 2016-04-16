@@ -146,9 +146,9 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     private let XYRadioButton = RadioButtonView(text: "Hane")
     private let XXRadioButton = RadioButtonView(text: "Hona")
     
-    private let youngRadioButton = RadioButtonView(text: "Ungdjur")
-    private let adultRadioButton = RadioButtonView(text: "Mogen")
-    private let elderRadioButton = RadioButtonView(text: "Äldre")
+    private let youngRadioButton = RadioButtonView(text: Age.Ungdjur.string())
+    private let adultRadioButton = RadioButtonView(text: Age.Mogen.string())
+    private let elderRadioButton = RadioButtonView(text: Age.Äldste.string())
     
     // MARK: Text fields & Picker views
     

@@ -56,8 +56,24 @@ enum Djurförmåga {
     case Växtätare
 }
 
-enum Age: Int {
+enum Age {
     case Ungdjur
     case Mogen
     case Äldste
+    
+    func string() -> String {
+        switch self {
+        case .Ungdjur: return "Ungdjur"
+        case .Mogen:   return "Mogen"
+        case .Äldste:  return "Äldste"
+        }
+    }
+    
+    func skillPoints() -> Int {
+        switch self {
+        case .Ungdjur: return 8
+        case .Mogen:   return 10
+        case .Äldste:  return 12
+        }
+    }
 }
