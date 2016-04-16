@@ -212,26 +212,26 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }
     
     func genderButtonTapped(sender: UITapGestureRecognizer?) {
-        if let tappedRadioButton = sender?.view as? RadioButtonView {
-            XYRadioButton.selected = false
-            XXRadioButton.selected = false
-            
-            tappedRadioButton.selected = true
-            
-            navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
-        }
+        guard let tappedRadioButton = sender?.view as? RadioButtonView else { return }
+        
+        XYRadioButton.selected = false
+        XXRadioButton.selected = false
+        
+        tappedRadioButton.selected = true
+        
+        navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
     }
     
     func ageButtonTapped(sender: UITapGestureRecognizer?) {
-        if let tappedRadioButton = sender?.view as? RadioButtonView {
-            youngRadioButton.selected = false
-            adultRadioButton.selected = false
-            elderRadioButton.selected = false
-            
-            tappedRadioButton.selected = true
-            
-            navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
-        }
+        guard let tappedRadioButton = sender?.view as? RadioButtonView else { return }
+        
+        youngRadioButton.selected = false
+        adultRadioButton.selected = false
+        elderRadioButton.selected = false
+        
+        tappedRadioButton.selected = true
+        
+        navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
     }
     
     private func allMandatoryInformationProvided() -> Bool {
