@@ -116,10 +116,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         keyAttributeLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
         
         let keyAttribute = self.role.keyAttribute().string()
-        let text = "Bästa grundegenskap: \(keyAttribute)"
-        keyAttributeLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
+        keyAttributeLabel.setText("Bästa grundegenskap: \(keyAttribute)")
         keyAttributeLabel.addLinkToURL(NSURL(string: "info://attribute"), withRange: NSMakeRange(21, keyAttribute.characters.count))
-        keyAttributeLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         keyAttributeLabel.delegate = self
         
         return keyAttributeLabel
@@ -133,10 +131,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         specialistSkillLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
         
         let specialistSkill = self.role.specialistSkill().string()
-        let text = "Specialfärdighet: \(specialistSkill)"
-        specialistSkillLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
+        specialistSkillLabel.setText("Specialfärdighet: \(specialistSkill)")
         specialistSkillLabel.addLinkToURL(NSURL(string: "info://skill"), withRange: NSMakeRange(18, specialistSkill.characters.count))
-        specialistSkillLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         specialistSkillLabel.delegate = self
         
         return specialistSkillLabel
@@ -153,13 +149,12 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let talentNames = [talents.0.string(), talents.1.string(), talents.2.string()]
         let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
         
-        let text = "Talanger: \(talentNames[0]), \(talentNames[1]), \(talentNames[2])"
-        talentsLabel.setText(text, afterInheritingLabelAttributesAndConfiguringWithBlock: self.attributedString)
+        talentsLabel.lineBreakMode = .ByWordWrapping // Must be set before text is set to work
+        talentsLabel.numberOfLines = 0
+        talentsLabel.setText("Talanger: \(talentNames[0]), \(talentNames[1]), \(talentNames[2])")
         talentsLabel.addLinkToURL(NSURL(string: "info://talent1"), withRange: NSMakeRange(talentStart[0], talentNames[0].characters.count))
         talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[1], talentNames[1].characters.count))
         talentsLabel.addLinkToURL(NSURL(string: "info://talent3"), withRange: NSMakeRange(talentStart[2], talentNames[2].characters.count))
-        talentsLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
-        talentsLabel.numberOfLines = 2
         talentsLabel.delegate = self
         
         return talentsLabel
@@ -167,18 +162,6 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     
     // TODO: Choose image based on self.role
     private let imageView = UIImageView(image: UIImage(named: "Krigare"))
-    
-    // MARK: - Methods
-    
-    private func attributedString(attributedString: NSMutableAttributedString!) -> NSMutableAttributedString! {
-        let attributes = [
-            NSFontAttributeName: UIFont(name: "Colfax-Regular", size: 16.0)!,
-            NSForegroundColorAttributeName: UIColor.blackColor(),
-        ]
-        attributedString.setAttributes(attributes, range: NSMakeRange(0, attributedString.length))
-        
-        return attributedString
-    }
     
     // MARK: - Properties
     
