@@ -32,7 +32,6 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         scrollView.addSubview(imageView)
         
         let verticalSpacing = 10.0 as CGFloat
-        let labelSideMargin = 30.0 as CGFloat
         
         constrain(headerLabel, descriptionLabel, keyAttributeLabel) { header, description, attribute in
             header.width   == header.superview!.width
@@ -43,17 +42,17 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             description.top     == header.bottom + 5.0
             description.centerX == description.superview!.centerX
             
-            attribute.width   == attribute.superview!.width - labelSideMargin
+            attribute.width   == attribute.superview!.width - TotalSideMargin
             attribute.top     == description.bottom + verticalSpacing
             attribute.centerX == attribute.superview!.centerX
         }
         
         constrain(keyAttributeLabel, specialistSkillLabel, talentsLabel) { attribute, skill, talents in
-            skill.width   == skill.superview!.width - labelSideMargin
+            skill.width   == skill.superview!.width - TotalSideMargin
             skill.top     == attribute.bottom + verticalSpacing
             skill.centerX == skill.superview!.centerX
             
-            talents.width   == talents.superview!.width - labelSideMargin
+            talents.width   == talents.superview!.width - TotalSideMargin
             talents.top     == skill.bottom + verticalSpacing
             talents.centerX == talents.superview!.centerX
         }

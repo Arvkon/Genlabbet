@@ -21,25 +21,24 @@ class AttributesViewController: CharacterCreationStepViewController {
         SKPDistributionView.backgroundColor = UIColor.greenColor()
         INSDistributionView.backgroundColor = UIColor.orangeColor()
         
-        let sideMargin = 15.0 as CGFloat
         let topSpacing = 10.0 as CGFloat
         let distributionViewHeight = 40.0 as CGFloat
         
         constrain(attributesInfoLabel, remainingPointsLabel, STYHeading) { attributes, points, heading in
             attributes.top     == attributes.superview!.top + topSpacing
-            attributes.width   == attributes.superview!.width - sideMargin * 2
+            attributes.width   == attributes.superview!.width - TotalSideMargin
             attributes.centerX == attributes.superview!.centerX
             
             points.top     == attributes.bottom + 15.0
             points.centerX == points.superview!.centerX
             
             heading.top  == points.bottom + 15.0
-            heading.left == heading.superview!.left + sideMargin
+            heading.left == heading.superview!.left + SideMargin
         }
         
         constrain(STYHeading, STYInfoLabel, STYDistributionView) { head, info, view in
             info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - sideMargin * 2
+            info.width   == info.superview!.width - TotalSideMargin
             info.centerX == info.superview!.centerX
             
             view.top     == info.bottom + topSpacing
@@ -50,12 +49,12 @@ class AttributesViewController: CharacterCreationStepViewController {
         
         constrain(STYDistributionView, KYLHeading) { view, head in
             head.top  == view.bottom + topSpacing
-            head.left == head.superview!.left + sideMargin
+            head.left == head.superview!.left + SideMargin
         }
         
         constrain(KYLHeading, KYLInfoLabel, KYLDistributionView) { head, info, view in
             info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - sideMargin * 2
+            info.width   == info.superview!.width - TotalSideMargin
             info.centerX == info.superview!.centerX
             
             view.top     == info.bottom + topSpacing
@@ -66,12 +65,12 @@ class AttributesViewController: CharacterCreationStepViewController {
         
         constrain(KYLDistributionView, SKPHeading) { view, head in
             head.top  == view.bottom + topSpacing
-            head.left == head.superview!.left + sideMargin
+            head.left == head.superview!.left + SideMargin
         }
         
         constrain(SKPHeading, SKPInfoLabel, SKPDistributionView) { head, info, view in
             info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - sideMargin * 2
+            info.width   == info.superview!.width - TotalSideMargin
             info.centerX == info.superview!.centerX
             
             view.top     == info.bottom + topSpacing
@@ -82,12 +81,12 @@ class AttributesViewController: CharacterCreationStepViewController {
         
         constrain(SKPDistributionView, INSHeading) { view, head in
             head.top  == view.bottom + topSpacing
-            head.left == head.superview!.left + sideMargin
+            head.left == head.superview!.left + SideMargin
         }
         
         constrain(INSHeading, INSInfoLabel, INSDistributionView) { head, info, view in
             info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - sideMargin * 2
+            info.width   == info.superview!.width - TotalSideMargin
             info.centerX == info.superview!.centerX
             
             view.top     == info.bottom + topSpacing

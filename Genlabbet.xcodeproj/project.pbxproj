@@ -53,6 +53,7 @@
 		85C689CC1AFED1D60021CB0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C689CB1AFED1D60021CB0E /* AppDelegate.swift */; };
 		85C689D31AFED1D70021CB0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C689D21AFED1D70021CB0E /* Images.xcassets */; };
 		85C689E21AFED1D70021CB0E /* GenlabbetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C689E11AFED1D70021CB0E /* GenlabbetTests.swift */; };
+		85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD9C9F1CC26707003AB10C /* UIViewController.swift */; };
 		85EA258D1CBD80E500FB5319 /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		85C689DB1AFED1D70021CB0E /* GenlabbetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenlabbetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C689E01AFED1D70021CB0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85C689E11AFED1D70021CB0E /* GenlabbetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenlabbetTests.swift; sourceTree = "<group>"; };
+		85CD9C9F1CC26707003AB10C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/UIViewController.swift; sourceTree = "<group>"; };
 		85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributesViewController.swift; path = ViewControllers/AttributesViewController.swift; sourceTree = "<group>"; };
 		DF3F80443563ADAEC1E08935 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				85B56B381B5570E800F3B735 /* UIView.swift */,
+				85CD9C9F1CC26707003AB10C /* UIViewController.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				85B56AFA1B4ED3EC00F3B735 /* RoleViewController.swift in Sources */,
 				851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */,
 				851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */,
+				85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */,
 				85B56B331B5426B800F3B735 /* Attribute.swift in Sources */,
 				85B56B311B53A33D00F3B735 /* Role.swift in Sources */,
 				85B56B3D1B55A2D300F3B735 /* AnimalType.swift in Sources */,

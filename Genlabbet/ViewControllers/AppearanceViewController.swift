@@ -27,41 +27,40 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         contentView.addSubview(bodyTextField)
         contentView.addSubview(wearTextField)
         
-        let totalSideMargin = 30.0 as CGFloat
         let labelTopSpacing = 15.0 as CGFloat
         let fieldTopSpacing = 10.0 as CGFloat
         
         constrain(skipCreationStepLabel, faceLabel, faceTextField) { skipLabel, faceLabel, faceField in
-            skipLabel.width   == skipLabel.superview!.width - totalSideMargin
+            skipLabel.width   == skipLabel.superview!.width - TotalSideMargin
             skipLabel.height  == 35.0
             skipLabel.top     == skipLabel.superview!.top + 10.0
             skipLabel.centerX == skipLabel.superview!.centerX
             
-            faceLabel.width   == faceLabel.superview!.width - totalSideMargin
+            faceLabel.width   == faceLabel.superview!.width - TotalSideMargin
             faceLabel.top     == skipLabel.bottom + labelTopSpacing
             faceLabel.centerX == faceLabel.superview!.centerX
             
-            faceField.width   == faceField.superview!.width - totalSideMargin
+            faceField.width   == faceField.superview!.width - TotalSideMargin
             faceField.top     == faceLabel.bottom + fieldTopSpacing
             faceField.centerX == faceField.superview!.centerX
         }
         
         constrain(faceTextField, bodyLabel, bodyTextField) { faceField, bodyLabel, bodyField in
-            bodyLabel.width   == bodyLabel.superview!.width - totalSideMargin
+            bodyLabel.width   == bodyLabel.superview!.width - TotalSideMargin
             bodyLabel.top     == faceField.bottom + labelTopSpacing
             bodyLabel.centerX == bodyLabel.superview!.centerX
             
-            bodyField.width   == bodyField.superview!.width - totalSideMargin
+            bodyField.width   == bodyField.superview!.width - TotalSideMargin
             bodyField.top     == bodyLabel.bottom + fieldTopSpacing
             bodyField.centerX == bodyField.superview!.centerX
         }
         
         constrain(bodyTextField, wearLabel, wearTextField) { bodyField, wearLabel, wearField in
-            wearLabel.width   == wearLabel.superview!.width - totalSideMargin
+            wearLabel.width   == wearLabel.superview!.width - TotalSideMargin
             wearLabel.top     == bodyField.bottom + labelTopSpacing
             wearLabel.centerX == wearLabel.superview!.centerX
             
-            wearField.width   == wearField.superview!.width - totalSideMargin
+            wearField.width   == wearField.superview!.width - TotalSideMargin
             wearField.top     == wearLabel.bottom + fieldTopSpacing
             wearField.centerX == wearField.superview!.centerX
         }

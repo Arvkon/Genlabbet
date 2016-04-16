@@ -17,7 +17,6 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         
         // TODO: Layout code below needs improvement
         
-        let totalSideMargin = 30.0 as CGFloat
         let labelTopSpacing = 15.0 as CGFloat
         let fieldTopSpacing = 10.0 as CGFloat
         
@@ -25,7 +24,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         let femaleWidth = XXRadioButton.intrinsicWidth()
         
         constrain(genderHeading, XYRadioButton, XXRadioButton) { gender, male, female in
-            gender.width   == gender.superview!.width - totalSideMargin
+            gender.width   == gender.superview!.width - TotalSideMargin
             gender.top     == gender.superview!.top + 10.0
             gender.centerX == gender.superview!.centerX
             
@@ -39,39 +38,39 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         }
         
         constrain(genderHeading, genderInfoLabel) { gender, genderInfo in
-            genderInfo.width   == genderInfo.superview!.width - totalSideMargin
+            genderInfo.width   == genderInfo.superview!.width - TotalSideMargin
             genderInfo.top     == gender.bottom + labelTopSpacing
             genderInfo.centerX == genderInfo.superview!.centerX
         }
         
         constrain(genderInfoLabel, labNameHeading, labNameInfoLabel) { genderInfo, labName, labInfo in
-            labName.width   == labName.superview!.width - totalSideMargin
+            labName.width   == labName.superview!.width - TotalSideMargin
             labName.top     == genderInfo.bottom + labelTopSpacing
             labName.centerX == labName.superview!.centerX
             
-            labInfo.width   == labInfo.superview!.width - totalSideMargin
+            labInfo.width   == labInfo.superview!.width - TotalSideMargin
             labInfo.top     == labName.bottom + fieldTopSpacing
             labInfo.centerX == labInfo.superview!.centerX
         }
         
         constrain(labNameInfoLabel, labNameTextField) { labInfo, nameField in
-            nameField.width   == nameField.superview!.width - totalSideMargin
+            nameField.width   == nameField.superview!.width - TotalSideMargin
             nameField.top     == labInfo.bottom + fieldTopSpacing
             nameField.centerX == nameField.superview!.centerX
         }
         
         constrain(labNameTextField, rebelNameHeading, rebelNameInfoLabel) { nameField, rebelName, rebelInfo in
-            rebelName.width   == rebelName.superview!.width - totalSideMargin
+            rebelName.width   == rebelName.superview!.width - TotalSideMargin
             rebelName.top     == nameField.bottom + labelTopSpacing
             rebelName.centerX == rebelName.superview!.centerX
             
-            rebelInfo.width   == rebelInfo.superview!.width - totalSideMargin
+            rebelInfo.width   == rebelInfo.superview!.width - TotalSideMargin
             rebelInfo.top     == rebelName.bottom + fieldTopSpacing
             rebelInfo.centerX == rebelInfo.superview!.centerX
         }
         
         constrain(rebelNameInfoLabel, rebelNameTextField) { rebelInfo, nameField in
-            nameField.width   == nameField.superview!.width - totalSideMargin
+            nameField.width   == nameField.superview!.width - TotalSideMargin
             nameField.top     == rebelInfo.bottom + fieldTopSpacing
             nameField.centerX == nameField.superview!.centerX
         }
@@ -83,7 +82,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         let elderWidth = elderRadioButton.intrinsicWidth()
         
         constrain(rebelNameTextField, ageGroupHeading, youngRadioButton) { nameField, ageLabel, youngButton in
-            ageLabel.width   == ageLabel.superview!.width - totalSideMargin
+            ageLabel.width   == ageLabel.superview!.width - TotalSideMargin
             ageLabel.top     == nameField.bottom + labelTopSpacing
             ageLabel.centerX == ageLabel.superview!.centerX
             
