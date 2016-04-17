@@ -7,7 +7,7 @@ enum Role {
     case Nåjd
     case Samlare
     
-    static let allMembers = [Helare, Jägare, Krigare, Nåjd, Samlare]
+    static let allValues = [Helare, Jägare, Krigare, Nåjd, Samlare]
     
     // MARK: Methods
     
@@ -56,13 +56,13 @@ enum Role {
         }
     }
     
-    func talents() -> (Talent, Talent, Talent) {
+    func talents() -> [Talent] {
         switch self {
-        case .Helare:  return (.Kirurg, .Själavårdare, .Spritkokare)
-        case .Jägare:  return (.Bågmakare, .Pälsjägare, .Snärjare)
-        case .Krigare: return (.Mångkamp, .Vapenmakare, .Vapenmästare)
-        case .Nåjd:    return (.Dödsvisioner, .PlötsligaSyner, .Totemmakare)
-        case .Samlare: return (.Gömsle, .Packråtta, .Vapensamlare)
+        case .Helare:  return [.Kirurg, .Själavårdare, .Spritkokare]
+        case .Jägare:  return [.Bågmakare, .Pälsjägare, .Snärjare]
+        case .Krigare: return [.Mångkamp, .Vapenmakare, .Vapenmästare]
+        case .Nåjd:    return [.Dödsvisioner, .PlötsligaSyner, .Totemmakare]
+        case .Samlare: return [.Gömsle, .Packråtta, .Vapensamlare]
         }
     }
     

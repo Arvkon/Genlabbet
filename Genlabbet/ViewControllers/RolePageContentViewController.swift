@@ -145,16 +145,15 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         talentsLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
         talentsLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
         
-        let talents = self.role.talents()
-        let talentNames = [talents.0.string(), talents.1.string(), talents.2.string()]
+        let talentNames = self.role.talents().map { $0.string() }
         let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
         
         talentsLabel.lineBreakMode = .ByWordWrapping // Must be set before text is set to work
         talentsLabel.numberOfLines = 0
         talentsLabel.setText("Talanger: \(talentNames[0]), \(talentNames[1]), \(talentNames[2])")
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent1"), withRange: NSMakeRange(talentStart[0], talentNames[0].characters.count))
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[1], talentNames[1].characters.count))
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent3"), withRange: NSMakeRange(talentStart[2], talentNames[2].characters.count))
+        talentsLabel.addLinkToURL(NSURL(string: "info://talent0"), withRange: NSMakeRange(talentStart[0], talentNames[0].characters.count))
+        talentsLabel.addLinkToURL(NSURL(string: "info://talent1"), withRange: NSMakeRange(talentStart[1], talentNames[1].characters.count))
+        talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[2], talentNames[2].characters.count))
         talentsLabel.delegate = self
         
         return talentsLabel
@@ -171,33 +170,23 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     // MARK: - TTTAttributedLabelDelegate
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        if url.scheme == "info" {
-            var title = "Ingen titel"
-            var message = "Ingen text"
-            
-            if url.host == "attribute" {
-                let attribute = role.keyAttribute()
-                title = attribute.string()
-                message = attribute.description()
-            } else if url.host == "skill" {
-                let skill = role.specialistSkill()
-                title = skill.string()
-                message = skill.description()
-            } else if url.host == "talent1" {
-                let talent = role.talents().0
-                title = talent.string()
-                message = talent.description()
-            } else if url.host == "talent2" {
-                let talent = role.talents().1
-                title = talent.string()
-                message = talent.description()
-            } else if url.host == "talent3" {
-                let talent = role.talents().2
-                title = talent.string()
-                message = talent.description()
-            }
-            
-            UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
+        guard let host = url.host where url.scheme == "info" else { return }
+        
+        var title = "Ingen titel"
+        var message = "Ingen text"
+        
+        if host == "attribute" {
+            title   = role.keyAttribute().string()
+            message = role.keyAttribute().description()
+        } else if host == "skill" {
+            title   = role.specialistSkill().string()
+            message = role.specialistSkill().description()
+        } else if host.hasPrefix("talent") {
+            let index = Int("\(host.characters.last!)")!
+            title   = role.talents()[index].string()
+            message = role.talents()[index].description()
         }
+        
+        UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
     }
 }

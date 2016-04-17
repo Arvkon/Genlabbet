@@ -76,8 +76,8 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     }
     
     private func viewControllerAtIndex(index: Int) -> RolePageContentViewController? {
-        if index < Role.allMembers.count {
-            return RolePageContentViewController(role: Role.allMembers[index], pageIndex: index)
+        if index < Role.allValues.count {
+            return RolePageContentViewController(role: Role.allValues[index], pageIndex: index)
         } else {
             return nil
         }
@@ -92,7 +92,7 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let pageIndex = (viewController as! RolePageContentViewController).pageIndex
-        return pageIndex == Role.allMembers.count ? nil : viewControllerAtIndex(pageIndex + 1)
+        return pageIndex == Role.allValues.count ? nil : viewControllerAtIndex(pageIndex + 1)
     }
     
     // MARK: - UIPageViewControllerDelegate
