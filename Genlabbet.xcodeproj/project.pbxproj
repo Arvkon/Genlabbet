@@ -54,6 +54,7 @@
 		85C689D31AFED1D70021CB0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C689D21AFED1D70021CB0E /* Images.xcassets */; };
 		85C689E21AFED1D70021CB0E /* GenlabbetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C689E11AFED1D70021CB0E /* GenlabbetTests.swift */; };
 		85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD9C9F1CC26707003AB10C /* UIViewController.swift */; };
+		85CD9CA21CC3706A003AB10C /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */; };
 		85EA258D1CBD80E500FB5319 /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		85C689E01AFED1D70021CB0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85C689E11AFED1D70021CB0E /* GenlabbetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenlabbetTests.swift; sourceTree = "<group>"; };
 		85CD9C9F1CC26707003AB10C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/UIViewController.swift; sourceTree = "<group>"; };
+		85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillsViewController.swift; path = ViewControllers/SkillsViewController.swift; sourceTree = "<group>"; };
 		85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributesViewController.swift; path = ViewControllers/AttributesViewController.swift; sourceTree = "<group>"; };
 		DF3F80443563ADAEC1E08935 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */,
 				85AF5A051B5673DC0089BD5E /* GenderNameAgeViewController.swift */,
 				85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */,
+				85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				85B56B041B5059C900F3B735 /* RolePageContentViewController.swift in Sources */,
 				85B56B351B542A8900F3B735 /* Skill.swift in Sources */,
 				85B56B1D1B51347300F3B735 /* RoleDescriptionLabel.swift in Sources */,
+				85CD9CA21CC3706A003AB10C /* SkillsViewController.swift in Sources */,
 				85429E2C1B03F5AD00846BF1 /* AnimalViewController.swift in Sources */,
 				85B56B391B5570E800F3B735 /* UIView.swift in Sources */,
 				851B2A491B561C0D002CDD3B /* SkipCreationStepLabel.swift in Sources */,

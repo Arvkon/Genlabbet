@@ -9,7 +9,6 @@ class AttributesViewController: CharacterCreationStepViewController {
         title = "Grundegenskaper"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        navigationItem.rightBarButtonItem!.enabled = false
         
         // Layout
         
@@ -147,7 +146,8 @@ class AttributesViewController: CharacterCreationStepViewController {
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        let viewController = SkillsViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     private func populateContentView() {
