@@ -1,6 +1,6 @@
 import Foundation
 
-enum Skill {
+enum Skill: Int {
     // Specialist Skills
     case BryggaDekokt
     case Jaga
@@ -16,11 +16,16 @@ enum Skill {
     case Move
     case Shoot
     case Scout
-    case KnowNature
     case Comprehend
-    case Sniffa
+    case KnowNature
+    case SenseEmotion
     case Dominate
     case Heal
+    
+    // MARK: Type Properties
+    
+    static let allGeneralSkills = [Endure, Force, Fight, Sneak, Move, Shoot, Scout, Comprehend, KnowNature, SenseEmotion, Dominate, Heal]
+    static let allValues = [BryggaDekokt, Jaga, Samla, Sia, Skärskåda] + allGeneralSkills
     
     // MARK: Methods
     
@@ -39,9 +44,9 @@ enum Skill {
         case .Move:         return "Fly"
         case .Shoot:        return "Skjuta"
         case .Scout:        return "Speja"
-        case .KnowNature:   return "Känna naturen"
         case .Comprehend:   return "Förstå sig på"
-        case .Sniffa:       return "Sniffa"
+        case .KnowNature:   return "Känna naturen"
+        case .SenseEmotion: return "Sniffa"
         case .Dominate:     return "Dominera"
         case .Heal:         return "Vårda"
         }
@@ -76,11 +81,11 @@ enum Skill {
             return "De flesta djurmutanter föredrar att möta sina fiender i närkamp, med blottade huggtänder och klor. Men vissa har lärt sig Människans förmåga att slåss på avstånd, med pilbågar, slungor och ibland till och med forntida skjutvapen med enorm förstörelsekraft."
         case .Scout:
             return "Paradisdalen är full av faror och andra märkliga ting. Betraktarnas maskiner, muterade bestar och dödliga naturfenomen kan ta ditt liv på ett ögonblick om du inte är vaksam. När du vill speja mot en plats, varelse eller objekt på avstånd slår du för denna färdighet. Till skillnad från människor förlitar sig djur inte bara på synen - lukt och hörsel är minst lika viktiga sinnen."
-        case .KnowNature:
-            return "Paradisdalens natur är skrämmande och oberäknelig. En vacker äng kan plötsligt förvandlas till en översvämmad sumpmark. En prunkande skog kan på ett ögonblick bli ett brinnande inferno. Och i dalen strövar muterade monster som tycks bli mer och mer bisarra för varje år som går.\nSlå för att känna naturen när du vill veta något om en varelse eller ett fenomen som du stöter på i Paradisdalen."
         case .Comprehend:
             return "Överallt i Paradisdalen finns Människans lämningar. Skrifter, bilder, märkliga apparater. Och under marken finns den mystiska Labyrinten, fylld av Betraktarnas bisarra manicker. Du slår för att förstå dig på när du vill förstå hur en fornpryl fungerar, läsa en text på människans språk, eller veta vad en gammal ruin har använts till. Om slaget lyckas förstår du vad du ser på, och kan använda föremålet."
-        case .Sniffa:
+        case .KnowNature:
+            return "Paradisdalens natur är skrämmande och oberäknelig. En vacker äng kan plötsligt förvandlas till en översvämmad sumpmark. En prunkande skog kan på ett ögonblick bli ett brinnande inferno. Och i dalen strövar muterade monster som tycks bli mer och mer bisarra för varje år som går.\nSlå för att känna naturen när du vill veta något om en varelse eller ett fenomen som du stöter på i Paradisdalen."
+        case .SenseEmotion:
             return "Inget avslöjar lika mycket om en annan varelse som dess lukt. Genom att sniffa på en SLP kan du bedöma hans sinnesstämning, inställning till dig, och mycket annat. Om slaget lyckas måste SL berätta vad SLP:ns starkaste känsla är just nu – till exempel hat, rädsla, förakt eller kärlek."
         case .Dominate:
             return "Lögner, smicker och manipulation var Människans sätt att få andra att lyda. Djuren har ett annat sätt att bryta motstridiga viljor - en djurisk mätning av rang och dominans."
