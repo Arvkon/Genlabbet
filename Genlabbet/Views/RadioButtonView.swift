@@ -18,7 +18,6 @@ class RadioButtonView: UIView {
         addSubview(imageView)
         addSubview(label)
         
-        // TODO: Put in layoutSubviews()?
         constrain(imageView, label) { image, label in
             image.width   == imageSide
             image.height  == imageSide
@@ -46,16 +45,7 @@ class RadioButtonView: UIView {
     // MARK: - Methods
     
     func intrinsicWidth() -> CGFloat {
-        if let labelText = label.text {
-            let attributedString = NSMutableAttributedString(string: labelText)
-            attributedString.addAttribute(NSFontAttributeName, value: labelFont, range: NSMakeRange(0, labelText.characters.count))
-            let boundingSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
-            let labelWidth = attributedString.boundingRectWithSize(boundingSize, options: .UsesLineFragmentOrigin, context: nil).width
-            
-            return min(labelWidth + spacing + imageSide, UIScreen.mainScreen().bounds.size.width)
-        } else {
-            return -1.0
-        }
+        return min(label.intrinsicWidth() + spacing + imageSide, UIScreen.mainScreen().bounds.width)
     }
     
     // MARK: - Properties
