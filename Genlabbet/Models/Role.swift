@@ -21,6 +21,16 @@ enum Role {
         }
     }
     
+    func definiteFormString() -> String {
+        switch self {
+        case .Helare:  return "Helaren"
+        case .Jägare:  return "Jägaren"
+        case .Krigare: return "Krigaren"
+        case .Nåjd:    return "Nåjden"
+        case .Samlare: return "Samlaren"
+        }
+    }
+    
     func description() -> String {
         switch self {
         case .Helare:
