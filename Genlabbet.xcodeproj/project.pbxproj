@@ -12,6 +12,7 @@
 		851B2A451B55F1DC002CDD3B /* ChoiceHeadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */; };
 		851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A461B560353002CDD3B /* ChoiceTextField.swift */; };
 		851B2A491B561C0D002CDD3B /* SkipCreationStepLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A481B561C0D002CDD3B /* SkipCreationStepLabel.swift */; };
+		8537ECD71CC536D6005536B9 /* HeadingDescriptionOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537ECD61CC536D6005536B9 /* HeadingDescriptionOptionView.swift */; };
 		85429E281B03CF6200846BF1 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E271B03CF6200846BF1 /* CharacterListViewController.swift */; };
 		85429E2C1B03F5AD00846BF1 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E2B1B03F5AD00846BF1 /* AnimalViewController.swift */; };
 		85429E2E1B03F5F800846BF1 /* CharacterCreationStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85429E2D1B03F5F800846BF1 /* CharacterCreationStepViewController.swift */; };
@@ -76,6 +77,7 @@
 		851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceHeadingLabel.swift; path = Views/ChoiceHeadingLabel.swift; sourceTree = "<group>"; };
 		851B2A461B560353002CDD3B /* ChoiceTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTextField.swift; path = Views/ChoiceTextField.swift; sourceTree = "<group>"; };
 		851B2A481B561C0D002CDD3B /* SkipCreationStepLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipCreationStepLabel.swift; path = Views/SkipCreationStepLabel.swift; sourceTree = "<group>"; };
+		8537ECD61CC536D6005536B9 /* HeadingDescriptionOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeadingDescriptionOptionView.swift; path = Views/HeadingDescriptionOptionView.swift; sourceTree = "<group>"; };
 		85429E271B03CF6200846BF1 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterListViewController.swift; path = ViewControllers/CharacterListViewController.swift; sourceTree = "<group>"; };
 		85429E2B1B03F5AD00846BF1 /* AnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalViewController.swift; path = ViewControllers/AnimalViewController.swift; sourceTree = "<group>"; };
 		85429E2D1B03F5F800846BF1 /* CharacterCreationStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCreationStepViewController.swift; path = ViewControllers/CharacterCreationStepViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				85B56B091B50FFA100F3B735 /* CharacterCollectionViewCell.swift */,
 				851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */,
 				851B2A461B560353002CDD3B /* ChoiceTextField.swift */,
+				8537ECD61CC536D6005536B9 /* HeadingDescriptionOptionView.swift */,
 				85B067461B45B17D00380B70 /* ProgressBarView.swift */,
 				8571D2CB1B5ACF6800E8C5FA /* RadioButtonView.swift */,
 				85B56B1C1B51347300F3B735 /* RoleDescriptionLabel.swift */,
@@ -527,6 +530,7 @@
 				85B56B331B5426B800F3B735 /* Attribute.swift in Sources */,
 				85B56B311B53A33D00F3B735 /* Role.swift in Sources */,
 				85B56B3D1B55A2D300F3B735 /* AnimalType.swift in Sources */,
+				8537ECD71CC536D6005536B9 /* HeadingDescriptionOptionView.swift in Sources */,
 				85B56B3F1B55A37400F3B735 /* Species.swift in Sources */,
 				85B56B3B1B5577CC00F3B735 /* Talent.swift in Sources */,
 			);
