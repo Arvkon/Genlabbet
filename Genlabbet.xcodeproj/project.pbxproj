@@ -58,6 +58,7 @@
 		85CD9CA21CC3706A003AB10C /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */; };
 		85CD9CA41CC372F9003AB10C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD9CA31CC372F9003AB10C /* UILabel.swift */; };
 		85EA258D1CBD80E500FB5319 /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */; };
+		85FAEEAA1CC53B5100021FE9 /* TalentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillsViewController.swift; path = ViewControllers/SkillsViewController.swift; sourceTree = "<group>"; };
 		85CD9CA31CC372F9003AB10C /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = Extensions/UILabel.swift; sourceTree = "<group>"; };
 		85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributesViewController.swift; path = ViewControllers/AttributesViewController.swift; sourceTree = "<group>"; };
+		85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalentViewController.swift; path = ViewControllers/TalentViewController.swift; sourceTree = "<group>"; };
 		DF3F80443563ADAEC1E08935 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				85AF5A051B5673DC0089BD5E /* GenderNameAgeViewController.swift */,
 				85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */,
 				85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */,
+				85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				85B56B1D1B51347300F3B735 /* RoleDescriptionLabel.swift in Sources */,
 				85CD9CA21CC3706A003AB10C /* SkillsViewController.swift in Sources */,
 				85429E2C1B03F5AD00846BF1 /* AnimalViewController.swift in Sources */,
+				85FAEEAA1CC53B5100021FE9 /* TalentViewController.swift in Sources */,
 				85B56B391B5570E800F3B735 /* UIView.swift in Sources */,
 				851B2A491B561C0D002CDD3B /* SkipCreationStepLabel.swift in Sources */,
 				85C689CC1AFED1D60021CB0E /* AppDelegate.swift in Sources */,

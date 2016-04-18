@@ -97,7 +97,8 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        let viewController = TalentViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     private func populateContentView() {
