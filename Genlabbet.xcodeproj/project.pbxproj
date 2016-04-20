@@ -59,6 +59,7 @@
 		85CD9CA41CC372F9003AB10C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD9CA31CC372F9003AB10C /* UILabel.swift */; };
 		85EA258D1CBD80E500FB5319 /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */; };
 		85FAEEAA1CC53B5100021FE9 /* TalentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */; };
+		85FAEEAE1CC53D7F00021FE9 /* AnimalPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		85CD9CA31CC372F9003AB10C /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = Extensions/UILabel.swift; sourceTree = "<group>"; };
 		85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributesViewController.swift; path = ViewControllers/AttributesViewController.swift; sourceTree = "<group>"; };
 		85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalentViewController.swift; path = ViewControllers/TalentViewController.swift; sourceTree = "<group>"; };
+		85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalPower.swift; path = Models/AnimalPower.swift; sourceTree = "<group>"; };
 		DF3F80443563ADAEC1E08935 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 		85429E201B03B9DC00846BF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */,
 				85B56B3C1B55A2D300F3B735 /* AnimalType.swift */,
 				85B56B321B5426B800F3B735 /* Attribute.swift */,
 				85429E2F1B03FA7600846BF1 /* Character.swift */,
@@ -532,6 +535,7 @@
 				851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */,
 				85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */,
 				85B56B331B5426B800F3B735 /* Attribute.swift in Sources */,
+				85FAEEAE1CC53D7F00021FE9 /* AnimalPower.swift in Sources */,
 				85B56B311B53A33D00F3B735 /* Role.swift in Sources */,
 				85B56B3D1B55A2D300F3B735 /* AnimalType.swift in Sources */,
 				8537ECD71CC536D6005536B9 /* HeadingDescriptionOptionView.swift in Sources */,

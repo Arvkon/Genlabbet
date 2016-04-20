@@ -4,7 +4,7 @@ class Character {
     var labbnamn: String?
     var upprorsnamn: String?
     var djurtyp: AnimalType? {
-        return art?.animalType() ?? .Apa // nil
+        return art?.animalType()
     }
     var art: Species?
     var ålder: Age?
@@ -32,28 +32,6 @@ class Character {
 enum Gender {
     case Hona
     case Hane
-}
-
-enum Djurförmåga {
-    case Amfibisk
-    case Blixtsnabb
-    case Flyktsinne
-    case Giftbett
-    case Grävare
-    case Hoppförmåga
-    case Jaktsinne
-    case Klättrare
-    case Liten
-    case Ljudlös
-    case Lurvig
-    case Löpsnabb
-    case Nattsyn
-    case Pansar
-    case Rovattack
-    case Stor
-    case Svans
-    case Varningsrop
-    case Växtätare
 }
 
 enum Age {

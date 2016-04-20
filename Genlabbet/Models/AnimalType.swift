@@ -68,4 +68,25 @@ enum AnimalType {
             return ["Piaf 12", "Elvis 48", "Dolly 89", "Pavarotti 15"]
         }
     }
+    
+    func animalPowers() -> [AnimalPower] {
+        switch self {
+        case .Apa:
+            return [.Hoppförmåga, .Klättrare, .Lurvig, .Löpsnabb, .Stor, .Varningsrop, .Växtätare]
+        case .Björn:
+            return [.Lurvig, .Löpsnabb, .Rovattack, .Stor, .Växtätare]
+        case .Gnagare:
+            return [.Flyktsinne, .Grävare, .Klättrare, .Liten, .Ljudlös, .Nattsyn, .SjätteSinne, .Växtätare]
+        case .Hardjur:
+            return [.Blixtsnabb, .Flyktsinne, .Grävare, .Hoppförmåga, .Liten, .Löpsnabb, .Växtätare]
+        case .Hunddjur:
+            return [.Jaktsinne, .Lurvig, .Löpsnabb, .Nattsyn, .Rovattack, .Svans, .Varningsrop]
+        case .Kattdjur:
+            return [.Blixtsnabb, .Jaktsinne, .Klättrare, .Ljudlös, .Löpsnabb, .Nattsyn, .Rovattack, .Svans]
+        case .Mårddjur:
+            return [.Grävare, .Jaktsinne, .Liten, .Rovattack, .SjätteSinne]
+        case .Reptil:
+            return [.Amfibisk, .Blixtsnabb, .Giftbett, .Hoppförmåga, .Jaktsinne, .Pansar, .Svans]
+        }
+    }
 }
