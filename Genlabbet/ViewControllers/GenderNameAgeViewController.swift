@@ -101,6 +101,10 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
             elder.centerY == young.centerY
         }
         
+        contentView.layoutIfNeeded()
+        
+        contentView.contentSize = contentView.totalContentSize(addedHeight: 20.0)
+        
         addGestureRecognizersToRadioButtons()
         
         // Hide keyboard if user taps outside text fields
