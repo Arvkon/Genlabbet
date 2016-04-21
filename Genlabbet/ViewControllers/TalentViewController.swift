@@ -58,7 +58,14 @@ class TalentViewController: CharacterCreationStepViewController {
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        for (index, talentView) in talentViews.enumerate() {
+            if talentView.selected == true {
+                character.talang = character.syssla!.talents()[index]
+                break
+            }
+        }
+        let viewController = AnimalPowersViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     func talentButtonTapped(sender: UITapGestureRecognizer?) {

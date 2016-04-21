@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DF84E2D8C8FA2EC8368C1DF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D8BA64C78299AB2BBAC47A /* Pods.framework */; };
+		85012C3C1CC8B9CC00774EFB /* AnimalPowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85012C3B1CC8B9CC00774EFB /* AnimalPowersViewController.swift */; };
 		851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */; };
 		851B2A451B55F1DC002CDD3B /* ChoiceHeadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */; };
 		851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A461B560353002CDD3B /* ChoiceTextField.swift */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		09D8BA64C78299AB2BBAC47A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1835035F188970F1C0691F5B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		85012C3B1CC8B9CC00774EFB /* AnimalPowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalPowersViewController.swift; path = ViewControllers/AnimalPowersViewController.swift; sourceTree = "<group>"; };
 		851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppearanceViewController.swift; path = ViewControllers/AppearanceViewController.swift; sourceTree = "<group>"; };
 		851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceHeadingLabel.swift; path = Views/ChoiceHeadingLabel.swift; sourceTree = "<group>"; };
 		851B2A461B560353002CDD3B /* ChoiceTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTextField.swift; path = Views/ChoiceTextField.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */,
 				85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */,
 				85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */,
+				85012C3B1CC8B9CC00774EFB /* AnimalPowersViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */,
 				851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */,
 				85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */,
+				85012C3C1CC8B9CC00774EFB /* AnimalPowersViewController.swift in Sources */,
 				85B56B331B5426B800F3B735 /* Attribute.swift in Sources */,
 				85FAEEAE1CC53D7F00021FE9 /* AnimalPower.swift in Sources */,
 				85B56B311B53A33D00F3B735 /* Role.swift in Sources */,

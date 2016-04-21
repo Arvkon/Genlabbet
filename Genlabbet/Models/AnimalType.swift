@@ -25,6 +25,19 @@ enum AnimalType {
         }
     }
     
+    func pluralDefiniteFormString() -> String {
+        switch self {
+        case .Apa:      return "Aporna"
+        case .Björn:    return "Björnarna"
+        case .Gnagare:  return "Gnagarna"
+        case .Hardjur:  return "Hardjuren"
+        case .Hunddjur: return "Hunddjuren"
+        case .Kattdjur: return "Kattdjuren"
+        case .Mårddjur: return "Mårddjuren"
+        case .Reptil:   return "Reptilerna"
+        }
+    }
+    
     func namingConventionText() -> String {
         let textEnding = " Efter namnet sätts ett tvåsiffrigt tal."
         

@@ -23,6 +23,7 @@ class Character {
     var instinkt: Int?
     
     var färdigheter: [Skill: Int]?
+    var talang: Talent?
     
     // Gear
     var ransonerKrubb: Int?  // Grub
