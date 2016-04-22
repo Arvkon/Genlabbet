@@ -9,7 +9,12 @@ class Character {
     var art: Species?
     var ålder: Age?
     var syssla: Role?
-    var rang: Int?
+    var rang: Int {
+        var rank = 0
+        if let ålder = ålder { rank += ålder.rankBonus() }
+        if let syssla = syssla { rank += syssla.rankBonus() }
+        return rank
+    }
     var kön: Gender?
     
     var ansikte: String?
@@ -53,6 +58,14 @@ enum Age {
         case .Ungdjur: return 8
         case .Mogen:   return 10
         case .Äldste:  return 12
+        }
+    }
+    
+    func rankBonus() -> Int {
+        switch self {
+        case .Ungdjur: return 2
+        case .Mogen:   return 4
+        case .Äldste:  return 6
         }
     }
 }

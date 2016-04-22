@@ -120,4 +120,14 @@ enum Role {
             return ["Regnrock med huva", "Lusekofta", "Sliten täckjacka", "T-shirt med tryck", "Militärkeps"]
         }
     }
+    
+    func rankBonus() -> Int {
+        switch self {
+        case .Helare:  return 1
+        case .Jägare:  return 0
+        case .Krigare: return 2
+        case .Nåjd:    return 3
+        case .Samlare: return -1
+        }
+    }
 }
