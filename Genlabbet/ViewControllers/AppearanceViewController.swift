@@ -12,11 +12,6 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
         navigationItem.rightBarButtonItem!.enabled = false
         
-        skipCreationStepLabel.linkAction = { () -> Void in
-            let viewController = GenderNameAgeViewController(character: self.character)
-            self.navigationController!.pushViewController(viewController, animated: true)
-        }
-        
         // Layout
         
         contentView.addSubview(skipCreationStepLabel)
@@ -68,7 +63,15 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Views
     
-    private let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRectZero)
+    private lazy var skipCreationStepLabel: SkipCreationStepLabel = {
+        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRectZero)
+        skipCreationStepLabel.linkAction = { () -> Void in
+            let viewController = GenderNameAgeViewController(character: self.character)
+            self.navigationController!.pushViewController(viewController, animated: true)
+        }
+        
+        return skipCreationStepLabel
+    }()
     
     // MARK: Heading labels
     

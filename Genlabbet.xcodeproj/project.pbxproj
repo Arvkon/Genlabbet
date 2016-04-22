@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DF84E2D8C8FA2EC8368C1DF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D8BA64C78299AB2BBAC47A /* Pods.framework */; };
 		85012C3C1CC8B9CC00774EFB /* AnimalPowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85012C3B1CC8B9CC00774EFB /* AnimalPowersViewController.swift */; };
+		85012C3E1CC9296B00774EFB /* RankRelationshipsDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85012C3D1CC9296B00774EFB /* RankRelationshipsDreamViewController.swift */; };
 		851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */; };
 		851B2A451B55F1DC002CDD3B /* ChoiceHeadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */; };
 		851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B2A461B560353002CDD3B /* ChoiceTextField.swift */; };
@@ -77,6 +78,7 @@
 		09D8BA64C78299AB2BBAC47A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1835035F188970F1C0691F5B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		85012C3B1CC8B9CC00774EFB /* AnimalPowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalPowersViewController.swift; path = ViewControllers/AnimalPowersViewController.swift; sourceTree = "<group>"; };
+		85012C3D1CC9296B00774EFB /* RankRelationshipsDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankRelationshipsDreamViewController.swift; path = ViewControllers/RankRelationshipsDreamViewController.swift; sourceTree = "<group>"; };
 		851B2A421B55E92A002CDD3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppearanceViewController.swift; path = ViewControllers/AppearanceViewController.swift; sourceTree = "<group>"; };
 		851B2A441B55F1DC002CDD3B /* ChoiceHeadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceHeadingLabel.swift; path = Views/ChoiceHeadingLabel.swift; sourceTree = "<group>"; };
 		851B2A461B560353002CDD3B /* ChoiceTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTextField.swift; path = Views/ChoiceTextField.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				85CD9CA11CC3706A003AB10C /* SkillsViewController.swift */,
 				85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */,
 				85012C3B1CC8B9CC00774EFB /* AnimalPowersViewController.swift */,
+				85012C3D1CC9296B00774EFB /* RankRelationshipsDreamViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				85429E301B03FA7600846BF1 /* Character.swift in Sources */,
 				85B067471B45B17D00380B70 /* ProgressBarView.swift in Sources */,
 				85B56B041B5059C900F3B735 /* RolePageContentViewController.swift in Sources */,
+				85012C3E1CC9296B00774EFB /* RankRelationshipsDreamViewController.swift in Sources */,
 				85B56B351B542A8900F3B735 /* Skill.swift in Sources */,
 				85B56B1D1B51347300F3B735 /* RoleDescriptionLabel.swift in Sources */,
 				85CD9CA21CC3706A003AB10C /* SkillsViewController.swift in Sources */,

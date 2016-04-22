@@ -61,7 +61,8 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
     // MARK: - Methods
     
     func chooseButtonTapped(sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        let viewController = RankRelationshipsDreamViewController(character: character)
+        navigationController!.pushViewController(viewController, animated: true)
     }
     
     func animalPowerButtonTapped(sender: UITapGestureRecognizer?) {
