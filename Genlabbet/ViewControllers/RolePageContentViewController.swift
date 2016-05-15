@@ -89,7 +89,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     private lazy var headerLabel: UILabel = {
         let headerLabel = UILabel(frame: CGRectZero)
         headerLabel.font = UIFont(name: "Colfax-Regular", size: 22.0)
-        headerLabel.text = self.role.string()
+        headerLabel.text = self.role.string
         headerLabel.textAlignment = .Center
         
         return headerLabel
@@ -99,7 +99,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let descriptionLabel = RoleDescriptionLabel(frame: CGRectZero)
         descriptionLabel.font = UIFont(name: "Colfax-RegularItalic", size: 14.0)
         descriptionLabel.textColor = UIColor.whiteColor()
-        descriptionLabel.text = self.role.description()
+        descriptionLabel.text = self.role.description
         descriptionLabel.setLineSpacing(3.0)
         descriptionLabel.textAlignment = .Center
         descriptionLabel.numberOfLines = 0
@@ -115,7 +115,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         keyAttributeLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
         keyAttributeLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
         
-        let keyAttribute = self.role.keyAttribute().string()
+        let keyAttribute = self.role.keyAttribute.string
         keyAttributeLabel.setText("Bästa grundegenskap: \(keyAttribute)")
         keyAttributeLabel.addLinkToURL(NSURL(string: "info://attribute"), withRange: NSMakeRange(21, keyAttribute.characters.count))
         keyAttributeLabel.delegate = self
@@ -130,7 +130,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         specialistSkillLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
         specialistSkillLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
         
-        let specialistSkill = self.role.specialistSkill().string()
+        let specialistSkill = self.role.specialistSkill.string
         specialistSkillLabel.setText("Specialfärdighet: \(specialistSkill)")
         specialistSkillLabel.addLinkToURL(NSURL(string: "info://skill"), withRange: NSMakeRange(18, specialistSkill.characters.count))
         specialistSkillLabel.delegate = self
@@ -145,7 +145,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         talentsLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
         talentsLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
         
-        let talentNames = self.role.talents().map { $0.string() }
+        let talentNames = self.role.talents.map { $0.string }
         let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
         
         talentsLabel.lineBreakMode = .ByWordWrapping // Must be set before text is set to work
@@ -176,15 +176,15 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         var message = "Ingen text"
         
         if host == "attribute" {
-            title   = role.keyAttribute().string()
-            message = role.keyAttribute().description()
+            title   = role.keyAttribute.string
+            message = role.keyAttribute.description
         } else if host == "skill" {
-            title   = role.specialistSkill().string()
-            message = role.specialistSkill().description()
+            title   = role.specialistSkill.string
+            message = role.specialistSkill.description
         } else if host.hasPrefix("talent") {
             let index = Int("\(host.characters.last!)")!
-            title   = role.talents()[index].string()
-            message = role.talents()[index].description()
+            title   = role.talents[index].string
+            message = role.talents[index].description
         }
         
         UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "Stäng").show()

@@ -31,9 +31,9 @@ enum Talent {
     case Tröstätare
     case Vandrare
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Bågmakare:          return "Bågmakare"
             case .Dödsvisioner:   return "Dödsvisioner"
@@ -65,7 +65,7 @@ enum Talent {
         }
     }
     
-    func description() -> String {
+    var description: String {
         switch self {
             
         case .Bågmakare:

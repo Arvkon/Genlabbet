@@ -9,9 +9,9 @@ enum Role {
     
     static let allValues = [Helare, Jägare, Krigare, Nåjd, Samlare]
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Helare:  return "Helare"
         case .Jägare:  return "Jägare"
@@ -21,7 +21,7 @@ enum Role {
         }
     }
     
-    func definiteFormString() -> String {
+    var definiteFormString: String {
         switch self {
         case .Helare:  return "Helaren"
         case .Jägare:  return "Jägaren"
@@ -31,7 +31,7 @@ enum Role {
         }
     }
     
-    func description() -> String {
+    var description: String {
         switch self {
         case .Helare:
             return "Livet efter undergången är fullt av smärta och lidande. Ditt kall är att lindra plågorna, att ge de brutna chansen att resa sig och kämpa en dag till. Det betyder inte att du själv räds hetluften - tvärtom måste du ofta riskera ditt eget liv för att rädda andras. Du är en helare."
@@ -46,7 +46,7 @@ enum Role {
         }
     }
     
-    func keyAttribute() -> Attribute {
+    var keyAttribute: Attribute {
         switch self {
         case .Helare:  return .Instinct
         case .Jägare:  return .Agility
@@ -56,7 +56,7 @@ enum Role {
         }
     }
     
-    func specialistSkill() -> Skill {
+    var specialistSkill: Skill {
         switch self {
         case .Helare:  return .BryggaDekokt
         case .Jägare:  return .Jaga
@@ -66,7 +66,7 @@ enum Role {
         }
     }
     
-    func talents() -> [Talent] {
+    var talents: [Talent] {
         switch self {
         case .Helare:  return [.Kirurg, .Själavårdare, .Spritkokare]
         case .Jägare:  return [.Bågmakare, .Pälsjägare, .Snärjare]
@@ -76,7 +76,7 @@ enum Role {
         }
     }
     
-    func faceOptions() -> [String] {
+    var faceOptions: [String] {
         switch self {
         case .Helare:
             return ["Vänlig blick", "Frånvarande blick", "Tårögd blick", "Ärrat ansikte", "Stetoskop runt halsen"]
@@ -91,7 +91,7 @@ enum Role {
         }
     }
     
-    func bodyOptions() -> [String] {
+    var bodyOptions: [String] {
         switch self {
         case .Helare:
             return ["Krum hållning", "Spenslig", "Fet", "Kortväxt", "Halt"]
@@ -106,7 +106,7 @@ enum Role {
         }
     }
     
-    func wearOptions() -> [String] {
+    var wearOptions: [String] {
         switch self {
         case .Helare:
             return ["Sliten läkarrock", "Overall", "Bandagerad kroppsdel", "Pannspegel", "Läkarväska"]
@@ -121,7 +121,7 @@ enum Role {
         }
     }
     
-    func rankBonus() -> Int {
+    var rankBonus: Int {
         switch self {
         case .Helare:  return 1
         case .Jägare:  return 0

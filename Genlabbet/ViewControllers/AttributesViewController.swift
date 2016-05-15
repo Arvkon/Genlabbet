@@ -117,10 +117,10 @@ class AttributesViewController: CharacterCreationStepViewController {
         return remainingPointsLabel
     }()
     
-    private let STYHeading = ChoiceHeadingLabel(text: Attribute.Strength.stringWithAbbreviation())
-    private let KYLHeading = ChoiceHeadingLabel(text: Attribute.Agility.stringWithAbbreviation())
-    private let SKPHeading = ChoiceHeadingLabel(text: Attribute.Wits.stringWithAbbreviation())
-    private let INSHeading = ChoiceHeadingLabel(text: Attribute.Instinct.stringWithAbbreviation())
+    private let STYHeading = ChoiceHeadingLabel(text: Attribute.Strength.stringWithAbbreviation)
+    private let KYLHeading = ChoiceHeadingLabel(text: Attribute.Agility.stringWithAbbreviation)
+    private let SKPHeading = ChoiceHeadingLabel(text: Attribute.Wits.stringWithAbbreviation)
+    private let INSHeading = ChoiceHeadingLabel(text: Attribute.Instinct.stringWithAbbreviation)
     
     private let STYInfoLabel = AttributeInfoLabel(attribute: .Strength)
     private let KYLInfoLabel = AttributeInfoLabel(attribute: .Agility)
@@ -138,7 +138,7 @@ class AttributesViewController: CharacterCreationStepViewController {
     private class AttributeInfoLabel: UILabel {
         convenience init(attribute: Attribute) {
             self.init(frame: CGRectZero)
-            text = attribute.description()
+            text = attribute.description
             numberOfLines = 0
         }
     }

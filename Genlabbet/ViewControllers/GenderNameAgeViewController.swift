@@ -130,7 +130,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     private lazy var labNameInfoLabel: UILabel = {
         let labNameInfoLabel = UILabel(frame: CGRectZero)
         if let animalType = self.character.djurtyp {
-            labNameInfoLabel.text = animalType.namingConventionText()
+            labNameInfoLabel.text = animalType.namingConventionText
         }
         labNameInfoLabel.numberOfLines = 0
         
@@ -150,9 +150,9 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     private let XYRadioButton = RadioButtonView(text: "Hane")
     private let XXRadioButton = RadioButtonView(text: "Hona")
     
-    private let youngRadioButton = RadioButtonView(text: Age.Ungdjur.string())
-    private let adultRadioButton = RadioButtonView(text: Age.Mogen.string())
-    private let elderRadioButton = RadioButtonView(text: Age.Äldste.string())
+    private let youngRadioButton = RadioButtonView(text: Age.Ungdjur.string)
+    private let adultRadioButton = RadioButtonView(text: Age.Mogen.string)
+    private let elderRadioButton = RadioButtonView(text: Age.Äldste.string)
     
     // MARK: Text fields & Picker views
     
@@ -279,7 +279,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Properties
     
-    private lazy var labNames: [String] = { return self.character.djurtyp!.exampleNames() }()
+    private lazy var labNames: [String] = { return self.character.djurtyp!.exampleNames }()
     
     private let rebelNames = ["Inget upprorsnamn", "Stortass", "Grönöga", "Snabbtass", "Stor-Klo", "Strävragg", "Fläckpäls"]
     

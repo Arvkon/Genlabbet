@@ -88,11 +88,11 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     
     private lazy var rankBonusLabel: UILabel = {
         let rankBonusLabel = UILabel(frame: CGRectZero)
-        let ageBonusString = "\(self.character.ålder!.string()) +\(self.character.ålder!.rankBonus())"
+        let ageBonusString = "\(self.character.ålder!.string) +\(self.character.ålder!.rankBonus)"
         
-        let roleBonus = self.character.syssla!.rankBonus()
+        let roleBonus = self.character.syssla!.rankBonus
         let numberSign = roleBonus > 0 ? "+" : roleBonus == 0 ? "±" : ""
-        let roleBonusString = "\(self.character.syssla!.string()) \(numberSign)\(roleBonus)"
+        let roleBonusString = "\(self.character.syssla!.string) \(numberSign)\(roleBonus)"
         
         rankBonusLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         rankBonusLabel.text = ageBonusString + ", " + roleBonusString

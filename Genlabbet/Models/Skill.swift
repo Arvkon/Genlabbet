@@ -27,9 +27,9 @@ enum Skill: Int {
     static let allGeneralSkills = [Endure, Force, Fight, Sneak, Move, Shoot, Scout, Comprehend, KnowNature, SenseEmotion, Dominate, Heal]
     static let allValues = [BryggaDekokt, Jaga, Samla, Sia, Skärskåda] + allGeneralSkills
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .BryggaDekokt: return "Brygga dekokt"
         case .Jaga:         return "Jaga"
@@ -52,9 +52,8 @@ enum Skill: Int {
         }
     }
     
-    func description() -> String {
+    var description: String {
         switch self {
-            
         case .BryggaDekokt:
             return "I Paradisdalen finns förunderliga växter. För ett otränat öga ser kanske allt ut som ogräs - men du vet vilka växter som helar och vilka som dödar. Du plockar dem, kokar dem och utvinner de aktiva substanserna."
         case .Jaga:

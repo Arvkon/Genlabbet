@@ -6,9 +6,9 @@ enum Attribute {
     case Strength
     case Wits
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Agility:  return "Kyla"
         case .Instinct: return "Instinkt"
@@ -17,7 +17,7 @@ enum Attribute {
         }
     }
     
-    func abbreviation() -> String {
+    var abbreviation: String {
         switch self {
         case .Agility:  return "KYL"
         case .Instinct: return "INS"
@@ -26,11 +26,11 @@ enum Attribute {
         }
     }
     
-    func stringWithAbbreviation() -> String {
-        return string() + " (" + abbreviation() + ")"
+    var stringWithAbbreviation: String {
+        return string + " (" + abbreviation + ")"
     }
     
-    func description() -> String {
+    var description: String {
         switch self {
         case .Agility:
             return "Kroppskontroll, mentalt fokus och finmotorik. Avgör hur mycket stress du tål. Återhämtas med vatten."

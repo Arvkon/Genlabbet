@@ -4,15 +4,15 @@ class Character {
     var labbnamn: String?
     var upprorsnamn: String?
     var djurtyp: AnimalType? {
-        return art?.animalType()
+        return art?.animalType
     }
     var art: Species?
     var ålder: Age?
     var syssla: Role?
     var rang: Int {
         var rank = 0
-        if let ålder = ålder { rank += ålder.rankBonus() }
-        if let syssla = syssla { rank += syssla.rankBonus() }
+        if let ålder = ålder { rank += ålder.rankBonus }
+        if let syssla = syssla { rank += syssla.rankBonus }
         return rank
     }
     var kön: Gender?
@@ -36,8 +36,8 @@ class Character {
 }
 
 enum Gender {
-    case Hona
     case Hane
+    case Hona
 }
 
 enum Age {
@@ -45,7 +45,7 @@ enum Age {
     case Mogen
     case Äldste
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Ungdjur: return "Ungdjur"
         case .Mogen:   return "Mogen"
@@ -53,7 +53,7 @@ enum Age {
         }
     }
     
-    func skillPoints() -> Int {
+    var skillPoints: Int {
         switch self {
         case .Ungdjur: return 8
         case .Mogen:   return 10
@@ -61,7 +61,7 @@ enum Age {
         }
     }
     
-    func rankBonus() -> Int {
+    var rankBonus: Int {
         switch self {
         case .Ungdjur: return 2
         case .Mogen:   return 4

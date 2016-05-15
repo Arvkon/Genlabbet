@@ -10,9 +10,9 @@ enum AnimalType {
     case Mårddjur
     case Reptil
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Apa:      return "Apa"
         case .Björn:    return "Björn"
@@ -25,7 +25,7 @@ enum AnimalType {
         }
     }
     
-    func pluralDefiniteFormString() -> String {
+    var pluralDefiniteFormString: String {
         switch self {
         case .Apa:      return "Aporna"
         case .Björn:    return "Björnarna"
@@ -38,7 +38,7 @@ enum AnimalType {
         }
     }
     
-    func namingConventionText() -> String {
+    var namingConventionText: String {
         let textEnding = " Efter namnet sätts ett tvåsiffrigt tal."
         
         switch self {
@@ -61,7 +61,7 @@ enum AnimalType {
         }
     }
     
-    func exampleNames() -> [String] {
+    var exampleNames: [String] {
         switch self {
         case .Apa:
             return ["Newton 23", "Curie 88", "Einstein 97", "Bohr 12", "Oppenheimer 51"]
@@ -82,7 +82,7 @@ enum AnimalType {
         }
     }
     
-    func animalPowers() -> [AnimalPower] {
+    var animalPowers: [AnimalPower] {
         switch self {
         case .Apa:
             return [.Hoppförmåga, .Klättrare, .Lurvig, .Löpsnabb, .Stor, .Varningsrop, .Växtätare]

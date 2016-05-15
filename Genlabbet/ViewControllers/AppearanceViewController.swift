@@ -159,9 +159,9 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Properties
     
-    private lazy var faceOptions: [String] = { return self.character.syssla!.faceOptions() }()
-    private lazy var bodyOptions: [String] = { return self.character.syssla!.bodyOptions() }()
-    private lazy var wearOptions: [String] = { return self.character.syssla!.wearOptions() }()
+    private lazy var faceOptions: [String] = { return self.character.syssla!.faceOptions }()
+    private lazy var bodyOptions: [String] = { return self.character.syssla!.bodyOptions }()
+    private lazy var wearOptions: [String] = { return self.character.syssla!.wearOptions }()
     
     // MARK: - UITextFieldDelegate
     

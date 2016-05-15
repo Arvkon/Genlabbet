@@ -47,7 +47,7 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
     // MARK: - Views
     
     private lazy var animalPowersHeading: ChoiceHeadingLabel = {
-        let djurtyp = self.character.djurtyp!.pluralDefiniteFormString()
+        let djurtyp = self.character.djurtyp!.pluralDefiniteFormString
         let animalPowersHeading = ChoiceHeadingLabel(text: "\(djurtyp)s förmågor (välj två)")
         animalPowersHeading.numberOfLines = 2 // For small screens
         
@@ -55,7 +55,7 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
     }()
     
     private lazy var animalPowerViews: [HeadingDescriptionOptionView] = {
-        return self.character.djurtyp!.animalPowers().map { HeadingDescriptionOptionView(animalPower: $0) }
+        return self.character.djurtyp!.animalPowers.map { HeadingDescriptionOptionView(animalPower: $0) }
     }()
     
     // MARK: - Methods

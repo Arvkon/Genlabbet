@@ -22,9 +22,9 @@ enum AnimalPower {
     case Varningsrop
     case Växtätare
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Amfibisk:    return "Amfibisk"
         case .Blixtsnabb:  return "Blixtsnabb"
@@ -49,9 +49,8 @@ enum AnimalPower {
         }
     }
     
-    func description() -> String {
+    var description: String {
         switch self {
-            
         case .Amfibisk:
             return "Du är lika hemma under vattenytan som över den. Denna förmåga har två effekter. Dels kan du hålla andan länge - fem minuter för varje VP du spenderar. Dels kan du spendera VP i stället för att slå tärning när du *slåss* eller *smyger* under vatten - varje VP du spenderar räknas som en [ikon]."
         case .Blixtsnabb:

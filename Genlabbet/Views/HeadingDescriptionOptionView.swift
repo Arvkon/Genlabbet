@@ -35,15 +35,15 @@ class HeadingDescriptionOptionView: UIView {
     convenience init(talent: Talent) {
         self.init(frame: CGRectZero)
         
-        headingLabel.text = talent.string()
-        descriptionLabel.text = talent.description()
+        headingLabel.text = talent.string
+        descriptionLabel.text = talent.description
     }
     
     convenience init(animalPower: AnimalPower) {
         self.init(frame: CGRectZero)
         
-        headingLabel.text = animalPower.string()
-        descriptionLabel.text = animalPower.description()
+        headingLabel.text = animalPower.string
+        descriptionLabel.text = animalPower.description
     }
     
     // MARK: - Subviews

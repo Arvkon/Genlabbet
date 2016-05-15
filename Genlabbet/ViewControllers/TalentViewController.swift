@@ -47,12 +47,12 @@ class TalentViewController: CharacterCreationStepViewController {
     // MARK: - Views
     
     private lazy var talentsHeading: ChoiceHeadingLabel = {
-        let syssla = self.character.syssla!.definiteFormString()
+        let syssla = self.character.syssla!.definiteFormString
         return ChoiceHeadingLabel(text: "\(syssla)s talanger (välj en)")
     }()
     
     private lazy var talentViews: [HeadingDescriptionOptionView] = {
-        return self.character.syssla!.talents().map { HeadingDescriptionOptionView(talent: $0) }
+        return self.character.syssla!.talents.map { HeadingDescriptionOptionView(talent: $0) }
     }()
     
     // MARK: - Methods
@@ -60,7 +60,7 @@ class TalentViewController: CharacterCreationStepViewController {
     func chooseButtonTapped(sender: UIBarButtonItem) {
         for (index, talentView) in talentViews.enumerate() {
             if talentView.selected == true {
-                character.talang = character.syssla!.talents()[index]
+                character.talang = character.syssla!.talents[index]
                 break
             }
         }

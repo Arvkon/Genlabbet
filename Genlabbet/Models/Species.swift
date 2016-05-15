@@ -41,9 +41,9 @@ enum Species {
     case Sköldpadda
     case Ödla
     
-    // MARK: Methods
+    // MARK: Computed Properties
     
-    func string() -> String {
+    var string: String {
         switch self {
         case .Gorilla:    return "Gorilla"
         case .Orangutang: return "Orangutang"
@@ -79,7 +79,7 @@ enum Species {
         }
     }
     
-    func animalType() -> AnimalType {
+    var animalType: AnimalType {
         switch self {
         case .Gorilla, .Orangutang, .Schimpans:  return .Apa
         case .Brunbjörn, .Tvättbjörn:            return .Björn

@@ -47,7 +47,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     private lazy var skillsInfoLabel: UILabel = {
         let skillsInfoLabel = UILabel(frame: CGRectZero)
         skillsInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
-        skillsInfoLabel.text = "Dina färdigheter beskriver vad du har lärt dig under ditt liv i Paradisdalen. Det finns tolv allmänna färdigheter som alla kan använda. Som \(self.character.syssla!.string()) har du även specialfärdigheten \(self.character.syssla!.specialistSkill().string())."
+        skillsInfoLabel.text = "Dina färdigheter beskriver vad du har lärt dig under ditt liv i Paradisdalen. Det finns tolv allmänna färdigheter som alla kan använda. Som \(self.character.syssla!.string) har du även specialfärdigheten \(self.character.syssla!.specialistSkill.string)."
         skillsInfoLabel.numberOfLines = 0
         
         return skillsInfoLabel
@@ -55,7 +55,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     private lazy var remainingPointsLabel: UILabel = {
         let remainingPointsLabel = UILabel(frame: CGRectZero)
-        remainingPointsLabel.text = "Du har \(self.character.ålder!.skillPoints()) poäng att placera ut."
+        remainingPointsLabel.text = "Du har \(self.character.ålder!.skillPoints) poäng att placera ut."
         
         return remainingPointsLabel
     }()
@@ -70,7 +70,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     }()
     
     private lazy var skillLabels: [SkillAttributedLabel] = {
-        var skillLabels = [SkillAttributedLabel(skill: self.character.syssla!.specialistSkill(), delegate: self)]
+        var skillLabels = [SkillAttributedLabel(skill: self.character.syssla!.specialistSkill, delegate: self)]
         for skill in Skill.allGeneralSkills {
             skillLabels.append(SkillAttributedLabel(skill: skill, delegate: self))
         }
@@ -89,8 +89,8 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
             linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
             activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
             
-            setText(skill.string())
-            addLinkToURL(NSURL(string: "skill://\(skill.rawValue)"), withRange: NSMakeRange(0, skill.string().characters.count))
+            setText(skill.string)
+            addLinkToURL(NSURL(string: "skill://\(skill.rawValue)"), withRange: NSMakeRange(0, skill.string.characters.count))
         }
     }
     
@@ -117,7 +117,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
         guard url.scheme == "skill" else { return }
         guard let host = url.host, rawValue = Int(host), skill = Skill(rawValue: rawValue) else { return }
         
-        UIAlertView(title: skill.string(), message: skill.description(), delegate: nil, cancelButtonTitle: "Stäng").show()
+        UIAlertView(title: skill.string, message: skill.description, delegate: nil, cancelButtonTitle: "Stäng").show()
     }
 }
 
