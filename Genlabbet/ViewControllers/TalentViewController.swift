@@ -8,8 +8,8 @@ class TalentViewController: CharacterCreationStepViewController {
         
         title = "Talang"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem!.isEnabled = false
         
         // Layout
         
@@ -30,7 +30,7 @@ class TalentViewController: CharacterCreationStepViewController {
                 talent.centerX == talent.superview!.centerX
             }
             constrain(talentView) { talent in
-                talent.height == talentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+                talent.height == talentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             }
             previousView = talentView
         }
@@ -46,19 +46,19 @@ class TalentViewController: CharacterCreationStepViewController {
     
     // MARK: - Views
     
-    private lazy var talentsHeading: ChoiceHeadingLabel = {
+    fileprivate lazy var talentsHeading: ChoiceHeadingLabel = {
         let syssla = self.character.syssla!.definiteFormString
         return ChoiceHeadingLabel(text: "\(syssla)s talanger (välj en)")
     }()
     
-    private lazy var talentViews: [HeadingDescriptionOptionView] = {
+    fileprivate lazy var talentViews: [HeadingDescriptionOptionView] = {
         return self.character.syssla!.talents.map { HeadingDescriptionOptionView(talent: $0) }
     }()
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
-        for (index, talentView) in talentViews.enumerate() {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+        for (index, talentView) in talentViews.enumerated() {
             if talentView.selected == true {
                 character.talang = character.syssla!.talents[index]
                 break
@@ -68,17 +68,17 @@ class TalentViewController: CharacterCreationStepViewController {
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    func talentButtonTapped(sender: UITapGestureRecognizer?) {
+    func talentButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedTalentView = sender?.view as? HeadingDescriptionOptionView else { return }
         
         for talentView in talentViews {
             talentView.selected = talentView == tappedTalentView
         }
         
-        navigationItem.rightBarButtonItem!.enabled = true
+        navigationItem.rightBarButtonItem!.isEnabled = true
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(talentsHeading)
         
         for talentView in talentViews {

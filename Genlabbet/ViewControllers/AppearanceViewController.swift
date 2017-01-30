@@ -9,8 +9,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         
         title = "Utseende"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem!.isEnabled = false
         
         // Layout
         
@@ -63,8 +63,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Views
     
-    private lazy var skipCreationStepLabel: SkipCreationStepLabel = {
-        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRectZero)
+    fileprivate lazy var skipCreationStepLabel: SkipCreationStepLabel = {
+        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRect.zero)
         skipCreationStepLabel.linkAction = { () -> Void in
             let viewController = GenderNameAgeViewController(character: self.character)
             self.navigationController!.pushViewController(viewController, animated: true)
@@ -75,30 +75,30 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: Heading labels
     
-    private let faceLabel = ChoiceHeadingLabel(text: "Ansikte")
-    private let bodyLabel = ChoiceHeadingLabel(text: "Kropp")
-    private let wearLabel = ChoiceHeadingLabel(text: "Klädsel")
+    fileprivate let faceLabel = ChoiceHeadingLabel(text: "Ansikte")
+    fileprivate let bodyLabel = ChoiceHeadingLabel(text: "Kropp")
+    fileprivate let wearLabel = ChoiceHeadingLabel(text: "Klädsel")
     
     // MARK: Text fields
     
-    private lazy var faceTextField: ChoiceTextField = {
-        let faceTextField = ChoiceTextField(frame: CGRectZero)
+    fileprivate lazy var faceTextField: ChoiceTextField = {
+        let faceTextField = ChoiceTextField(frame: CGRect.zero)
         faceTextField.inputView = self.facePickerView
         faceTextField.delegate = self
         
         return faceTextField
     }()
     
-    private lazy var bodyTextField: ChoiceTextField = {
-        let bodyTextField = ChoiceTextField(frame: CGRectZero)
+    fileprivate lazy var bodyTextField: ChoiceTextField = {
+        let bodyTextField = ChoiceTextField(frame: CGRect.zero)
         bodyTextField.inputView = self.bodyPickerView
         bodyTextField.delegate = self
         
         return bodyTextField
     }()
     
-    private lazy var wearTextField: ChoiceTextField = {
-        let wearTextField = ChoiceTextField(frame: CGRectZero)
+    fileprivate lazy var wearTextField: ChoiceTextField = {
+        let wearTextField = ChoiceTextField(frame: CGRect.zero)
         wearTextField.inputView = self.wearPickerView
         wearTextField.delegate = self
         
@@ -107,8 +107,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: Picker views
     
-    private lazy var facePickerView: UIPickerView = {
-        let facePickerView = UIPickerView(frame: CGRectZero)
+    fileprivate lazy var facePickerView: UIPickerView = {
+        let facePickerView = UIPickerView(frame: CGRect.zero)
         facePickerView.backgroundColor = UIColor("f8f8f8")
         facePickerView.dataSource = self
         facePickerView.delegate = self
@@ -116,8 +116,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         return facePickerView
     }()
     
-    private lazy var bodyPickerView: UIPickerView = {
-        let bodyPickerView = UIPickerView(frame: CGRectZero)
+    fileprivate lazy var bodyPickerView: UIPickerView = {
+        let bodyPickerView = UIPickerView(frame: CGRect.zero)
         bodyPickerView.backgroundColor = UIColor("f8f8f8")
         bodyPickerView.dataSource = self
         bodyPickerView.delegate = self
@@ -125,8 +125,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         return bodyPickerView
     }()
     
-    private lazy var wearPickerView: UIPickerView = {
-        let wearPickerView = UIPickerView(frame: CGRectZero)
+    fileprivate lazy var wearPickerView: UIPickerView = {
+        let wearPickerView = UIPickerView(frame: CGRect.zero)
         wearPickerView.backgroundColor = UIColor("f8f8f8")
         wearPickerView.dataSource = self
         wearPickerView.delegate = self
@@ -136,7 +136,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         character.ansikte = faceTextField.text
         character.kropp   = bodyTextField.text
         character.kläder  = wearTextField.text
@@ -145,7 +145,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    private func allTextFieldsContainText() -> Bool {
+    fileprivate func allTextFieldsContainText() -> Bool {
         guard let faceText = faceTextField.text else { return false }
         guard let bodyText = bodyTextField.text else { return false }
         guard let wearText = wearTextField.text else { return false }
@@ -159,13 +159,13 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Properties
     
-    private lazy var faceOptions: [String] = { return self.character.syssla!.faceOptions }()
-    private lazy var bodyOptions: [String] = { return self.character.syssla!.bodyOptions }()
-    private lazy var wearOptions: [String] = { return self.character.syssla!.wearOptions }()
+    fileprivate lazy var faceOptions: [String] = { return self.character.syssla!.faceOptions }()
+    fileprivate lazy var bodyOptions: [String] = { return self.character.syssla!.bodyOptions }()
+    fileprivate lazy var wearOptions: [String] = { return self.character.syssla!.wearOptions }()
     
     // MARK: - UITextFieldDelegate
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField === faceTextField && faceTextField.text!.isEmpty {
             faceTextField.text = faceOptions.first
         } else if textField === bodyTextField && bodyTextField.text!.isEmpty {
@@ -174,12 +174,12 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
             wearTextField.text = wearOptions.first
         }
         
-        navigationItem.rightBarButtonItem!.enabled = allTextFieldsContainText()
+        navigationItem.rightBarButtonItem!.isEnabled = allTextFieldsContainText()
     }
     
     // MARK: - UIPickerViewDelegate
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView === facePickerView {
             return faceOptions[row]
         } else if pickerView === bodyPickerView {
@@ -189,7 +189,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         }
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView === facePickerView {
             faceTextField.text = faceOptions[row]
         } else if pickerView === bodyPickerView {
@@ -201,11 +201,11 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - UIPickerViewDataSource
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView === facePickerView {
             return faceOptions.count
         } else if pickerView === bodyPickerView {

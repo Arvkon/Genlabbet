@@ -8,7 +8,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
         
         title = "Rang, relationer och dröm"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
         
         // Layout
         
@@ -56,8 +56,8 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     
     // MARK: - Views
     
-    private lazy var skipCreationStepLabel: SkipCreationStepLabel = {
-        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRectZero)
+    fileprivate lazy var skipCreationStepLabel: SkipCreationStepLabel = {
+        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRect.zero)
         skipCreationStepLabel.linkAction = { () -> Void in
             UIAlertView(title: "Not implemented yet", message: "Did press skip button.", delegate: nil, cancelButtonTitle: "Stäng").show()
         }
@@ -65,8 +65,8 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
         return skipCreationStepLabel
     }()
     
-    private lazy var rankInfoLabel: UILabel = {
-        let rankInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var rankInfoLabel: UILabel = {
+        let rankInfoLabel = UILabel(frame: CGRect.zero)
         rankInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
         rankInfoLabel.text = "En sak som skiljer människomutanter från djur är den strikta rangordningen i klanen. Att veta vem som är över dig och vem som är under dig i hackordningen är en självklar del av livet. Din rang är ett siffervärde från noll och uppåt. Rangen används i sociala konflikter mot andra djurmutanter."
         rankInfoLabel.numberOfLines = 0
@@ -74,20 +74,20 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
         return rankInfoLabel
     }()
     
-    private lazy var rankValueLabel: UILabel = {
-        let rankValueLabel = UILabel(frame: CGRectZero)
-        let fontAttribute  = [NSFontAttributeName: UIFont.systemFontOfSize(19.0)]
+    fileprivate lazy var rankValueLabel: UILabel = {
+        let rankValueLabel = UILabel(frame: CGRect.zero)
+        let fontAttribute  = [NSFontAttributeName: UIFont.systemFont(ofSize: 19.0)]
         let attributedText = NSMutableAttributedString(string: "Du har \(self.character.rang) i rang", attributes: fontAttribute)
         
-        let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(22.0)]
+        let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 22.0)]
         attributedText.addAttributes(boldFontAttribute, range: NSRange(location: 7, length: 1))
         rankValueLabel.attributedText = attributedText
         
         return rankValueLabel
     }()
     
-    private lazy var rankBonusLabel: UILabel = {
-        let rankBonusLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var rankBonusLabel: UILabel = {
+        let rankBonusLabel = UILabel(frame: CGRect.zero)
         let ageBonusString = "\(self.character.ålder!.string) +\(self.character.ålder!.rankBonus)"
         
         let roleBonus = self.character.syssla!.rankBonus
@@ -96,7 +96,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
         
         rankBonusLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         rankBonusLabel.text = ageBonusString + ", " + roleBonusString
-        rankBonusLabel.textAlignment = .Center
+        rankBonusLabel.textAlignment = .center
         
         return rankBonusLabel
     }()
@@ -108,11 +108,11 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(skipCreationStepLabel)
         contentView.addSubview(rankHeading)
         contentView.addSubview(rankInfoLabel)

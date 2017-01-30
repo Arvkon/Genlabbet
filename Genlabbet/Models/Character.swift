@@ -36,36 +36,36 @@ class Character {
 }
 
 enum Gender {
-    case Hane
-    case Hona
+    case hane
+    case hona
 }
 
 enum Age {
-    case Ungdjur
-    case Mogen
-    case Äldste
+    case ungdjur
+    case mogen
+    case äldste
     
     var string: String {
         switch self {
-        case .Ungdjur: return "Ungdjur"
-        case .Mogen:   return "Mogen"
-        case .Äldste:  return "Äldste"
+        case .ungdjur: return "Ungdjur"
+        case .mogen:   return "Mogen"
+        case .äldste:  return "Äldste"
         }
     }
     
     var skillPoints: Int {
         switch self {
-        case .Ungdjur: return 8
-        case .Mogen:   return 10
-        case .Äldste:  return 12
+        case .ungdjur: return 8
+        case .mogen:   return 10
+        case .äldste:  return 12
         }
     }
     
     var rankBonus: Int {
         switch self {
-        case .Ungdjur: return 2
-        case .Mogen:   return 4
-        case .Äldste:  return 6
+        case .ungdjur: return 2
+        case .mogen:   return 4
+        case .äldste:  return 6
         }
     }
 }

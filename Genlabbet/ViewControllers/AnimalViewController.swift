@@ -10,8 +10,8 @@ class AnimalViewController: CharacterCreationStepViewController {
         title = "Djurtyp och art"
         
         let closeButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 18.0, height: 18.0))
-        closeButton.setImage(UIImage(named: "NavbarCloseButton"), forState: .Normal)
-        closeButton.addTarget(self, action: .closeButtonTapped, forControlEvents: .TouchUpInside)
+        closeButton.setImage(UIImage(named: "NavbarCloseButton"), for: .normal)
+        closeButton.addTarget(self, action: .closeButtonTapped, for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeButton)
         
         // Layout
@@ -80,33 +80,33 @@ class AnimalViewController: CharacterCreationStepViewController {
     
     // MARK: - Views
     
-    private let primateOptionView    = AnimalTypeOptionView(animalType: .Apa)
-    private let ursidaeOptionView    = AnimalTypeOptionView(animalType: .Björn)
-    private let rodentiaOptionView   = AnimalTypeOptionView(animalType: .Gnagare)
-    private let leporidaeOptionView  = AnimalTypeOptionView(animalType: .Hardjur)
-    private let canidaeOptionView    = AnimalTypeOptionView(animalType: .Hunddjur)
-    private let felidaeOptionView    = AnimalTypeOptionView(animalType: .Kattdjur)
-    private let mustelidaeOptionView = AnimalTypeOptionView(animalType: .Mårddjur)
-    private let reptiliaOptionView   = AnimalTypeOptionView(animalType: .Reptil)
+    fileprivate let primateOptionView    = AnimalTypeOptionView(animalType: .apa)
+    fileprivate let ursidaeOptionView    = AnimalTypeOptionView(animalType: .björn)
+    fileprivate let rodentiaOptionView   = AnimalTypeOptionView(animalType: .gnagare)
+    fileprivate let leporidaeOptionView  = AnimalTypeOptionView(animalType: .hardjur)
+    fileprivate let canidaeOptionView    = AnimalTypeOptionView(animalType: .hunddjur)
+    fileprivate let felidaeOptionView    = AnimalTypeOptionView(animalType: .kattdjur)
+    fileprivate let mustelidaeOptionView = AnimalTypeOptionView(animalType: .mårddjur)
+    fileprivate let reptiliaOptionView   = AnimalTypeOptionView(animalType: .reptil)
     
     // MARK: - Methods
     
-    func closeButtonTapped(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func closeButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func optionViewTapped(sender: UITapGestureRecognizer) {
+    func optionViewTapped(_ sender: UITapGestureRecognizer) {
         guard let optionView = sender.view as? AnimalTypeOptionView else { return }
         
         optionView.select()
         
-        let actionSheet = PSTAlertController(title: nil, message: "Välj art", preferredStyle: .ActionSheet)
+        let actionSheet = PSTAlertController(title: nil, message: "Välj art", preferredStyle: .actionSheet)
         let deselectAction = { (action: PSTAlertAction!) -> Void in optionView.deselect() }
-        actionSheet.addAction(PSTAlertAction(title: "Välj annan djurtyp", style: .Cancel, handler: deselectAction))
+        actionSheet.addAction(PSTAlertAction(title: "Välj annan djurtyp", style: .cancel, handler: deselectAction))
         
         // Helper function
-        func createPSTAlertActionForSpecies(species: Species) -> PSTAlertAction {
-            return PSTAlertAction(title: species.string, style: .Default) { (action: PSTAlertAction!) -> Void in
+        func createPSTAlertActionForSpecies(_ species: Species) -> PSTAlertAction {
+            return PSTAlertAction(title: species.string, style: .default) { (action: PSTAlertAction!) -> Void in
                 self.character.art = species
                 let viewController = RoleViewController(character: self.character)
                 self.navigationController!.pushViewController(viewController, animated: true)
@@ -114,51 +114,51 @@ class AnimalViewController: CharacterCreationStepViewController {
         }
         
         switch optionView.animalType {
-        case .Apa:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Gorilla))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Orangutang))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Schimpans))
+        case .apa:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.gorilla))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.orangutang))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.schimpans))
             
-        case .Björn:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Brunbjörn))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Tvättbjörn))
+        case .björn:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.brunbjörn))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.tvättbjörn))
             
-        case .Gnagare:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Hamster))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Mus))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Råtta))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Sork))
+        case .gnagare:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.hamster))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.mus))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.råtta))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.sork))
             
-        case .Hardjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Hare))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Kanin))
+        case .hardjur:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.hare))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.kanin))
             
-        case .Hunddjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Hund))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Räv))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Varg))
+        case .hunddjur:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.hund))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.räv))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.varg))
             
-        case .Kattdjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Katt))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Lodjur))
+        case .kattdjur:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.katt))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.lodjur))
             
-        case .Mårddjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Grävling))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Järv))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Mård))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Vessla))
+        case .mårddjur:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.grävling))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.järv))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.mård))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.vessla))
             
-        case .Reptil:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Groda))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Padda))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Sköldpadda))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.Ödla))
+        case .reptil:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.groda))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.padda))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.sköldpadda))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.ödla))
         }
         
         actionSheet.showWithSender(nil, controller: self, animated: true, completion: nil)
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(primateOptionView)
         contentView.addSubview(ursidaeOptionView)
         contentView.addSubview(rodentiaOptionView)
@@ -169,7 +169,7 @@ class AnimalViewController: CharacterCreationStepViewController {
         contentView.addSubview(reptiliaOptionView)
     }
     
-    private func addGestureRecognizersToOptionViews() {
+    fileprivate func addGestureRecognizersToOptionViews() {
         primateOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
         ursidaeOptionView.addGestureRecognizer(UITapGestureRecognizer(target:    self, action: .optionViewTapped))
         rodentiaOptionView.addGestureRecognizer(UITapGestureRecognizer(target:   self, action: .optionViewTapped))

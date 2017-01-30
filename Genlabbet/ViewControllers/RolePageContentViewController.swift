@@ -69,98 +69,98 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         scrollView.contentSize = scrollView.totalContentSize(addedHeight: 10.0)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(1.2, animations: { () -> Void in
-            self.descriptionLabel.layer.backgroundColor = UIColor.brownColor().CGColor
+        UIView.animate(withDuration: 1.2, animations: { () -> Void in
+            self.descriptionLabel.layer.backgroundColor = UIColor.brown.cgColor
         })
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        descriptionLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
+        descriptionLabel.layer.backgroundColor = UIColor.white.cgColor
     }
     
     // MARK: - Views
     
-    private let scrollView = UIScrollView(frame: CGRectZero)
+    fileprivate let scrollView = UIScrollView(frame: CGRect.zero)
     
-    private lazy var headerLabel: UILabel = {
-        let headerLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var headerLabel: UILabel = {
+        let headerLabel = UILabel(frame: CGRect.zero)
         headerLabel.font = UIFont(name: "Colfax-Regular", size: 22.0)
         headerLabel.text = self.role.string
-        headerLabel.textAlignment = .Center
+        headerLabel.textAlignment = .center
         
         return headerLabel
     }()
     
-    private lazy var descriptionLabel: RoleDescriptionLabel = {
-        let descriptionLabel = RoleDescriptionLabel(frame: CGRectZero)
+    fileprivate lazy var descriptionLabel: RoleDescriptionLabel = {
+        let descriptionLabel = RoleDescriptionLabel(frame: CGRect.zero)
         descriptionLabel.font = UIFont(name: "Colfax-RegularItalic", size: 14.0)
-        descriptionLabel.textColor = UIColor.whiteColor()
+        descriptionLabel.textColor = UIColor.white
         descriptionLabel.text = self.role.description
         descriptionLabel.setLineSpacing(3.0)
-        descriptionLabel.textAlignment = .Center
+        descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
         descriptionLabel.edgeInsets = UIEdgeInsets(top: 15.0, left: 10.0, bottom: 15.0, right: 10.0)
         
         return descriptionLabel
     }()
     
-    private lazy var keyAttributeLabel: TTTAttributedLabel = {
-        let keyAttributeLabel = TTTAttributedLabel(frame: CGRectZero)
+    fileprivate lazy var keyAttributeLabel: TTTAttributedLabel = {
+        let keyAttributeLabel = TTTAttributedLabel(frame: CGRect.zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        keyAttributeLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
-        keyAttributeLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
+        keyAttributeLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
+        keyAttributeLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
         
         let keyAttribute = self.role.keyAttribute.string
         keyAttributeLabel.setText("Bästa grundegenskap: \(keyAttribute)")
-        keyAttributeLabel.addLinkToURL(NSURL(string: "info://attribute"), withRange: NSMakeRange(21, keyAttribute.characters.count))
+        keyAttributeLabel.addLink(to: URL(string: "info://attribute"), with: NSMakeRange(21, keyAttribute.characters.count))
         keyAttributeLabel.delegate = self
         
         return keyAttributeLabel
     }()
     
-    private lazy var specialistSkillLabel: TTTAttributedLabel = {
-        let specialistSkillLabel = TTTAttributedLabel(frame: CGRectZero)
+    fileprivate lazy var specialistSkillLabel: TTTAttributedLabel = {
+        let specialistSkillLabel = TTTAttributedLabel(frame: CGRect.zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        specialistSkillLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
-        specialistSkillLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
+        specialistSkillLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
+        specialistSkillLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
         
         let specialistSkill = self.role.specialistSkill.string
         specialistSkillLabel.setText("Specialfärdighet: \(specialistSkill)")
-        specialistSkillLabel.addLinkToURL(NSURL(string: "info://skill"), withRange: NSMakeRange(18, specialistSkill.characters.count))
+        specialistSkillLabel.addLink(to: URL(string: "info://skill"), with: NSMakeRange(18, specialistSkill.characters.count))
         specialistSkillLabel.delegate = self
         
         return specialistSkillLabel
     }()
     
-    private lazy var talentsLabel: TTTAttributedLabel = {
-        let talentsLabel = TTTAttributedLabel(frame: CGRectZero)
+    fileprivate lazy var talentsLabel: TTTAttributedLabel = {
+        let talentsLabel = TTTAttributedLabel(frame: CGRect.zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        talentsLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
-        talentsLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
+        talentsLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
+        talentsLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
         
         let talentNames = self.role.talents.map { $0.string }
         let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
         
-        talentsLabel.lineBreakMode = .ByWordWrapping // Must be set before text is set to work
+        talentsLabel.lineBreakMode = .byWordWrapping // Must be set before text is set to work
         talentsLabel.numberOfLines = 0
         talentsLabel.setText("Talanger: \(talentNames[0]), \(talentNames[1]), \(talentNames[2])")
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent0"), withRange: NSMakeRange(talentStart[0], talentNames[0].characters.count))
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent1"), withRange: NSMakeRange(talentStart[1], talentNames[1].characters.count))
-        talentsLabel.addLinkToURL(NSURL(string: "info://talent2"), withRange: NSMakeRange(talentStart[2], talentNames[2].characters.count))
+        talentsLabel.addLink(to: URL(string: "info://talent0"), with: NSMakeRange(talentStart[0], talentNames[0].characters.count))
+        talentsLabel.addLink(to: URL(string: "info://talent1"), with: NSMakeRange(talentStart[1], talentNames[1].characters.count))
+        talentsLabel.addLink(to: URL(string: "info://talent2"), with: NSMakeRange(talentStart[2], talentNames[2].characters.count))
         talentsLabel.delegate = self
         
         return talentsLabel
     }()
     
     // TODO: Choose image based on self.role
-    private let imageView = UIImageView(image: UIImage(named: "Krigare"))
+    fileprivate let imageView = UIImageView(image: UIImage(named: "Krigare"))
     
     // MARK: - Properties
     
@@ -169,8 +169,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     
     // MARK: - TTTAttributedLabelDelegate
     
-    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        guard let host = url.host where url.scheme == "info" else { return }
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        guard let host = url.host, url.scheme == "info" else { return }
         
         var title = "Ingen titel"
         var message = "Ingen text"

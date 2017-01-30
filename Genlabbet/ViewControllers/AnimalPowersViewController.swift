@@ -8,8 +8,8 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
         
         title = "Djurförmågor"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem!.isEnabled = false
         
         // Layout
         
@@ -30,7 +30,7 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
                 animalPower.centerX == animalPower.superview!.centerX
             }
             constrain(animalPowerView) { animalPower in
-                animalPower.height == animalPowerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+                animalPower.height == animalPowerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             }
             previousView = animalPowerView
         }
@@ -46,7 +46,7 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
     
     // MARK: - Views
     
-    private lazy var animalPowersHeading: ChoiceHeadingLabel = {
+    fileprivate lazy var animalPowersHeading: ChoiceHeadingLabel = {
         let djurtyp = self.character.djurtyp!.pluralDefiniteFormString
         let animalPowersHeading = ChoiceHeadingLabel(text: "\(djurtyp)s förmågor (välj två)")
         animalPowersHeading.numberOfLines = 2 // For small screens
@@ -54,31 +54,31 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
         return animalPowersHeading
     }()
     
-    private lazy var animalPowerViews: [HeadingDescriptionOptionView] = {
+    fileprivate lazy var animalPowerViews: [HeadingDescriptionOptionView] = {
         return self.character.djurtyp!.animalPowers.map { HeadingDescriptionOptionView(animalPower: $0) }
     }()
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         let viewController = RankRelationshipsDreamViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    func animalPowerButtonTapped(sender: UITapGestureRecognizer?) {
+    func animalPowerButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedAnimalPowerView = sender?.view as? HeadingDescriptionOptionView else { return }
         
         if tappedAnimalPowerView.selected == true {
             tappedAnimalPowerView.selected = false
-            navigationItem.rightBarButtonItem!.enabled = false
+            navigationItem.rightBarButtonItem!.isEnabled = false
         } else {
             let powersPickedAlready = animalPowerViews.filter({ $0.selected == true }).count
-            navigationItem.rightBarButtonItem!.enabled = powersPickedAlready > 0
+            navigationItem.rightBarButtonItem!.isEnabled = powersPickedAlready > 0
             tappedAnimalPowerView.selected = powersPickedAlready < 2
         }
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(animalPowersHeading)
         
         for animalPowerView in animalPowerViews {

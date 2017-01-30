@@ -11,7 +11,7 @@ class RadioButtonView: UIView {
     }
     
     init(text labelText: String) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         
         label.text = labelText
         
@@ -32,10 +32,10 @@ class RadioButtonView: UIView {
     
     // MARK: - Subviews
     
-    private let imageView = UIImageView(image: UIImage(named: "RadioButtonUnselected"))
+    fileprivate let imageView = UIImageView(image: UIImage(named: "RadioButtonUnselected"))
     
-    private lazy var label: UILabel = {
-        let label = UILabel(frame: CGRectZero)
+    fileprivate lazy var label: UILabel = {
+        let label = UILabel(frame: CGRect.zero)
         label.textColor = UIColor("91969d")
         label.font = self.labelFont
         
@@ -45,14 +45,14 @@ class RadioButtonView: UIView {
     // MARK: - Methods
     
     func intrinsicWidth() -> CGFloat {
-        return min(label.intrinsicWidth() + spacing + imageSide, UIScreen.mainScreen().bounds.width)
+        return min(label.intrinsicWidth() + spacing + imageSide, UIScreen.main.bounds.width)
     }
     
     // MARK: - Properties
     
-    private let spacing   = 10.0 as CGFloat
-    private let imageSide = 18.0 as CGFloat
-    private let labelFont = UIFont(name: "HelveticaNeue-Light", size: 16.0)!
+    fileprivate let spacing   = 10.0 as CGFloat
+    fileprivate let imageSide = 18.0 as CGFloat
+    fileprivate let labelFont = UIFont(name: "HelveticaNeue-Light", size: 16.0)!
     
     var selected = false {
         didSet {

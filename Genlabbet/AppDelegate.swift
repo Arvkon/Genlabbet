@@ -5,9 +5,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Initiate Window
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         
         setupAppAppearance()
         
@@ -20,17 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    private func setupAppAppearance() {
-        window!.backgroundColor = UIColor.whiteColor()
+    fileprivate func setupAppAppearance() {
+        window!.backgroundColor = UIColor.white
         
         // Navigation bar title
         if let titleFont = UIFont(name: "Colfax-Regular", size: 17.0) {
-            let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: UIColor.blackColor()]
+            let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: UIColor.black]
             UINavigationBar.appearance().titleTextAttributes = attributes
         }
         
         // Back button image
-        let backButtonImage = UIImage(named: "NavbarBackButton")!.imageWithRenderingMode(.AlwaysOriginal)
+        let backButtonImage = UIImage(named: "NavbarBackButton")!.withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorImage = backButtonImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
     }

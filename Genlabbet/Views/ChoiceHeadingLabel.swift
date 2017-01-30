@@ -9,7 +9,7 @@ class ChoiceHeadingLabel: UILabel {
     }
     
     init(text labelText: String) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         
         font = UIFont(name: "Colfax-Regular", size: 22.0)
         text = labelText

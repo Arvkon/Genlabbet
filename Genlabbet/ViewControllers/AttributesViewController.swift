@@ -8,17 +8,17 @@ class AttributesViewController: CharacterCreationStepViewController {
         
         title = "Grundegenskaper"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
         
         // Layout
         
         populateContentView()
         
         // Dummy content
-        STYDistributionView.backgroundColor = UIColor.redColor()
-        KYLDistributionView.backgroundColor = UIColor.blueColor()
-        SKPDistributionView.backgroundColor = UIColor.greenColor()
-        INSDistributionView.backgroundColor = UIColor.orangeColor()
+        STYDistributionView.backgroundColor = UIColor.red
+        KYLDistributionView.backgroundColor = UIColor.blue
+        SKPDistributionView.backgroundColor = UIColor.green
+        INSDistributionView.backgroundColor = UIColor.orange
         
         let topSpacing = 10.0 as CGFloat
         let distributionViewHeight = 40.0 as CGFloat
@@ -101,8 +101,8 @@ class AttributesViewController: CharacterCreationStepViewController {
     
     // MARK: - Views
     
-    private lazy var attributesInfoLabel: UILabel = {
-        let attributesInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var attributesInfoLabel: UILabel = {
+        let attributesInfoLabel = UILabel(frame: CGRect.zero)
         attributesInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
         attributesInfoLabel.text = "De fyra grundegenskaperna visar dina grundläggande fysiska och mentala förutsättningar. De mäts på en skala från 1 till 5, där högre är bättre."
         attributesInfoLabel.numberOfLines = 0
@@ -110,34 +110,34 @@ class AttributesViewController: CharacterCreationStepViewController {
         return attributesInfoLabel
     }()
     
-    private lazy var remainingPointsLabel: UILabel = {
-        let remainingPointsLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var remainingPointsLabel: UILabel = {
+        let remainingPointsLabel = UILabel(frame: CGRect.zero)
         remainingPointsLabel.text = "Du har 6 poäng att placera ut."
         
         return remainingPointsLabel
     }()
     
-    private let STYHeading = ChoiceHeadingLabel(text: Attribute.Strength.stringWithAbbreviation)
-    private let KYLHeading = ChoiceHeadingLabel(text: Attribute.Agility.stringWithAbbreviation)
-    private let SKPHeading = ChoiceHeadingLabel(text: Attribute.Wits.stringWithAbbreviation)
-    private let INSHeading = ChoiceHeadingLabel(text: Attribute.Instinct.stringWithAbbreviation)
+    fileprivate let STYHeading = ChoiceHeadingLabel(text: Attribute.strength.stringWithAbbreviation)
+    fileprivate let KYLHeading = ChoiceHeadingLabel(text: Attribute.agility.stringWithAbbreviation)
+    fileprivate let SKPHeading = ChoiceHeadingLabel(text: Attribute.wits.stringWithAbbreviation)
+    fileprivate let INSHeading = ChoiceHeadingLabel(text: Attribute.instinct.stringWithAbbreviation)
     
-    private let STYInfoLabel = AttributeInfoLabel(attribute: .Strength)
-    private let KYLInfoLabel = AttributeInfoLabel(attribute: .Agility)
-    private let SKPInfoLabel = AttributeInfoLabel(attribute: .Wits)
-    private let INSInfoLabel = AttributeInfoLabel(attribute: .Instinct)
+    fileprivate let STYInfoLabel = AttributeInfoLabel(attribute: .strength)
+    fileprivate let KYLInfoLabel = AttributeInfoLabel(attribute: .agility)
+    fileprivate let SKPInfoLabel = AttributeInfoLabel(attribute: .wits)
+    fileprivate let INSInfoLabel = AttributeInfoLabel(attribute: .instinct)
     
     // Dummy views
-    private let STYDistributionView = UIView(frame: CGRectZero)
-    private let KYLDistributionView = UIView(frame: CGRectZero)
-    private let SKPDistributionView = UIView(frame: CGRectZero)
-    private let INSDistributionView = UIView(frame: CGRectZero)
+    fileprivate let STYDistributionView = UIView(frame: CGRect.zero)
+    fileprivate let KYLDistributionView = UIView(frame: CGRect.zero)
+    fileprivate let SKPDistributionView = UIView(frame: CGRect.zero)
+    fileprivate let INSDistributionView = UIView(frame: CGRect.zero)
     
     // MARK: AttributeInfoLabel
     
-    private class AttributeInfoLabel: UILabel {
+    fileprivate class AttributeInfoLabel: UILabel {
         convenience init(attribute: Attribute) {
-            self.init(frame: CGRectZero)
+            self.init(frame: CGRect.zero)
             text = attribute.description
             numberOfLines = 0
         }
@@ -145,12 +145,12 @@ class AttributesViewController: CharacterCreationStepViewController {
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         let viewController = SkillsViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(attributesInfoLabel)
         contentView.addSubview(remainingPointsLabel)
         

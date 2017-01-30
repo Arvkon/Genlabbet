@@ -8,14 +8,14 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
         
         title = "Syssla"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
         
         // Layout
         
         contentView.addSubview(pageControl)
         contentView.addSubview(pageViewController.view)
         
-        let statusBarHeight   = UIApplication.sharedApplication().statusBarFrame.height
+        let statusBarHeight   = UIApplication.shared.statusBarFrame.height
         let navigationHeight  = navigationController!.navigationBar.frame.height
         let progressBarHeight = progressBar.frame.height
         
@@ -35,47 +35,47 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
             pageDisplay.centerX == pageDisplay.superview!.centerX
         }
         
-        contentView.scrollEnabled = false
+        contentView.isScrollEnabled = false
     }
     
     // MARK: - Views
     
-    private lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRectZero)
+    fileprivate lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl(frame: CGRect.zero)
         pageControl.numberOfPages = 5
         pageControl.currentPage = 0
-        pageControl.userInteractionEnabled = false
+        pageControl.isUserInteractionEnabled = false
         
-        pageControl.backgroundColor = UIColor.whiteColor()
-        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
-        pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
+        pageControl.backgroundColor = UIColor.white
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
         
         return pageControl
     }()
     
     // MARK: - Properties
     
-    private lazy var pageViewController: UIPageViewController = {
-        let pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
-        pageViewController.setViewControllers([self.viewControllerAtIndex(0)!], direction: .Forward, animated: false, completion: nil)
+    fileprivate lazy var pageViewController: UIPageViewController = {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        pageViewController.setViewControllers([self.viewControllerAtIndex(0)!], direction: .forward, animated: false, completion: nil)
         pageViewController.dataSource = self
         pageViewController.delegate = self
         
         self.addChildViewController(pageViewController)
-        pageViewController.didMoveToParentViewController(self)
+        pageViewController.didMove(toParentViewController: self)
         
         return pageViewController
     }()
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         character.syssla = viewControllerAtIndex(pageControl.currentPage)!.role
         let viewController = AppearanceViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    private func viewControllerAtIndex(index: Int) -> RolePageContentViewController? {
+    fileprivate func viewControllerAtIndex(_ index: Int) -> RolePageContentViewController? {
         if index < Role.allValues.count {
             return RolePageContentViewController(role: Role.allValues[index], pageIndex: index)
         } else {
@@ -85,19 +85,19 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     
     // MARK: - UIPageViewControllerDataSource
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let pageIndex = (viewController as! RolePageContentViewController).pageIndex
         return pageIndex == 0 ? nil : viewControllerAtIndex(pageIndex - 1)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let pageIndex = (viewController as! RolePageContentViewController).pageIndex
         return pageIndex == Role.allValues.count ? nil : viewControllerAtIndex(pageIndex + 1)
     }
     
     // MARK: - UIPageViewControllerDelegate
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let currentViewController = pageViewController.viewControllers?.first as? RolePageContentViewController {
             pageControl.currentPage = currentViewController.pageIndex
         }

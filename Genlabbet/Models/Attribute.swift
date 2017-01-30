@@ -1,28 +1,28 @@
 import Foundation
 
 enum Attribute {
-    case Agility
-    case Instinct
-    case Strength
-    case Wits
+    case agility
+    case instinct
+    case strength
+    case wits
     
     // MARK: Computed Properties
     
     var string: String {
         switch self {
-        case .Agility:  return "Kyla"
-        case .Instinct: return "Instinkt"
-        case .Strength: return "Styrka"
-        case .Wits:     return "Skärpa"
+        case .agility:  return "Kyla"
+        case .instinct: return "Instinkt"
+        case .strength: return "Styrka"
+        case .wits:     return "Skärpa"
         }
     }
     
     var abbreviation: String {
         switch self {
-        case .Agility:  return "KYL"
-        case .Instinct: return "INS"
-        case .Strength: return "STY"
-        case .Wits:     return "SKP"
+        case .agility:  return "KYL"
+        case .instinct: return "INS"
+        case .strength: return "STY"
+        case .wits:     return "SKP"
         }
     }
     
@@ -32,13 +32,13 @@ enum Attribute {
     
     var description: String {
         switch self {
-        case .Agility:
+        case .agility:
             return "Kroppskontroll, mentalt fokus och finmotorik. Avgör hur mycket stress du tål. Återhämtas med vatten."
-        case .Instinct:
+        case .instinct:
             return "Djurisk närvaro och ordlös kommunikation. Avgör hur mycket tvivel du tål. Återhämtas med ett djurbeteende som beror på din djurtyp."
-        case .Strength:
+        case .strength:
             return "Rå muskelkraft och storlek. Avgör hur mycket skada du tål. Återhämtas med mat."
-        case .Wits:
+        case .wits:
             return "Sinnesskärpa, vaksamhet och intelligens. Avgör hur mycket förvirring du tål. Återhämtas med sömn."
         }
     }

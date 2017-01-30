@@ -11,19 +11,19 @@ class ChoiceTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        borderStyle = .RoundedRect
+        borderStyle = .roundedRect
         backgroundColor = UIColor("f9f9f9")
         font = UIFont(name: "Colfax-Regular", size: 16.0)
         placeholder = "Tryck för att välja"
-        contentVerticalAlignment = .Center
-        textColor = UIColor.blackColor()
-        tintColor = UIColor.blackColor()
-        autocorrectionType = .No
+        contentVerticalAlignment = .center
+        textColor = UIColor.black
+        tintColor = UIColor.black
+        autocorrectionType = .no
     }
     
     // MARK: - Methods
     
-    override func caretRectForPosition(position: UITextPosition) -> CGRect {
-        return CGRectZero // Hide caret
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        return CGRect.zero // Hide caret
     }
 }

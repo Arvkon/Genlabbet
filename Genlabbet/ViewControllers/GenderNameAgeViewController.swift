@@ -8,8 +8,8 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         
         title = "Kön, namn och ålder"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
-        navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem!.isEnabled = false
         
         // Layout
         
@@ -113,22 +113,22 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Labels
     
-    private let genderHeading    = ChoiceHeadingLabel(text: "Kön")
-    private let labNameHeading   = ChoiceHeadingLabel(text: "Labbnamn")
-    private let rebelNameHeading = ChoiceHeadingLabel(text: "Upprorsnamn (frivilligt)")
-    private let ageGroupHeading  = ChoiceHeadingLabel(text: "Ålder")
+    fileprivate let genderHeading    = ChoiceHeadingLabel(text: "Kön")
+    fileprivate let labNameHeading   = ChoiceHeadingLabel(text: "Labbnamn")
+    fileprivate let rebelNameHeading = ChoiceHeadingLabel(text: "Upprorsnamn (frivilligt)")
+    fileprivate let ageGroupHeading  = ChoiceHeadingLabel(text: "Ålder")
     
-    private lazy var genderInfoLabel: UILabel = {
-        let genderInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var genderInfoLabel: UILabel = {
+        let genderInfoLabel = UILabel(frame: CGRect.zero)
         genderInfoLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         genderInfoLabel.text = "Kön gör ingen som helst regelteknisk skillnad."
-        genderInfoLabel.textAlignment = .Center
+        genderInfoLabel.textAlignment = .center
         
         return genderInfoLabel
     }()
     
-    private lazy var labNameInfoLabel: UILabel = {
-        let labNameInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var labNameInfoLabel: UILabel = {
+        let labNameInfoLabel = UILabel(frame: CGRect.zero)
         if let animalType = self.character.djurtyp {
             labNameInfoLabel.text = animalType.namingConventionText
         }
@@ -137,8 +137,8 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         return labNameInfoLabel
     }()
     
-    private lazy var rebelNameInfoLabel: UILabel = {
-        let rebelNameInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var rebelNameInfoLabel: UILabel = {
+        let rebelNameInfoLabel = UILabel(frame: CGRect.zero)
         rebelNameInfoLabel.text = "I det gryende Upprorets kretsar avfärdas de traditionella labbnamnen som “slavnamn”. I hemlighet tar sig Upprorets anhängare “upprorsnamn”, som oftast bygger på någon personlig egenskap."
         rebelNameInfoLabel.numberOfLines = 0
         
@@ -147,25 +147,25 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: Radio buttons
     
-    private let XYRadioButton = RadioButtonView(text: "Hane")
-    private let XXRadioButton = RadioButtonView(text: "Hona")
+    fileprivate let XYRadioButton = RadioButtonView(text: "Hane")
+    fileprivate let XXRadioButton = RadioButtonView(text: "Hona")
     
-    private let youngRadioButton = RadioButtonView(text: Age.Ungdjur.string)
-    private let adultRadioButton = RadioButtonView(text: Age.Mogen.string)
-    private let elderRadioButton = RadioButtonView(text: Age.Äldste.string)
+    fileprivate let youngRadioButton = RadioButtonView(text: Age.ungdjur.string)
+    fileprivate let adultRadioButton = RadioButtonView(text: Age.mogen.string)
+    fileprivate let elderRadioButton = RadioButtonView(text: Age.äldste.string)
     
     // MARK: Text fields & Picker views
     
-    private lazy var labNameTextField: ChoiceTextField = {
-        let labNameTextField = ChoiceTextField(frame: CGRectZero)
+    fileprivate lazy var labNameTextField: ChoiceTextField = {
+        let labNameTextField = ChoiceTextField(frame: CGRect.zero)
         labNameTextField.inputView = self.labNamePickerView
         labNameTextField.delegate = self
         
         return labNameTextField
     }()
     
-    private lazy var rebelNameTextField: ChoiceTextField = {
-        let rebelNameTextField = ChoiceTextField(frame: CGRectZero)
+    fileprivate lazy var rebelNameTextField: ChoiceTextField = {
+        let rebelNameTextField = ChoiceTextField(frame: CGRect.zero)
         rebelNameTextField.inputView = self.rebelNamePickerView
         rebelNameTextField.delegate = self
         
@@ -174,8 +174,8 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         return rebelNameTextField
     }()
     
-    private lazy var labNamePickerView: UIPickerView = {
-        let labNamePickerView = UIPickerView(frame: CGRectZero)
+    fileprivate lazy var labNamePickerView: UIPickerView = {
+        let labNamePickerView = UIPickerView(frame: CGRect.zero)
         labNamePickerView.backgroundColor = UIColor("f8f8f8")
         labNamePickerView.dataSource = self
         labNamePickerView.delegate = self
@@ -183,8 +183,8 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         return labNamePickerView
     }()
     
-    private lazy var rebelNamePickerView: UIPickerView = {
-        let rebelNamePickerView = UIPickerView(frame: CGRectZero)
+    fileprivate lazy var rebelNamePickerView: UIPickerView = {
+        let rebelNamePickerView = UIPickerView(frame: CGRect.zero)
         rebelNamePickerView.backgroundColor = UIColor("f8f8f8")
         rebelNamePickerView.dataSource = self
         rebelNamePickerView.delegate = self
@@ -194,28 +194,28 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         if XYRadioButton.selected == true {
-            character.kön = .Hane
+            character.kön = .hane
         } else if XXRadioButton.selected == true {
-            character.kön = .Hona
+            character.kön = .hona
         }
         
         character.labbnamn = labNameTextField.text
         
         if youngRadioButton.selected == true {
-            character.ålder = .Ungdjur
+            character.ålder = .ungdjur
         } else if adultRadioButton.selected == true {
-            character.ålder = .Mogen
+            character.ålder = .mogen
         } else if elderRadioButton.selected == true {
-            character.ålder = .Äldste
+            character.ålder = .äldste
         }
         
         let viewController = AttributesViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    func genderButtonTapped(sender: UITapGestureRecognizer?) {
+    func genderButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedRadioButton = sender?.view as? RadioButtonView else { return }
         
         XYRadioButton.selected = false
@@ -223,10 +223,10 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         
         tappedRadioButton.selected = true
         
-        navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
+        navigationItem.rightBarButtonItem!.isEnabled = allMandatoryInformationProvided()
     }
     
-    func ageButtonTapped(sender: UITapGestureRecognizer?) {
+    func ageButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedRadioButton = sender?.view as? RadioButtonView else { return }
         
         youngRadioButton.selected = false
@@ -235,10 +235,10 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         
         tappedRadioButton.selected = true
         
-        navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
+        navigationItem.rightBarButtonItem!.isEnabled = allMandatoryInformationProvided()
     }
     
-    private func allMandatoryInformationProvided() -> Bool {
+    fileprivate func allMandatoryInformationProvided() -> Bool {
         guard let labNameText = labNameTextField.text else { return false }
         
         let genderChosen  = XYRadioButton.selected == true || XXRadioButton.selected == true
@@ -248,7 +248,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         return genderChosen && labNameChosen && ageChosen
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(genderHeading)
         contentView.addSubview(XYRadioButton)
         contentView.addSubview(XXRadioButton)
@@ -268,7 +268,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         contentView.addSubview(elderRadioButton)
     }
     
-    private func addGestureRecognizersToRadioButtons() {
+    fileprivate func addGestureRecognizersToRadioButtons() {
         XYRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
         XXRadioButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .genderButtonTapped))
         
@@ -279,26 +279,26 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Properties
     
-    private lazy var labNames: [String] = { return self.character.djurtyp!.exampleNames }()
+    fileprivate lazy var labNames: [String] = { return self.character.djurtyp!.exampleNames }()
     
-    private let rebelNames = ["Inget upprorsnamn", "Stortass", "Grönöga", "Snabbtass", "Stor-Klo", "Strävragg", "Fläckpäls"]
+    fileprivate let rebelNames = ["Inget upprorsnamn", "Stortass", "Grönöga", "Snabbtass", "Stor-Klo", "Strävragg", "Fläckpäls"]
     
     // MARK: - UITextFieldDelegate
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField === labNameTextField && labNameTextField.text!.isEmpty {
             labNameTextField.text = labNames.first
         }
-        navigationItem.rightBarButtonItem!.enabled = allMandatoryInformationProvided()
+        navigationItem.rightBarButtonItem!.isEnabled = allMandatoryInformationProvided()
     }
     
     // MARK: - UIPickerViewDelegate
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerView === labNamePickerView ? labNames[row] : rebelNames[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView === labNamePickerView {
             labNameTextField.text = labNames[row]
         } else {
@@ -308,11 +308,11 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - UIPickerViewDataSource
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerView === labNamePickerView ? labNames.count : rebelNames.count
     }
 }

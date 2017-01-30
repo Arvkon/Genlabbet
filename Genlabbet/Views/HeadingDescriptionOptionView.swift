@@ -33,14 +33,14 @@ class HeadingDescriptionOptionView: UIView {
     }
     
     convenience init(talent: Talent) {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
         
         headingLabel.text = talent.string
         descriptionLabel.text = talent.description
     }
     
     convenience init(animalPower: AnimalPower) {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
         
         headingLabel.text = animalPower.string
         descriptionLabel.text = animalPower.description
@@ -48,23 +48,23 @@ class HeadingDescriptionOptionView: UIView {
     
     // MARK: - Subviews
     
-    private let headingLabel = ChoiceHeadingLabel(text: "")
+    fileprivate let headingLabel = ChoiceHeadingLabel(text: "")
     
-    private lazy var descriptionLabel: UILabel = {
-        let descriptionLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel(frame: CGRect.zero)
         descriptionLabel.numberOfLines = 0
         
         return descriptionLabel
     }()
     
-    private lazy var buttonImageView: UIImageView = {
+    fileprivate lazy var buttonImageView: UIImageView = {
         return UIImageView(image: self.unselectedButtonImage)
     }()
     
     // MARK: - Properties
     
-    private let unselectedButtonImage = UIImage(named: "RadioButtonUnselected")
-    private let selectedButtonImage   = UIImage(named: "RadioButtonSelected")
+    fileprivate let unselectedButtonImage = UIImage(named: "RadioButtonUnselected")
+    fileprivate let selectedButtonImage   = UIImage(named: "RadioButtonSelected")
     
     var selected = false {
         didSet {

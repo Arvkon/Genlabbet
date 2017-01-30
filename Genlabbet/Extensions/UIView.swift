@@ -2,10 +2,10 @@ import UIKit
 
 extension UIView {
     
-    func totalContentSize(addedHeight addedHeight: CGFloat = 0.0) -> CGSize {
-        var contentRect = CGRectZero
+    func totalContentSize(addedHeight: CGFloat = 0.0) -> CGSize {
+        var contentRect = CGRect.zero
         for view in subviews {
-            contentRect = CGRectUnion(contentRect, view.frame)
+            contentRect = contentRect.union(view.frame)
         }
         
         return CGSize(width: contentRect.width, height: contentRect.height + addedHeight)

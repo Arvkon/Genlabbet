@@ -38,17 +38,17 @@ class ProgressBarView: UIView {
         }
     }
     
-    private lazy var dummyLabel: UILabel = {
-        let dummyLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var dummyLabel: UILabel = {
+        let dummyLabel = UILabel(frame: CGRect.zero)
         dummyLabel.font = UIFont(name: "HelveticaNeue", size: 15.0)
         dummyLabel.text = "Progress Bar Dummy Label"
-        dummyLabel.textAlignment = .Center
+        dummyLabel.textAlignment = .center
         
         return dummyLabel
     }()
     
-    private lazy var dividerLine: UIView = {
-        let dividerLine = UIView(frame: CGRectZero)
+    fileprivate lazy var dividerLine: UIView = {
+        let dividerLine = UIView(frame: CGRect.zero)
         dividerLine.backgroundColor = UIColor(white: 0.5, alpha: 1.0)
         
         return dividerLine

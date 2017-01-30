@@ -12,9 +12,9 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
     
     // MARK: - Views
     
-    private lazy var characterCollectionView: UICollectionView = {
+    fileprivate lazy var characterCollectionView: UICollectionView = {
         let verticalLayout = UICollectionViewFlowLayout()
-        verticalLayout.scrollDirection = .Vertical
+        verticalLayout.scrollDirection = .vertical
         verticalLayout.minimumLineSpacing = 2.0 // Vertical spacing
         verticalLayout.minimumInteritemSpacing = 0.0 // Horizontal spacing
         
@@ -23,7 +23,7 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        collectionView.registerClass(
+        collectionView.register(
             CharacterCollectionViewCell.self,
             forCellWithReuseIdentifier: "CharacterCollectionViewCell"
         )
@@ -37,19 +37,19 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
         let animalViewController = AnimalViewController(character: Character())
         //let animalViewController = RoleViewController(character: Character())
         let navigationController = UINavigationController(rootViewController: animalViewController)
-        presentViewController(navigationController, animated: true, completion: nil)
+        present(navigationController, animated: true, completion: nil)
     }
     
     // MARK: - UICollectionViewDataSource
     
-    private let numberOfItemsInList = 5
+    fileprivate let numberOfItemsInList = 5
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfItemsInList
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CharacterCollectionViewCell", forIndexPath: indexPath) as! CharacterCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
         
         if indexPath.row == numberOfItemsInList - 1 {
             cell.setLabelText("Skapa ny rollperson")
@@ -69,13 +69,13 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width, height: 44.0)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-        if let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as? CharacterCollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if let selectedCell = collectionView.cellForItem(at: indexPath) as? CharacterCollectionViewCell {
             selectedCell.performCellPressAction()
         }
     }

@@ -9,7 +9,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
         
         title = "Färdigheter"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .Plain, target: self, action: .chooseButtonTapped)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Välj", style: .plain, target: self, action: .chooseButtonTapped)
         
         // Layout
         
@@ -44,8 +44,8 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     // MARK: - Views
     
-    private lazy var skillsInfoLabel: UILabel = {
-        let skillsInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var skillsInfoLabel: UILabel = {
+        let skillsInfoLabel = UILabel(frame: CGRect.zero)
         skillsInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
         skillsInfoLabel.text = "Dina färdigheter beskriver vad du har lärt dig under ditt liv i Paradisdalen. Det finns tolv allmänna färdigheter som alla kan använda. Som \(self.character.syssla!.string) har du även specialfärdigheten \(self.character.syssla!.specialistSkill.string)."
         skillsInfoLabel.numberOfLines = 0
@@ -53,23 +53,23 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
         return skillsInfoLabel
     }()
     
-    private lazy var remainingPointsLabel: UILabel = {
-        let remainingPointsLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var remainingPointsLabel: UILabel = {
+        let remainingPointsLabel = UILabel(frame: CGRect.zero)
         remainingPointsLabel.text = "Du har \(self.character.ålder!.skillPoints) poäng att placera ut."
         
         return remainingPointsLabel
     }()
     
-    private lazy var pointsInfoLabel: UILabel = {
-        let pointsInfoLabel = UILabel(frame: CGRectZero)
+    fileprivate lazy var pointsInfoLabel: UILabel = {
+        let pointsInfoLabel = UILabel(frame: CGRect.zero)
         pointsInfoLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         pointsInfoLabel.text = "Antalet färdighetspoäng baseras på din rollpersons ålder."
-        pointsInfoLabel.textAlignment = .Center
+        pointsInfoLabel.textAlignment = .center
         
         return pointsInfoLabel
     }()
     
-    private lazy var skillLabels: [SkillAttributedLabel] = {
+    fileprivate lazy var skillLabels: [SkillAttributedLabel] = {
         var skillLabels = [SkillAttributedLabel(skill: self.character.syssla!.specialistSkill, delegate: self)]
         for skill in Skill.allGeneralSkills {
             skillLabels.append(SkillAttributedLabel(skill: skill, delegate: self))
@@ -80,28 +80,28 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     // MARK: SkillAttributedLabel
     
-    private class SkillAttributedLabel: TTTAttributedLabel {
+    fileprivate class SkillAttributedLabel: TTTAttributedLabel {
         convenience init(skill: Skill, delegate: TTTAttributedLabelDelegate) {
-            self.init(frame: CGRectZero)
+            self.init(frame: CGRect.zero)
             self.delegate = delegate
             
             let linkFont = UIFont(name: "Colfax-Regular", size: 22.0)!
-            linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
-            activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
+            linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
+            activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
             
             setText(skill.string)
-            addLinkToURL(NSURL(string: "skill://\(skill.rawValue)"), withRange: NSMakeRange(0, skill.string.characters.count))
+            addLink(to: URL(string: "skill://\(skill.rawValue)"), with: NSMakeRange(0, skill.string.characters.count))
         }
     }
     
     // MARK: - Methods
     
-    func chooseButtonTapped(sender: UIBarButtonItem) {
+    func chooseButtonTapped(_ sender: UIBarButtonItem) {
         let viewController = TalentViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    private func populateContentView() {
+    fileprivate func populateContentView() {
         contentView.addSubview(skillsInfoLabel)
         contentView.addSubview(remainingPointsLabel)
         contentView.addSubview(pointsInfoLabel)
@@ -113,9 +113,9 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     // MARK: - TTTAttributedLabelDelegate
     
-    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         guard url.scheme == "skill" else { return }
-        guard let host = url.host, rawValue = Int(host), skill = Skill(rawValue: rawValue) else { return }
+        guard let host = url.host, let rawValue = Int(host), let skill = Skill(rawValue: rawValue) else { return }
         
         UIAlertView(title: skill.string, message: skill.description, delegate: nil, cancelButtonTitle: "Stäng").show()
     }

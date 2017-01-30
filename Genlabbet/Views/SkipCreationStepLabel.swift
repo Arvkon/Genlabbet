@@ -13,15 +13,15 @@ class SkipCreationStepLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
         super.init(frame: frame)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blueColor()]
-        activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brownColor()]
+        linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
+        activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
         
         setText("Du kan hoppa över detta steg.")
-        addLinkToURL(NSURL(string: "skip://step"), withRange: NSMakeRange(7, 10))
-        textAlignment = .Center
+        addLink(to: URL(string: "skip://step"), with: NSMakeRange(7, 10))
+        textAlignment = .center
         delegate = self
         
-        layer.borderColor = UIColor.blackColor().CGColor
+        layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 0.5
     }
     
@@ -31,7 +31,7 @@ class SkipCreationStepLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
     
     // MARK: - TTTAttributedLabelDelegate
     
-    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         if url.scheme == "skip" && url.host == "step" {
             linkAction?()
         }
