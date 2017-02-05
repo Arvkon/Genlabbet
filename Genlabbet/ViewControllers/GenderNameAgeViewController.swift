@@ -119,7 +119,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     fileprivate let ageGroupHeading  = ChoiceHeadingLabel(text: "Ålder")
     
     fileprivate lazy var genderInfoLabel: UILabel = {
-        let genderInfoLabel = UILabel(frame: CGRect.zero)
+        let genderInfoLabel = UILabel(frame: .zero)
         genderInfoLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         genderInfoLabel.text = "Kön gör ingen som helst regelteknisk skillnad."
         genderInfoLabel.textAlignment = .center
@@ -128,7 +128,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }()
     
     fileprivate lazy var labNameInfoLabel: UILabel = {
-        let labNameInfoLabel = UILabel(frame: CGRect.zero)
+        let labNameInfoLabel = UILabel(frame: .zero)
         if let animalType = self.character.djurtyp {
             labNameInfoLabel.text = animalType.namingConventionText
         }
@@ -138,7 +138,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }()
     
     fileprivate lazy var rebelNameInfoLabel: UILabel = {
-        let rebelNameInfoLabel = UILabel(frame: CGRect.zero)
+        let rebelNameInfoLabel = UILabel(frame: .zero)
         rebelNameInfoLabel.text = "I det gryende Upprorets kretsar avfärdas de traditionella labbnamnen som “slavnamn”. I hemlighet tar sig Upprorets anhängare “upprorsnamn”, som oftast bygger på någon personlig egenskap."
         rebelNameInfoLabel.numberOfLines = 0
         
@@ -157,7 +157,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     // MARK: Text fields & Picker views
     
     fileprivate lazy var labNameTextField: ChoiceTextField = {
-        let labNameTextField = ChoiceTextField(frame: CGRect.zero)
+        let labNameTextField = ChoiceTextField(frame: .zero)
         labNameTextField.inputView = self.labNamePickerView
         labNameTextField.delegate = self
         
@@ -165,7 +165,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }()
     
     fileprivate lazy var rebelNameTextField: ChoiceTextField = {
-        let rebelNameTextField = ChoiceTextField(frame: CGRect.zero)
+        let rebelNameTextField = ChoiceTextField(frame: .zero)
         rebelNameTextField.inputView = self.rebelNamePickerView
         rebelNameTextField.delegate = self
         
@@ -175,7 +175,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }()
     
     fileprivate lazy var labNamePickerView: UIPickerView = {
-        let labNamePickerView = UIPickerView(frame: CGRect.zero)
+        let labNamePickerView = UIPickerView(frame: .zero)
         labNamePickerView.backgroundColor = UIColor("f8f8f8")
         labNamePickerView.dataSource = self
         labNamePickerView.delegate = self
@@ -184,7 +184,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     }()
     
     fileprivate lazy var rebelNamePickerView: UIPickerView = {
-        let rebelNamePickerView = UIPickerView(frame: CGRect.zero)
+        let rebelNamePickerView = UIPickerView(frame: .zero)
         rebelNamePickerView.backgroundColor = UIColor("f8f8f8")
         rebelNamePickerView.dataSource = self
         rebelNamePickerView.delegate = self

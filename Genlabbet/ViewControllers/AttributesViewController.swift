@@ -15,10 +15,10 @@ class AttributesViewController: CharacterCreationStepViewController {
         populateContentView()
         
         // Dummy content
-        STYDistributionView.backgroundColor = UIColor.red
-        KYLDistributionView.backgroundColor = UIColor.blue
-        SKPDistributionView.backgroundColor = UIColor.green
-        INSDistributionView.backgroundColor = UIColor.orange
+        STYDistributionView.backgroundColor = .red
+        KYLDistributionView.backgroundColor = .blue
+        SKPDistributionView.backgroundColor = .green
+        INSDistributionView.backgroundColor = .orange
         
         let topSpacing = 10.0 as CGFloat
         let distributionViewHeight = 40.0 as CGFloat
@@ -102,7 +102,7 @@ class AttributesViewController: CharacterCreationStepViewController {
     // MARK: - Views
     
     fileprivate lazy var attributesInfoLabel: UILabel = {
-        let attributesInfoLabel = UILabel(frame: CGRect.zero)
+        let attributesInfoLabel = UILabel(frame: .zero)
         attributesInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
         attributesInfoLabel.text = "De fyra grundegenskaperna visar dina grundläggande fysiska och mentala förutsättningar. De mäts på en skala från 1 till 5, där högre är bättre."
         attributesInfoLabel.numberOfLines = 0
@@ -111,7 +111,7 @@ class AttributesViewController: CharacterCreationStepViewController {
     }()
     
     fileprivate lazy var remainingPointsLabel: UILabel = {
-        let remainingPointsLabel = UILabel(frame: CGRect.zero)
+        let remainingPointsLabel = UILabel(frame: .zero)
         remainingPointsLabel.text = "Du har 6 poäng att placera ut."
         
         return remainingPointsLabel
@@ -128,16 +128,16 @@ class AttributesViewController: CharacterCreationStepViewController {
     fileprivate let INSInfoLabel = AttributeInfoLabel(attribute: .instinct)
     
     // Dummy views
-    fileprivate let STYDistributionView = UIView(frame: CGRect.zero)
-    fileprivate let KYLDistributionView = UIView(frame: CGRect.zero)
-    fileprivate let SKPDistributionView = UIView(frame: CGRect.zero)
-    fileprivate let INSDistributionView = UIView(frame: CGRect.zero)
+    fileprivate let STYDistributionView = UIView(frame: .zero)
+    fileprivate let KYLDistributionView = UIView(frame: .zero)
+    fileprivate let SKPDistributionView = UIView(frame: .zero)
+    fileprivate let INSDistributionView = UIView(frame: .zero)
     
     // MARK: AttributeInfoLabel
     
     fileprivate class AttributeInfoLabel: UILabel {
         convenience init(attribute: Attribute) {
-            self.init(frame: CGRect.zero)
+            self.init(frame: .zero)
             text = attribute.description
             numberOfLines = 0
         }

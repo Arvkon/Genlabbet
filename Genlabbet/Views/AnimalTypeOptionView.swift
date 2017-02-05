@@ -13,7 +13,7 @@ class AnimalTypeOptionView: UIView {
     
     init(animalType: AnimalType) {
         self.animalType = animalType
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         
         addSubview(label)
         addSubview(imageView)
@@ -58,7 +58,7 @@ class AnimalTypeOptionView: UIView {
     }
     
     fileprivate lazy var label: UILabel = {
-        let label = UILabel(frame: CGRect.zero)
+        let label = UILabel(frame: .zero)
         label.font = UIFont(name: "HelveticaNeue-Medium", size: 17.0)
         label.textAlignment = .center
         label.text = "No text set"
@@ -66,7 +66,7 @@ class AnimalTypeOptionView: UIView {
         return label
     }()
     
-    fileprivate let imageView = UIImageView(frame: CGRect.zero)
+    fileprivate let imageView = UIImageView(frame: .zero)
     
     // MARK: - Properties & Constants
     

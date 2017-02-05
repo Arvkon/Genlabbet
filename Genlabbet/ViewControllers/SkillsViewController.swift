@@ -45,7 +45,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     // MARK: - Views
     
     fileprivate lazy var skillsInfoLabel: UILabel = {
-        let skillsInfoLabel = UILabel(frame: CGRect.zero)
+        let skillsInfoLabel = UILabel(frame: .zero)
         skillsInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
         skillsInfoLabel.text = "Dina färdigheter beskriver vad du har lärt dig under ditt liv i Paradisdalen. Det finns tolv allmänna färdigheter som alla kan använda. Som \(self.character.syssla!.string) har du även specialfärdigheten \(self.character.syssla!.specialistSkill.string)."
         skillsInfoLabel.numberOfLines = 0
@@ -54,14 +54,14 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     }()
     
     fileprivate lazy var remainingPointsLabel: UILabel = {
-        let remainingPointsLabel = UILabel(frame: CGRect.zero)
+        let remainingPointsLabel = UILabel(frame: .zero)
         remainingPointsLabel.text = "Du har \(self.character.ålder!.skillPoints) poäng att placera ut."
         
         return remainingPointsLabel
     }()
     
     fileprivate lazy var pointsInfoLabel: UILabel = {
-        let pointsInfoLabel = UILabel(frame: CGRect.zero)
+        let pointsInfoLabel = UILabel(frame: .zero)
         pointsInfoLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         pointsInfoLabel.text = "Antalet färdighetspoäng baseras på din rollpersons ålder."
         pointsInfoLabel.textAlignment = .center
@@ -82,7 +82,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     fileprivate class SkillAttributedLabel: TTTAttributedLabel {
         convenience init(skill: Skill, delegate: TTTAttributedLabelDelegate) {
-            self.init(frame: CGRect.zero)
+            self.init(frame: .zero)
             self.delegate = delegate
             
             let linkFont = UIFont(name: "Colfax-Regular", size: 22.0)!

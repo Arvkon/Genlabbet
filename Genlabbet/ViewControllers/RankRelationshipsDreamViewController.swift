@@ -57,8 +57,8 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     // MARK: - Views
     
     fileprivate lazy var skipCreationStepLabel: SkipCreationStepLabel = {
-        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRect.zero)
-        skipCreationStepLabel.linkAction = { () -> Void in
+        let skipCreationStepLabel = SkipCreationStepLabel(frame: .zero)
+        skipCreationStepLabel.linkAction = {
             UIAlertView(title: "Not implemented yet", message: "Did press skip button.", delegate: nil, cancelButtonTitle: "Stäng").show()
         }
         
@@ -66,7 +66,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     }()
     
     fileprivate lazy var rankInfoLabel: UILabel = {
-        let rankInfoLabel = UILabel(frame: CGRect.zero)
+        let rankInfoLabel = UILabel(frame: .zero)
         rankInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
         rankInfoLabel.text = "En sak som skiljer människomutanter från djur är den strikta rangordningen i klanen. Att veta vem som är över dig och vem som är under dig i hackordningen är en självklar del av livet. Din rang är ett siffervärde från noll och uppåt. Rangen används i sociala konflikter mot andra djurmutanter."
         rankInfoLabel.numberOfLines = 0
@@ -75,7 +75,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     }()
     
     fileprivate lazy var rankValueLabel: UILabel = {
-        let rankValueLabel = UILabel(frame: CGRect.zero)
+        let rankValueLabel = UILabel(frame: .zero)
         let fontAttribute  = [NSFontAttributeName: UIFont.systemFont(ofSize: 19.0)]
         let attributedText = NSMutableAttributedString(string: "Du har \(self.character.rang) i rang", attributes: fontAttribute)
         
@@ -87,7 +87,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     }()
     
     fileprivate lazy var rankBonusLabel: UILabel = {
-        let rankBonusLabel = UILabel(frame: CGRect.zero)
+        let rankBonusLabel = UILabel(frame: .zero)
         let ageBonusString = "\(self.character.ålder!.string) +\(self.character.ålder!.rankBonus)"
         
         let roleBonus = self.character.syssla!.rankBonus

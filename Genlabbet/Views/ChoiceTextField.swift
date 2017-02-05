@@ -16,14 +16,14 @@ class ChoiceTextField: UITextField {
         font = UIFont(name: "Colfax-Regular", size: 16.0)
         placeholder = "Tryck för att välja"
         contentVerticalAlignment = .center
-        textColor = UIColor.black
-        tintColor = UIColor.black
+        textColor = .black
+        tintColor = .black
         autocorrectionType = .no
     }
     
     // MARK: - Methods
     
     override func caretRect(for position: UITextPosition) -> CGRect {
-        return CGRect.zero // Hide caret
+        return .zero // Hide caret
     }
 }

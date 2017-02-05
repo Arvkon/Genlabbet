@@ -101,12 +101,12 @@ class AnimalViewController: CharacterCreationStepViewController {
         optionView.select()
         
         let actionSheet = PSTAlertController(title: nil, message: "Välj art", preferredStyle: .actionSheet)
-        let deselectAction = { (action: PSTAlertAction!) -> Void in optionView.deselect() }
+        let deselectAction = { (action: PSTAlertAction!) in optionView.deselect() }
         actionSheet.addAction(PSTAlertAction(title: "Välj annan djurtyp", style: .cancel, handler: deselectAction))
         
         // Helper function
         func createPSTAlertActionForSpecies(_ species: Species) -> PSTAlertAction {
-            return PSTAlertAction(title: species.string, style: .default) { (action: PSTAlertAction!) -> Void in
+            return PSTAlertAction(title: species.string, style: .default) { action in
                 self.character.art = species
                 let viewController = RoleViewController(character: self.character)
                 self.navigationController!.pushViewController(viewController, animated: true)

@@ -33,14 +33,14 @@ class HeadingDescriptionOptionView: UIView {
     }
     
     convenience init(talent: Talent) {
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
         
         headingLabel.text = talent.string
         descriptionLabel.text = talent.description
     }
     
     convenience init(animalPower: AnimalPower) {
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
         
         headingLabel.text = animalPower.string
         descriptionLabel.text = animalPower.description
@@ -51,7 +51,7 @@ class HeadingDescriptionOptionView: UIView {
     fileprivate let headingLabel = ChoiceHeadingLabel(text: "")
     
     fileprivate lazy var descriptionLabel: UILabel = {
-        let descriptionLabel = UILabel(frame: CGRect.zero)
+        let descriptionLabel = UILabel(frame: .zero)
         descriptionLabel.numberOfLines = 0
         
         return descriptionLabel

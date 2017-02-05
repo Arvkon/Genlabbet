@@ -64,8 +64,8 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: - Views
     
     fileprivate lazy var skipCreationStepLabel: SkipCreationStepLabel = {
-        let skipCreationStepLabel = SkipCreationStepLabel(frame: CGRect.zero)
-        skipCreationStepLabel.linkAction = { () -> Void in
+        let skipCreationStepLabel = SkipCreationStepLabel(frame: .zero)
+        skipCreationStepLabel.linkAction = {
             let viewController = GenderNameAgeViewController(character: self.character)
             self.navigationController!.pushViewController(viewController, animated: true)
         }
@@ -82,7 +82,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: Text fields
     
     fileprivate lazy var faceTextField: ChoiceTextField = {
-        let faceTextField = ChoiceTextField(frame: CGRect.zero)
+        let faceTextField = ChoiceTextField(frame: .zero)
         faceTextField.inputView = self.facePickerView
         faceTextField.delegate = self
         
@@ -90,7 +90,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     }()
     
     fileprivate lazy var bodyTextField: ChoiceTextField = {
-        let bodyTextField = ChoiceTextField(frame: CGRect.zero)
+        let bodyTextField = ChoiceTextField(frame: .zero)
         bodyTextField.inputView = self.bodyPickerView
         bodyTextField.delegate = self
         
@@ -98,7 +98,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     }()
     
     fileprivate lazy var wearTextField: ChoiceTextField = {
-        let wearTextField = ChoiceTextField(frame: CGRect.zero)
+        let wearTextField = ChoiceTextField(frame: .zero)
         wearTextField.inputView = self.wearPickerView
         wearTextField.delegate = self
         
@@ -108,7 +108,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: Picker views
     
     fileprivate lazy var facePickerView: UIPickerView = {
-        let facePickerView = UIPickerView(frame: CGRect.zero)
+        let facePickerView = UIPickerView(frame: .zero)
         facePickerView.backgroundColor = UIColor("f8f8f8")
         facePickerView.dataSource = self
         facePickerView.delegate = self
@@ -117,7 +117,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     }()
     
     fileprivate lazy var bodyPickerView: UIPickerView = {
-        let bodyPickerView = UIPickerView(frame: CGRect.zero)
+        let bodyPickerView = UIPickerView(frame: .zero)
         bodyPickerView.backgroundColor = UIColor("f8f8f8")
         bodyPickerView.dataSource = self
         bodyPickerView.delegate = self
@@ -126,7 +126,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     }()
     
     fileprivate lazy var wearPickerView: UIPickerView = {
-        let wearPickerView = UIPickerView(frame: CGRect.zero)
+        let wearPickerView = UIPickerView(frame: .zero)
         wearPickerView.backgroundColor = UIColor("f8f8f8")
         wearPickerView.dataSource = self
         wearPickerView.delegate = self

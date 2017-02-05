@@ -72,7 +72,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 1.2, animations: { () -> Void in
+        UIView.animate(withDuration: 1.2, animations: {
             self.descriptionLabel.layer.backgroundColor = UIColor.brown.cgColor
         })
     }
@@ -84,10 +84,10 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     
     // MARK: - Views
     
-    fileprivate let scrollView = UIScrollView(frame: CGRect.zero)
+    fileprivate let scrollView = UIScrollView(frame: .zero)
     
     fileprivate lazy var headerLabel: UILabel = {
-        let headerLabel = UILabel(frame: CGRect.zero)
+        let headerLabel = UILabel(frame: .zero)
         headerLabel.font = UIFont(name: "Colfax-Regular", size: 22.0)
         headerLabel.text = self.role.string
         headerLabel.textAlignment = .center
@@ -96,9 +96,9 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     }()
     
     fileprivate lazy var descriptionLabel: RoleDescriptionLabel = {
-        let descriptionLabel = RoleDescriptionLabel(frame: CGRect.zero)
+        let descriptionLabel = RoleDescriptionLabel(frame: .zero)
         descriptionLabel.font = UIFont(name: "Colfax-RegularItalic", size: 14.0)
-        descriptionLabel.textColor = UIColor.white
+        descriptionLabel.textColor = .white
         descriptionLabel.text = self.role.description
         descriptionLabel.setLineSpacing(3.0)
         descriptionLabel.textAlignment = .center
@@ -109,7 +109,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     }()
     
     fileprivate lazy var keyAttributeLabel: TTTAttributedLabel = {
-        let keyAttributeLabel = TTTAttributedLabel(frame: CGRect.zero)
+        let keyAttributeLabel = TTTAttributedLabel(frame: .zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
         keyAttributeLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
@@ -124,7 +124,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     }()
     
     fileprivate lazy var specialistSkillLabel: TTTAttributedLabel = {
-        let specialistSkillLabel = TTTAttributedLabel(frame: CGRect.zero)
+        let specialistSkillLabel = TTTAttributedLabel(frame: .zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
         specialistSkillLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
@@ -139,7 +139,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
     }()
     
     fileprivate lazy var talentsLabel: TTTAttributedLabel = {
-        let talentsLabel = TTTAttributedLabel(frame: CGRect.zero)
+        let talentsLabel = TTTAttributedLabel(frame: .zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
         talentsLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]

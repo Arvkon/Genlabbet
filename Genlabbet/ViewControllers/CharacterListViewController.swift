@@ -53,12 +53,12 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
         
         if indexPath.row == numberOfItemsInList - 1 {
             cell.setLabelText("Skapa ny rollperson")
-            cell.cellPressAction = { () -> Void in
+            cell.cellPressAction = {
                 self.beginCharacterCreation()
             }
         } else {
             cell.setLabelText("Rollperson \(indexPath.row + 1)")
-            cell.cellPressAction = { () -> Void in
+            cell.cellPressAction = {
                 let message = "Did press character cell at index: \(indexPath.row)"
                 UIAlertView(title: "Not implemented yet", message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
             }

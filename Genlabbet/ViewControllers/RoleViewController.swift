@@ -41,14 +41,14 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     // MARK: - Views
     
     fileprivate lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRect.zero)
+        let pageControl = UIPageControl(frame: .zero)
         pageControl.numberOfPages = 5
         pageControl.currentPage = 0
         pageControl.isUserInteractionEnabled = false
         
-        pageControl.backgroundColor = UIColor.white
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.backgroundColor = .white
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .black
         
         return pageControl
     }()

@@ -11,7 +11,7 @@ class RadioButtonView: UIView {
     }
     
     init(text labelText: String) {
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         
         label.text = labelText
         
@@ -35,7 +35,7 @@ class RadioButtonView: UIView {
     fileprivate let imageView = UIImageView(image: UIImage(named: "RadioButtonUnselected"))
     
     fileprivate lazy var label: UILabel = {
-        let label = UILabel(frame: CGRect.zero)
+        let label = UILabel(frame: .zero)
         label.textColor = UIColor("91969d")
         label.font = self.labelFont
         

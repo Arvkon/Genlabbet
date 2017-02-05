@@ -14,11 +14,11 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let backgroundView = UIView(frame: CGRect.zero)
-        backgroundView.backgroundColor = UIColor.white
+        let backgroundView = UIView(frame: .zero)
+        backgroundView.backgroundColor = .white
         self.backgroundView = backgroundView
         
-        let selectedBackgroundView = UIView(frame: CGRect.zero)
+        let selectedBackgroundView = UIView(frame: .zero)
         selectedBackgroundView.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         self.selectedBackgroundView = selectedBackgroundView
         
@@ -39,7 +39,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Subviews
     
-    fileprivate let nameLabel = UILabel(frame: CGRect.zero)
+    fileprivate let nameLabel = UILabel(frame: .zero)
     
     func setLabelText(_ text: String) {
         nameLabel.text = text

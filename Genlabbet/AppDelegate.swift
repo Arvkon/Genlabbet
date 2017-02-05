@@ -6,22 +6,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Initiate Window
         window = UIWindow(frame: UIScreen.main.bounds)
         
         setupAppAppearance()
         
-        // Setup Root View Controller
-        let characterListViewController = CharacterListViewController()
-        let navigationController = UINavigationController(rootViewController: characterListViewController)
-        window!.rootViewController = navigationController
-        window!.makeKeyAndVisible()
+        setupRootViewController()
         
         return true
     }
     
     fileprivate func setupAppAppearance() {
-        window!.backgroundColor = UIColor.white
+        window!.backgroundColor = .white
         
         // Navigation bar title
         if let titleFont = UIFont(name: "Colfax-Regular", size: 17.0) {
@@ -33,5 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let backButtonImage = UIImage(named: "NavbarBackButton")!.withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorImage = backButtonImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
+    }
+    
+    fileprivate func setupRootViewController() {
+        let characterListViewController = CharacterListViewController()
+        let navigationController = UINavigationController(rootViewController: characterListViewController)
+        window!.rootViewController = navigationController
+        window!.makeKeyAndVisible()
     }
 }
