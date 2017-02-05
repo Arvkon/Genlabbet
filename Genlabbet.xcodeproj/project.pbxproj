@@ -24,14 +24,6 @@
 		85B0672F1B4562F700380B70 /* Colfax-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85B0672D1B4562F700380B70 /* Colfax-Medium.otf */; };
 		85B067301B4562F700380B70 /* Colfax-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85B0672E1B4562F700380B70 /* Colfax-Regular.otf */; };
 		85B067321B456D6300380B70 /* AnimalTypeOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B067311B456D6300380B70 /* AnimalTypeOptionView.swift */; };
-		85B0673E1B4598A400380B70 /* Apa.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B067361B4598A400380B70 /* Apa.png */; };
-		85B0673F1B4598A400380B70 /* Bjorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B067371B4598A400380B70 /* Bjorn.png */; };
-		85B067401B4598A400380B70 /* Gnagare.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B067381B4598A400380B70 /* Gnagare.png */; };
-		85B067411B4598A400380B70 /* Hardjur.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B067391B4598A400380B70 /* Hardjur.png */; };
-		85B067421B4598A400380B70 /* Hunddjur.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B0673A1B4598A400380B70 /* Hunddjur.png */; };
-		85B067431B4598A400380B70 /* Kattdjur.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B0673B1B4598A400380B70 /* Kattdjur.png */; };
-		85B067441B4598A400380B70 /* Marddjur.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B0673C1B4598A400380B70 /* Marddjur.png */; };
-		85B067451B4598A400380B70 /* Reptil.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B0673D1B4598A400380B70 /* Reptil.png */; };
 		85B067471B45B17D00380B70 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B067461B45B17D00380B70 /* ProgressBarView.swift */; };
 		85B56AFA1B4ED3EC00F3B735 /* RoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B56AF91B4ED3EC00F3B735 /* RoleViewController.swift */; };
 		85B56B041B5059C900F3B735 /* RolePageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B56B031B5059C900F3B735 /* RolePageContentViewController.swift */; };
@@ -62,6 +54,15 @@
 		85EA258D1CBD80E500FB5319 /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */; };
 		85FAEEAA1CC53B5100021FE9 /* TalentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */; };
 		85FAEEAE1CC53D7F00021FE9 /* AnimalPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */; };
+		E376156A1E4706020047F8E7 /* Ape.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615621E4706020047F8E7 /* Ape.png */; };
+		E376156B1E4706020047F8E7 /* Badger.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615631E4706020047F8E7 /* Badger.png */; };
+		E376156C1E4706020047F8E7 /* Bear.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615641E4706020047F8E7 /* Bear.png */; };
+		E376156D1E4706020047F8E7 /* Cat.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615651E4706020047F8E7 /* Cat.png */; };
+		E376156E1E4706020047F8E7 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615661E4706020047F8E7 /* Dog.png */; };
+		E376156F1E4706020047F8E7 /* Rabbit.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615671E4706020047F8E7 /* Rabbit.png */; };
+		E37615701E4706020047F8E7 /* Rat.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615681E4706020047F8E7 /* Rat.png */; };
+		E37615711E4706020047F8E7 /* Reptile.png in Resources */ = {isa = PBXBuildFile; fileRef = E37615691E4706020047F8E7 /* Reptile.png */; };
+		E37615731E4708260047F8E7 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37615721E4708260047F8E7 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,14 +96,6 @@
 		85B0672D1B4562F700380B70 /* Colfax-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Colfax-Medium.otf"; path = "Assets/Fonts/Colfax-Medium.otf"; sourceTree = "<group>"; };
 		85B0672E1B4562F700380B70 /* Colfax-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Colfax-Regular.otf"; path = "Assets/Fonts/Colfax-Regular.otf"; sourceTree = "<group>"; };
 		85B067311B456D6300380B70 /* AnimalTypeOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalTypeOptionView.swift; path = Views/AnimalTypeOptionView.swift; sourceTree = "<group>"; };
-		85B067361B4598A400380B70 /* Apa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Apa.png; path = Assets/Portraits/Apa.png; sourceTree = "<group>"; };
-		85B067371B4598A400380B70 /* Bjorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bjorn.png; path = Assets/Portraits/Bjorn.png; sourceTree = "<group>"; };
-		85B067381B4598A400380B70 /* Gnagare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gnagare.png; path = Assets/Portraits/Gnagare.png; sourceTree = "<group>"; };
-		85B067391B4598A400380B70 /* Hardjur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hardjur.png; path = Assets/Portraits/Hardjur.png; sourceTree = "<group>"; };
-		85B0673A1B4598A400380B70 /* Hunddjur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hunddjur.png; path = Assets/Portraits/Hunddjur.png; sourceTree = "<group>"; };
-		85B0673B1B4598A400380B70 /* Kattdjur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Kattdjur.png; path = Assets/Portraits/Kattdjur.png; sourceTree = "<group>"; };
-		85B0673C1B4598A400380B70 /* Marddjur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Marddjur.png; path = Assets/Portraits/Marddjur.png; sourceTree = "<group>"; };
-		85B0673D1B4598A400380B70 /* Reptil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reptil.png; path = Assets/Portraits/Reptil.png; sourceTree = "<group>"; };
 		85B067461B45B17D00380B70 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBarView.swift; path = Views/ProgressBarView.swift; sourceTree = "<group>"; };
 		85B56AF91B4ED3EC00F3B735 /* RoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoleViewController.swift; path = ViewControllers/RoleViewController.swift; sourceTree = "<group>"; };
 		85B56B031B5059C900F3B735 /* RolePageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RolePageContentViewController.swift; path = ViewControllers/RolePageContentViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +131,15 @@
 		85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributesViewController.swift; path = ViewControllers/AttributesViewController.swift; sourceTree = "<group>"; };
 		85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalentViewController.swift; path = ViewControllers/TalentViewController.swift; sourceTree = "<group>"; };
 		85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalPower.swift; path = Models/AnimalPower.swift; sourceTree = "<group>"; };
+		E37615621E4706020047F8E7 /* Ape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ape.png; path = Assets/Portraits/Ape.png; sourceTree = "<group>"; };
+		E37615631E4706020047F8E7 /* Badger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Badger.png; path = Assets/Portraits/Badger.png; sourceTree = "<group>"; };
+		E37615641E4706020047F8E7 /* Bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bear.png; path = Assets/Portraits/Bear.png; sourceTree = "<group>"; };
+		E37615651E4706020047F8E7 /* Cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat.png; path = Assets/Portraits/Cat.png; sourceTree = "<group>"; };
+		E37615661E4706020047F8E7 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dog.png; path = Assets/Portraits/Dog.png; sourceTree = "<group>"; };
+		E37615671E4706020047F8E7 /* Rabbit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Rabbit.png; path = Assets/Portraits/Rabbit.png; sourceTree = "<group>"; };
+		E37615681E4706020047F8E7 /* Rat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Rat.png; path = Assets/Portraits/Rat.png; sourceTree = "<group>"; };
+		E37615691E4706020047F8E7 /* Reptile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reptile.png; path = Assets/Portraits/Reptile.png; sourceTree = "<group>"; };
+		E37615721E4708260047F8E7 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,14 +239,14 @@
 		85B067351B45986100380B70 /* Portraits */ = {
 			isa = PBXGroup;
 			children = (
-				85B067361B4598A400380B70 /* Apa.png */,
-				85B067371B4598A400380B70 /* Bjorn.png */,
-				85B067381B4598A400380B70 /* Gnagare.png */,
-				85B067391B4598A400380B70 /* Hardjur.png */,
-				85B0673A1B4598A400380B70 /* Hunddjur.png */,
-				85B0673B1B4598A400380B70 /* Kattdjur.png */,
-				85B0673C1B4598A400380B70 /* Marddjur.png */,
-				85B0673D1B4598A400380B70 /* Reptil.png */,
+				E37615621E4706020047F8E7 /* Ape.png */,
+				E37615631E4706020047F8E7 /* Badger.png */,
+				E37615641E4706020047F8E7 /* Bear.png */,
+				E37615651E4706020047F8E7 /* Cat.png */,
+				E37615661E4706020047F8E7 /* Dog.png */,
+				E37615671E4706020047F8E7 /* Rabbit.png */,
+				E37615681E4706020047F8E7 /* Rat.png */,
+				E37615691E4706020047F8E7 /* Reptile.png */,
 			);
 			name = Portraits;
 			sourceTree = "<group>";
@@ -266,6 +268,7 @@
 				85CD9CA31CC372F9003AB10C /* UILabel.swift */,
 				85B56B381B5570E800F3B735 /* UIView.swift */,
 				85CD9C9F1CC26707003AB10C /* UIViewController.swift */,
+				E37615721E4708260047F8E7 /* UIImage.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -435,26 +438,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85B0673E1B4598A400380B70 /* Apa.png in Resources */,
+				E376156B1E4706020047F8E7 /* Badger.png in Resources */,
 				85B56B181B51104800F3B735 /* NavbarCloseButton@2x.png in Resources */,
-				85B067451B4598A400380B70 /* Reptil.png in Resources */,
-				85B0673F1B4598A400380B70 /* Bjorn.png in Resources */,
+				E376156D1E4706020047F8E7 /* Cat.png in Resources */,
+				E37615711E4706020047F8E7 /* Reptile.png in Resources */,
+				E376156F1E4706020047F8E7 /* Rabbit.png in Resources */,
 				85B56B191B51104800F3B735 /* NavbarCloseButton@3x.png in Resources */,
 				85B56B081B50F24700F3B735 /* Krigare.png in Resources */,
-				85B067431B4598A400380B70 /* Kattdjur.png in Resources */,
 				85B56B2A1B51738500F3B735 /* Colfax-Light.otf in Resources */,
 				85B067301B4562F700380B70 /* Colfax-Regular.otf in Resources */,
-				85B067401B4598A400380B70 /* Gnagare.png in Resources */,
 				85B56B251B513F3800F3B735 /* Colfax-RegularItalic.otf in Resources */,
+				E376156A1E4706020047F8E7 /* Ape.png in Resources */,
 				85C689D31AFED1D70021CB0E /* Images.xcassets in Resources */,
 				85B56B171B51104800F3B735 /* NavbarBackButton@3x.png in Resources */,
 				85B56B2F1B51746300F3B735 /* Colfax-MediumItalic.otf in Resources */,
-				85B067441B4598A400380B70 /* Marddjur.png in Resources */,
-				85B067411B4598A400380B70 /* Hardjur.png in Resources */,
-				85B067421B4598A400380B70 /* Hunddjur.png in Resources */,
 				85B56B2B1B51738500F3B735 /* Colfax-LightItalic.otf in Resources */,
+				E376156C1E4706020047F8E7 /* Bear.png in Resources */,
 				85B0672F1B4562F700380B70 /* Colfax-Medium.otf in Resources */,
 				85B56B161B51104700F3B735 /* NavbarBackButton@2x.png in Resources */,
+				E376156E1E4706020047F8E7 /* Dog.png in Resources */,
+				E37615701E4706020047F8E7 /* Rat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +546,7 @@
 				85C689CC1AFED1D60021CB0E /* AppDelegate.swift in Sources */,
 				85B56AFA1B4ED3EC00F3B735 /* RoleViewController.swift in Sources */,
 				851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */,
+				E37615731E4708260047F8E7 /* UIImage.swift in Sources */,
 				851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */,
 				85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */,
 				85012C3C1CC8B9CC00774EFB /* AnimalPowersViewController.swift in Sources */,

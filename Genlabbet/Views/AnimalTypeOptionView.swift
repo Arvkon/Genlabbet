@@ -20,13 +20,7 @@ class AnimalTypeOptionView: UIView {
         
         label.text = animalType.string
         
-        if animalType == .björn {
-            imageView.image = UIImage(named: "Bjorn")
-        } else if animalType == .mårddjur {
-            imageView.image = UIImage(named: "Marddjur")
-        } else {
-            imageView.image = UIImage(named: animalType.string)
-        }
+        imageView.image = UIImage.portrait(forAnimalType: animalType)
     }
     
     // MARK: - Methods

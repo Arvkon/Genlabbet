@@ -80,14 +80,14 @@ class AnimalViewController: CharacterCreationStepViewController {
     
     // MARK: - Views
     
-    fileprivate let primateOptionView    = AnimalTypeOptionView(animalType: .apa)
-    fileprivate let ursidaeOptionView    = AnimalTypeOptionView(animalType: .björn)
-    fileprivate let rodentiaOptionView   = AnimalTypeOptionView(animalType: .gnagare)
-    fileprivate let leporidaeOptionView  = AnimalTypeOptionView(animalType: .hardjur)
-    fileprivate let canidaeOptionView    = AnimalTypeOptionView(animalType: .hunddjur)
-    fileprivate let felidaeOptionView    = AnimalTypeOptionView(animalType: .kattdjur)
-    fileprivate let mustelidaeOptionView = AnimalTypeOptionView(animalType: .mårddjur)
-    fileprivate let reptiliaOptionView   = AnimalTypeOptionView(animalType: .reptil)
+    fileprivate let primateOptionView    = AnimalTypeOptionView(animalType: .ape)
+    fileprivate let mustelidaeOptionView = AnimalTypeOptionView(animalType: .badger)
+    fileprivate let ursidaeOptionView    = AnimalTypeOptionView(animalType: .bear)
+    fileprivate let felidaeOptionView    = AnimalTypeOptionView(animalType: .cat)
+    fileprivate let canidaeOptionView    = AnimalTypeOptionView(animalType: .dog)
+    fileprivate let leporidaeOptionView  = AnimalTypeOptionView(animalType: .rabbit)
+    fileprivate let rodentiaOptionView   = AnimalTypeOptionView(animalType: .rat)
+    fileprivate let reptiliaOptionView   = AnimalTypeOptionView(animalType: .reptile)
     
     // MARK: - Methods
     
@@ -114,41 +114,41 @@ class AnimalViewController: CharacterCreationStepViewController {
         }
         
         switch optionView.animalType {
-        case .apa:
+        case .ape:
             actionSheet.addAction(createPSTAlertActionForSpecies(.gorilla))
             actionSheet.addAction(createPSTAlertActionForSpecies(.orangutang))
             actionSheet.addAction(createPSTAlertActionForSpecies(.schimpans))
-            
-        case .björn:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.brunbjörn))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.tvättbjörn))
-            
-        case .gnagare:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.hamster))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.mus))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.råtta))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.sork))
-            
-        case .hardjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.hare))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.kanin))
-            
-        case .hunddjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.hund))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.räv))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.varg))
-            
-        case .kattdjur:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.katt))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.lodjur))
-            
-        case .mårddjur:
+
+        case .badger:
             actionSheet.addAction(createPSTAlertActionForSpecies(.grävling))
             actionSheet.addAction(createPSTAlertActionForSpecies(.järv))
             actionSheet.addAction(createPSTAlertActionForSpecies(.mård))
             actionSheet.addAction(createPSTAlertActionForSpecies(.vessla))
-            
-        case .reptil:
+
+        case .bear:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.brunbjörn))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.tvättbjörn))
+
+        case .cat:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.katt))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.lodjur))
+
+        case .dog:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.hund))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.räv))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.varg))
+
+        case .rabbit:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.hare))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.kanin))
+
+        case .rat:
+            actionSheet.addAction(createPSTAlertActionForSpecies(.hamster))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.mus))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.råtta))
+            actionSheet.addAction(createPSTAlertActionForSpecies(.sork))
+
+        case .reptile:
             actionSheet.addAction(createPSTAlertActionForSpecies(.groda))
             actionSheet.addAction(createPSTAlertActionForSpecies(.padda))
             actionSheet.addAction(createPSTAlertActionForSpecies(.sköldpadda))

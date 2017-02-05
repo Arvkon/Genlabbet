@@ -1,41 +1,41 @@
 import Foundation
 
 enum Species {
-    // Apa
+    // Ape
     case gorilla
     case orangutang
     case schimpans
     
-    // Björn
-    case brunbjörn
-    case tvättbjörn
-    
-    // Gnagare
-    case hamster
-    case mus
-    case råtta
-    case sork
-    
-    // Hardjur
-    case hare
-    case kanin
-    
-    // Hunddjur
-    case hund
-    case räv
-    case varg
-    
-    // Kattdjur
-    case katt
-    case lodjur
-    
-    // Mårddjur
+    // Badger
     case grävling
     case järv
     case mård
     case vessla
     
-    // Reptil
+    // Bear
+    case brunbjörn
+    case tvättbjörn
+    
+    // Cat
+    case katt
+    case lodjur
+    
+    // Dog
+    case hund
+    case räv
+    case varg
+    
+    // Rabbit
+    case hare
+    case kanin
+    
+    // Rat
+    case hamster
+    case mus
+    case råtta
+    case sork
+    
+    // Reptile
     case groda
     case padda
     case sköldpadda
@@ -49,28 +49,28 @@ enum Species {
         case .orangutang: return "Orangutang"
         case .schimpans:  return "Schimpans"
             
+        case .grävling:   return "Grävling"
+        case .järv:       return "Järv"
+        case .mård:       return "Mård"
+        case .vessla:     return "Vessla"
+            
         case .brunbjörn:  return "Brunbjörn"
         case .tvättbjörn: return "Tvättbjörn"
             
-        case .hamster:    return "Hamster"
-        case .mus:        return "Mus"
-        case .råtta:      return "Råtta"
-        case .sork:       return "Sork"
-            
-        case .hare:       return "Hare"
-        case .kanin:      return "Kanin"
+        case .katt:       return "Katt"
+        case .lodjur:     return "Lodjur"
             
         case .hund:       return "Hund"
         case .räv:        return "Räv"
         case .varg:       return "Varg"
             
-        case .katt:       return "Katt"
-        case .lodjur:     return "Lodjur"
+        case .hare:       return "Hare"
+        case .kanin:      return "Kanin"
             
-        case .grävling:   return "Grävling"
-        case .järv:       return "Järv"
-        case .mård:       return "Mård"
-        case .vessla:     return "Vessla"
+        case .hamster:    return "Hamster"
+        case .mus:        return "Mus"
+        case .råtta:      return "Råtta"
+        case .sork:       return "Sork"
             
         case .groda:      return "Groda"
         case .padda:      return "Padda"
@@ -81,14 +81,14 @@ enum Species {
     
     var animalType: AnimalType {
         switch self {
-        case .gorilla, .orangutang, .schimpans:  return .apa
-        case .brunbjörn, .tvättbjörn:            return .björn
-        case .hamster, .mus, .råtta, .sork:      return .gnagare
-        case .hare, .kanin:                      return .hardjur
-        case .hund, .räv, .varg:                 return .hunddjur
-        case .katt, .lodjur:                     return .kattdjur
-        case .grävling, .järv, .mård, .vessla:   return .mårddjur
-        case .groda, .padda, .sköldpadda, .ödla: return .reptil
+        case .gorilla, .orangutang, .schimpans:  return .ape
+        case .grävling, .järv, .mård, .vessla:   return .badger
+        case .brunbjörn, .tvättbjörn:            return .bear
+        case .katt, .lodjur:                     return .cat
+        case .hund, .räv, .varg:                 return .dog
+        case .hare, .kanin:                      return .rabbit
+        case .hamster, .mus, .råtta, .sork:      return .rat
+        case .groda, .padda, .sköldpadda, .ödla: return .reptile
         }
     }
 }
