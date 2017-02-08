@@ -2,11 +2,11 @@ import Foundation
 
 enum Skill: Int {
     // Specialist Skills
-    case bryggaDekokt
-    case jaga
-    case samla
-    case sia
-    case skärskåda
+    case brewPotion
+    case hunt
+    case measureEnemy
+    case scavenge
+    case scry
     
     // General Skills
     case endure
@@ -25,17 +25,17 @@ enum Skill: Int {
     // MARK: Type Properties
     
     static let allGeneralSkills = [endure, force, fight, sneak, move, shoot, scout, comprehend, knowNature, senseEmotion, dominate, heal]
-    static let allValues = [bryggaDekokt, jaga, samla, sia, skärskåda] + allGeneralSkills
+    static let allValues = [brewPotion, hunt, measureEnemy, scavenge, scry] + allGeneralSkills
     
     // MARK: Computed Properties
     
     var string: String {
         switch self {
-        case .bryggaDekokt: return "Brygga dekokt"
-        case .jaga:         return "Jaga"
-        case .samla:        return "Samla"
-        case .sia:          return "Sia"
-        case .skärskåda:    return "Skärskåda"
+        case .brewPotion:   return "Brygga dekokt"
+        case .hunt:         return "Jaga"
+        case .measureEnemy: return "Skärskåda"
+        case .scavenge:     return "Samla"
+        case .scry:         return "Sia"
             
         case .endure:       return "Kämpa på"
         case .force:        return "Ta krafttag"
@@ -54,16 +54,16 @@ enum Skill: Int {
     
     var description: String {
         switch self {
-        case .bryggaDekokt:
+        case .brewPotion:
             return "I Paradisdalen finns förunderliga växter. För ett otränat öga ser kanske allt ut som ogräs - men du vet vilka växter som helar och vilka som dödar. Du plockar dem, kokar dem och utvinner de aktiva substanserna."
-        case .jaga:
+        case .hunt:
             return "Som en av klanens jägare är det din uppgift att spåra och fälla villebråd till föda för dina klanfränder."
-        case .samla:
-            return "Du plockar på dig alla prylar och allt skrot du kan hitta, och lägger det i en vagn eller ryggsäck som du alltid släpar med dig. Varje gång du behöver en pryl för att utföra en handling, slå för att samla. Om du lyckas har du ett lämpligt redskap - välj själv vad det är."
-        case .sia:
-            return "Du kan genomföra en spådomsritual för att se vad som kan ske senare under spelmötet. Ritualen tar några timmar, och kan genomföras med hjälp av hallucinogena växter, ett bastutält, musik och dans eller någon annan metod som du själv väljer. Under ritualen får du visioner av framtiden, inre bilder som visar en viss handling, vem som utför den och om den lyckas eller inte. Du väljer själv vad visionen visar."
-        case .skärskåda:
+        case .measureEnemy:
             return "En sann krigare vet att striden avgörs innan det första slaget är utdelat. Om du får chansen att studera din fiende under någon minut kan du slå för att skärskåda. Om slaget lyckas måste SL berätta vilken fiendens högsta grundegenskap och färdighet är, och värdena i dessa. Färdigheten kan användas mot såväl djurmutanter och människor som monster och robotar."
+        case .scavenge:
+            return "Du plockar på dig alla prylar och allt skrot du kan hitta, och lägger det i en vagn eller ryggsäck som du alltid släpar med dig. Varje gång du behöver en pryl för att utföra en handling, slå för att samla. Om du lyckas har du ett lämpligt redskap - välj själv vad det är."
+        case .scry:
+            return "Du kan genomföra en spådomsritual för att se vad som kan ske senare under spelmötet. Ritualen tar några timmar, och kan genomföras med hjälp av hallucinogena växter, ett bastutält, musik och dans eller någon annan metod som du själv väljer. Under ritualen får du visioner av framtiden, inre bilder som visar en viss handling, vem som utför den och om den lyckas eller inte. Du väljer själv vad visionen visar."
             
             
         case .endure:

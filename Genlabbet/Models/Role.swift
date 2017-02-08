@@ -58,11 +58,11 @@ enum Role {
     
     var specialistSkill: Skill {
         switch self {
-        case .healer:    return .bryggaDekokt
-        case .hunter:    return .jaga
-        case .scavenger: return .samla
-        case .seer:      return .sia
-        case .warrior:   return .skärskåda
+        case .healer:    return .brewPotion
+        case .hunter:    return .hunt
+        case .scavenger: return .scavenge
+        case .seer:      return .scry
+        case .warrior:   return .measureEnemy
         }
     }
     
