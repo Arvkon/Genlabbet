@@ -86,21 +86,21 @@ enum AnimalType {
     var animalPowers: [AnimalPower] {
         switch self {
         case .ape:
-            return [.hoppförmåga, .klättrare, .lurvig, .löpsnabb, .stor, .varningsrop, .växtätare]
+            return [.climber, .fleetFooted, .furry, .herbivore, .huge, .jumper, .warningCall]
         case .badger:
-            return [.grävare, .jaktsinne, .liten, .rovattack, .sjätteSinne]
+            return [.burrower, .huntingInstincts, .predator, .sixthSense, .small]
         case .bear:
-            return [.lurvig, .löpsnabb, .rovattack, .stor, .växtätare]
+            return [.fleetFooted, .furry, .herbivore, .huge, .predator]
         case .cat:
-            return [.blixtsnabb, .jaktsinne, .klättrare, .ljudlös, .löpsnabb, .nattsyn, .rovattack, .svans]
+            return [.climber, .fastReflexes, .fleetFooted, .huntingInstincts, .nocturnal, .predator, .silent, .tail]
         case .dog:
-            return [.jaktsinne, .lurvig, .löpsnabb, .nattsyn, .rovattack, .svans, .varningsrop]
+            return [.fleetFooted, .furry, .huntingInstincts, .nocturnal, .predator, .tail, .warningCall]
         case .rabbit:
-            return [.blixtsnabb, .flyktsinne, .grävare, .hoppförmåga, .liten, .löpsnabb, .växtätare]
+            return [.burrower, .fastReflexes, .fleetFooted, .flightResponse, .herbivore, .jumper, .small]
         case .rat:
-            return [.flyktsinne, .grävare, .klättrare, .liten, .ljudlös, .nattsyn, .sjätteSinne, .växtätare]
+            return [.burrower, .climber, .flightResponse, .herbivore, .nocturnal, .silent, .sixthSense, .small]
         case .reptile:
-            return [.amfibisk, .blixtsnabb, .giftbett, .hoppförmåga, .jaktsinne, .pansar, .svans]
+            return [.amphibian, .fastReflexes, .huntingInstincts, .jumper, .naturalArmor, .poisonousBite, .tail]
         }
     }
 }
