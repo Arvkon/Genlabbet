@@ -2,93 +2,102 @@ import Foundation
 
 enum Species {
     // Ape
+    case chimpanzee
     case gorilla
-    case orangutang
-    case schimpans
+    case orangutan
     
     // Badger
-    case grävling
-    case järv
-    case mård
-    case vessla
+    case badger
+    case marten // Not in English version of the game
+    case weasel
+    case wolverine
     
     // Bear
-    case brunbjörn
-    case tvättbjörn
+    case bear
+    case raccoon
     
     // Cat
-    case katt
-    case lodjur
+    case cat
+    case cougar // Not in Swedish version of the game
+    case lynx
     
     // Dog
-    case hund
-    case räv
-    case varg
+    case dog
+    case fox
+    case wolf
+
+    // Moose (Not in Swedish version of the game)
+    //case deer
+    //case moose
+    //case reindeer
     
     // Rabbit
     case hare
-    case kanin
+    case rabbit
     
     // Rat
-    case hamster
-    case mus
-    case råtta
-    case sork
+    case hamster // Not in English version of the game
+    case mouse
+    case rat
+    case squirrel // Not in Swedish version of the game
+    case vole // Not in English version of the game
     
     // Reptile
-    case groda
-    case padda
-    case sköldpadda
-    case ödla
+    case frog
+    case lizard
+    case toad
+    case turtle
     
     // MARK: Computed Properties
     
     var string: String {
         switch self {
+        case .chimpanzee: return "Schimpans"
         case .gorilla:    return "Gorilla"
-        case .orangutang: return "Orangutang"
-        case .schimpans:  return "Schimpans"
+        case .orangutan:  return "Orangutang"
             
-        case .grävling:   return "Grävling"
-        case .järv:       return "Järv"
-        case .mård:       return "Mård"
-        case .vessla:     return "Vessla"
+        case .badger:     return "Grävling"
+        case .marten:     return "Mård"
+        case .weasel:     return "Vessla"
+        case .wolverine:  return "Järv"
+
+        case .bear:       return "Brunbjörn"
+        case .raccoon:    return "Tvättbjörn"
             
-        case .brunbjörn:  return "Brunbjörn"
-        case .tvättbjörn: return "Tvättbjörn"
+        case .cat:        return "Katt"
+        case .cougar:     return "Puma"
+        case .lynx:       return "Lodjur"
             
-        case .katt:       return "Katt"
-        case .lodjur:     return "Lodjur"
-            
-        case .hund:       return "Hund"
-        case .räv:        return "Räv"
-        case .varg:       return "Varg"
+        case .dog:        return "Hund"
+        case .fox:        return "Räv"
+        case .wolf:       return "Varg"
             
         case .hare:       return "Hare"
-        case .kanin:      return "Kanin"
+        case .rabbit:     return "Kanin"
             
         case .hamster:    return "Hamster"
-        case .mus:        return "Mus"
-        case .råtta:      return "Råtta"
-        case .sork:       return "Sork"
+        case .mouse:      return "Mus"
+        case .rat:        return "Råtta"
+        case .squirrel:   return "Ekorre"
+        case .vole:       return "Sork"
             
-        case .groda:      return "Groda"
-        case .padda:      return "Padda"
-        case .sköldpadda: return "Sköldpadda"
-        case .ödla:       return "Ödla"
+        case .frog:       return "Groda"
+        case .lizard:     return "Ödla"
+        case .toad:       return "Padda"
+        case .turtle:     return "Sköldpadda"
         }
     }
     
     var animalType: AnimalType {
         switch self {
-        case .gorilla, .orangutang, .schimpans:  return .ape
-        case .grävling, .järv, .mård, .vessla:   return .badger
-        case .brunbjörn, .tvättbjörn:            return .bear
-        case .katt, .lodjur:                     return .cat
-        case .hund, .räv, .varg:                 return .dog
-        case .hare, .kanin:                      return .rabbit
-        case .hamster, .mus, .råtta, .sork:      return .rat
-        case .groda, .padda, .sköldpadda, .ödla: return .reptile
+        case .chimpanzee, .gorilla, .orangutan:        return .ape
+        case .badger, .marten, .weasel, .wolverine:    return .badger
+        case .bear, .raccoon:                          return .bear
+        case .cat, .cougar, .lynx:                     return .cat
+        case .dog, .fox, .wolf:                        return .dog
+        case .hare, .rabbit:                           return .rabbit
+        case .hamster, .mouse, .rat, .squirrel, .vole: return .rat
+        case .frog, .lizard, .toad, .turtle:           return .reptile
         }
     }
 }
