@@ -68,11 +68,11 @@ enum Role {
     
     var talents: [Talent] {
         switch self {
-        case .healer:    return [.kirurg, .själavårdare, .spritkokare]
-        case .hunter:    return [.bågmakare, .pälsjägare, .snärjare]
-        case .scavenger: return [.gömsle, .packråtta, .vapensamlare]
-        case .seer:      return [.dödsvisioner, .plötsligaSyner, .totemmakare]
-        case .warrior:   return [.mångkamp, .vapenmakare, .vapenmästare]
+        case .healer:    return [.moonshiner, .surgeon, .therapist]
+        case .hunter:    return [.bowyer, .skinner, .trapper]
+        case .scavenger: return [.hideout, .scrounger, .weaponsCollector]
+        case .seer:      return [.deathVisions, .suddenVisions, .totemMaker]
+        case .warrior:   return [.stonewall, .weaponMaker, .weaponMaster]
         }
     }
     
