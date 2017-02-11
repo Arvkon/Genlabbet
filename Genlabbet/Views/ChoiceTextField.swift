@@ -19,7 +19,19 @@ class ChoiceTextField: UITextField {
         textColor = .black
         tintColor = .black
         autocorrectionType = .no
+        inputAccessoryView = pickerSeparatorView
     }
+
+    // MARK: - Views
+
+    fileprivate lazy var pickerSeparatorView: UIView = {
+        let screenWidth = UIScreen.main.bounds.width
+        let pickerSeparatorView = UIView(frame: CGRect(
+            x: 0.0, y: 0.0, width: screenWidth, height: 0.5))
+        pickerSeparatorView.backgroundColor = .lightGray
+
+        return pickerSeparatorView
+    }()
     
     // MARK: - Methods
     
