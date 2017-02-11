@@ -129,7 +129,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     fileprivate lazy var labNameInfoLabel: UILabel = {
         let labNameInfoLabel = UILabel(frame: .zero)
-        if let animalType = self.character.djurtyp {
+        if let animalType = self.character.animalType {
             labNameInfoLabel.text = animalType.namingConventionText
         }
         labNameInfoLabel.numberOfLines = 0
@@ -150,9 +150,9 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     fileprivate let XYRadioButton = RadioButtonView(text: "Hane")
     fileprivate let XXRadioButton = RadioButtonView(text: "Hona")
     
-    fileprivate let youngRadioButton = RadioButtonView(text: Age.ungdjur.string)
-    fileprivate let adultRadioButton = RadioButtonView(text: Age.mogen.string)
-    fileprivate let elderRadioButton = RadioButtonView(text: Age.äldste.string)
+    fileprivate let youngRadioButton = RadioButtonView(text: Age.youngster.string)
+    fileprivate let adultRadioButton = RadioButtonView(text: Age.mature.string)
+    fileprivate let elderRadioButton = RadioButtonView(text: Age.elder.string)
     
     // MARK: Text fields & Picker views
     
@@ -196,19 +196,19 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     func chooseButtonTapped(_ sender: UIBarButtonItem) {
         if XYRadioButton.selected == true {
-            character.kön = .hane
+            character.gender = .male
         } else if XXRadioButton.selected == true {
-            character.kön = .hona
+            character.gender = .female
         }
         
-        character.labbnamn = labNameTextField.text
+        character.labName = labNameTextField.text
         
         if youngRadioButton.selected == true {
-            character.ålder = .ungdjur
+            character.age = .youngster
         } else if adultRadioButton.selected == true {
-            character.ålder = .mogen
+            character.age = .mature
         } else if elderRadioButton.selected == true {
-            character.ålder = .äldste
+            character.age = .elder
         }
         
         let viewController = AttributesViewController(character: character)
@@ -279,7 +279,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Properties
     
-    fileprivate lazy var labNames: [String] = { return self.character.djurtyp!.exampleNames }()
+    fileprivate lazy var labNames: [String] = { return self.character.animalType!.exampleNames }()
     
     fileprivate let rebelNames = ["Inget upprorsnamn", "Stortass", "Grönöga", "Snabbtass", "Stor-Klo", "Strävragg", "Fläckpäls"]
     

@@ -1,71 +1,74 @@
 import Foundation
 
 class Character {
-    var labbnamn: String?
-    var upprorsnamn: String?
-    var djurtyp: AnimalType? {
-        return art?.animalType
+    var labName: String?
+    var resistanceName: String?
+    var species: Species?
+    var age: Age?
+    var role: Role?
+    var gender: Gender?
+
+    var animalType: AnimalType? {
+        return species?.animalType
     }
-    var art: Species?
-    var ålder: Age?
-    var syssla: Role?
-    var rang: Int {
+
+    var rank: Int {
         var rank = 0
-        if let ålder = ålder { rank += ålder.rankBonus }
-        if let syssla = syssla { rank += syssla.rankBonus }
+        if let age = age { rank += age.rankBonus }
+        if let role = role { rank += role.rankBonus }
         return rank
     }
-    var kön: Gender?
-    
-    var ansikte: String?
-    var kropp: String?
-    var kläder: String?
+
+    // Appearance
+    var face: String?
+    var body: String?
+    var wear: String? // Clothing
     
     // Attribute scores
-    var styrka: Int?
-    var kyla: Int?
-    var skärpa: Int?
-    var instinkt: Int?
+    var strength: Int?
+    var agility: Int?
+    var wits: Int?
+    var instinct: Int?
     
-    var färdigheter: [Skill: Int]?
-    var talang: Talent?
+    var skills: [Skill: Int]?
+    var talent: Talent?
     
     // Gear
-    var ransonerKrubb: Int?  // Grub
-    var ransonerVatten: Int? // Water
+    var foodRations: Int?
+    var waterRations: Int?
 }
 
 enum Gender {
-    case hane
-    case hona
+    case male
+    case female
 }
 
 enum Age {
-    case ungdjur
-    case mogen
-    case äldste
+    case youngster
+    case mature
+    case elder
     
     var string: String {
         switch self {
-        case .ungdjur: return "Ungdjur"
-        case .mogen:   return "Mogen"
-        case .äldste:  return "Äldste"
+        case .youngster: return "Ungdjur"
+        case .mature:    return "Mogen"
+        case .elder:     return "Äldste"
         }
     }
     
     var skillPoints: Int {
         switch self {
-        case .ungdjur: return 8
-        case .mogen:   return 10
-        case .äldste:  return 12
+        case .youngster: return 8
+        case .mature:    return 10
+        case .elder:     return 12
         }
     }
     
     var rankBonus: Int {
         switch self {
-        case .ungdjur: return 2
-        case .mogen:   return 4
-        case .äldste:  return 6
+        case .youngster: return 2
+        case .mature:    return 4
+        case .elder:     return 6
         }
     }
 }

@@ -137,9 +137,9 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     // MARK: - Methods
     
     func chooseButtonTapped(_ sender: UIBarButtonItem) {
-        character.ansikte = faceTextField.text
-        character.kropp   = bodyTextField.text
-        character.kläder  = wearTextField.text
+        character.face = faceTextField.text
+        character.body = bodyTextField.text
+        character.wear = wearTextField.text
         
         let viewController = GenderNameAgeViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
@@ -159,9 +159,9 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Properties
     
-    fileprivate lazy var faceOptions: [String] = { return self.character.syssla!.faceOptions }()
-    fileprivate lazy var bodyOptions: [String] = { return self.character.syssla!.bodyOptions }()
-    fileprivate lazy var wearOptions: [String] = { return self.character.syssla!.wearOptions }()
+    fileprivate lazy var faceOptions: [String] = { return self.character.role!.faceOptions }()
+    fileprivate lazy var bodyOptions: [String] = { return self.character.role!.bodyOptions }()
+    fileprivate lazy var wearOptions: [String] = { return self.character.role!.wearOptions }()
     
     // MARK: - UITextFieldDelegate
     

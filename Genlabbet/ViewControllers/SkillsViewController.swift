@@ -47,7 +47,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     fileprivate lazy var skillsInfoLabel: UILabel = {
         let skillsInfoLabel = UILabel(frame: .zero)
         skillsInfoLabel.font = UIFont(name: "Colfax-Regular", size: 14.0)
-        skillsInfoLabel.text = "Dina färdigheter beskriver vad du har lärt dig under ditt liv i Paradisdalen. Det finns tolv allmänna färdigheter som alla kan använda. Som \(self.character.syssla!.string) har du även specialfärdigheten \(self.character.syssla!.specialistSkill.string)."
+        skillsInfoLabel.text = "Dina färdigheter beskriver vad du har lärt dig under ditt liv i Paradisdalen. Det finns tolv allmänna färdigheter som alla kan använda. Som \(self.character.role!.string) har du även specialfärdigheten \(self.character.role!.specialistSkill.string)."
         skillsInfoLabel.numberOfLines = 0
         
         return skillsInfoLabel
@@ -55,7 +55,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     fileprivate lazy var remainingPointsLabel: UILabel = {
         let remainingPointsLabel = UILabel(frame: .zero)
-        remainingPointsLabel.text = "Du har \(self.character.ålder!.skillPoints) poäng att placera ut."
+        remainingPointsLabel.text = "Du har \(self.character.age!.skillPoints) poäng att placera ut."
         
         return remainingPointsLabel
     }()
@@ -70,7 +70,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     }()
     
     fileprivate lazy var skillLabels: [SkillAttributedLabel] = {
-        var skillLabels = [SkillAttributedLabel(skill: self.character.syssla!.specialistSkill, delegate: self)]
+        var skillLabels = [SkillAttributedLabel(skill: self.character.role!.specialistSkill, delegate: self)]
         for skill in Skill.allGeneralSkills {
             skillLabels.append(SkillAttributedLabel(skill: skill, delegate: self))
         }

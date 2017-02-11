@@ -77,7 +77,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     fileprivate lazy var rankValueLabel: UILabel = {
         let rankValueLabel = UILabel(frame: .zero)
         let fontAttribute  = [NSFontAttributeName: UIFont.systemFont(ofSize: 19.0)]
-        let attributedText = NSMutableAttributedString(string: "Du har \(self.character.rang) i rang", attributes: fontAttribute)
+        let attributedText = NSMutableAttributedString(string: "Du har \(self.character.rank) i rang", attributes: fontAttribute)
         
         let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 22.0)]
         attributedText.addAttributes(boldFontAttribute, range: NSRange(location: 7, length: 1))
@@ -88,11 +88,11 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     
     fileprivate lazy var rankBonusLabel: UILabel = {
         let rankBonusLabel = UILabel(frame: .zero)
-        let ageBonusString = "\(self.character.ålder!.string) +\(self.character.ålder!.rankBonus)"
+        let ageBonusString = "\(self.character.age!.string) +\(self.character.age!.rankBonus)"
         
-        let roleBonus = self.character.syssla!.rankBonus
+        let roleBonus = self.character.role!.rankBonus
         let numberSign = roleBonus > 0 ? "+" : roleBonus == 0 ? "±" : ""
-        let roleBonusString = "\(self.character.syssla!.string) \(numberSign)\(roleBonus)"
+        let roleBonusString = "\(self.character.role!.string) \(numberSign)\(roleBonus)"
         
         rankBonusLabel.font = UIFont(name: "Colfax-RegularItalic", size: 12.0)
         rankBonusLabel.text = ageBonusString + ", " + roleBonusString

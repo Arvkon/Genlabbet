@@ -70,7 +70,7 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
     // MARK: - Methods
     
     func chooseButtonTapped(_ sender: UIBarButtonItem) {
-        character.syssla = viewControllerAtIndex(pageControl.currentPage)!.role
+        character.role = viewControllerAtIndex(pageControl.currentPage)!.role
         let viewController = AppearanceViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
