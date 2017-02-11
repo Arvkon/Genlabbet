@@ -49,7 +49,7 @@
 		85EA258D1CBD80E500FB5319 /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */; };
 		85FAEEAA1CC53B5100021FE9 /* TalentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */; };
 		85FAEEAE1CC53D7F00021FE9 /* AnimalPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */; };
-		E37615731E4708260047F8E7 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37615721E4708260047F8E7 /* UIImage.swift */; };
+		E35BF7941E4F139D00D26ADF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BF7931E4F139D00D26ADF /* UIImage.swift */; };
 		E39ABF121E4F0B2D0064D758 /* Portraits.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39ABF111E4F0B2D0064D758 /* Portraits.xcassets */; };
 		E39ABF181E4F0F2B0064D758 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39ABF171E4F0F2B0064D758 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -115,7 +115,7 @@
 		85EA258C1CBD80E500FB5319 /* AttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributesViewController.swift; path = ViewControllers/AttributesViewController.swift; sourceTree = "<group>"; };
 		85FAEEA91CC53B5100021FE9 /* TalentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalentViewController.swift; path = ViewControllers/TalentViewController.swift; sourceTree = "<group>"; };
 		85FAEEAD1CC53D7F00021FE9 /* AnimalPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalPower.swift; path = Models/AnimalPower.swift; sourceTree = "<group>"; };
-		E37615721E4708260047F8E7 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		E35BF7931E4F139D00D26ADF /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImage.swift; path = Extensions/UIImage.swift; sourceTree = "<group>"; };
 		E39ABF111E4F0B2D0064D758 /* Portraits.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Portraits.xcassets; path = Assets/Portraits.xcassets; sourceTree = "<group>"; };
 		E39ABF171E4F0F2B0064D758 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Assets/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,10 +216,10 @@
 		85B56B371B55708A00F3B735 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E35BF7931E4F139D00D26ADF /* UIImage.swift */,
 				85CD9CA31CC372F9003AB10C /* UILabel.swift */,
 				85B56B381B5570E800F3B735 /* UIView.swift */,
 				85CD9C9F1CC26707003AB10C /* UIViewController.swift */,
-				E37615721E4708260047F8E7 /* UIImage.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 				85C689CC1AFED1D60021CB0E /* AppDelegate.swift in Sources */,
 				85B56AFA1B4ED3EC00F3B735 /* RoleViewController.swift in Sources */,
 				851B2A431B55E92A002CDD3B /* AppearanceViewController.swift in Sources */,
-				E37615731E4708260047F8E7 /* UIImage.swift in Sources */,
+				E35BF7941E4F139D00D26ADF /* UIImage.swift in Sources */,
 				851B2A471B560353002CDD3B /* ChoiceTextField.swift in Sources */,
 				85CD9CA01CC26707003AB10C /* UIViewController.swift in Sources */,
 				85012C3C1CC8B9CC00774EFB /* AnimalPowersViewController.swift in Sources */,
