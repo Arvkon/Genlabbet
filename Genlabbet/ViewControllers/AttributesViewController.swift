@@ -12,7 +12,17 @@ class AttributesViewController: CharacterCreationStepViewController {
         
         // Layout
         
-        populateContentView()
+        contentView.addSubview(stackView)
+        
+        constrain(stackView) { stackView in
+            stackView.top      == stackView.superview!.top + TopMargin
+            stackView.leading  == stackView.superview!.leading + SideMargin
+            stackView.trailing == stackView.superview!.trailing + SideMargin
+            stackView.width    == stackView.superview!.width - TotalSideMargin
+            stackView.bottom   == stackView.superview!.bottom
+        }
+        
+        populateStackView()
         
         // Dummy content
         STYDistributionView.backgroundColor = .red
@@ -20,78 +30,13 @@ class AttributesViewController: CharacterCreationStepViewController {
         SKPDistributionView.backgroundColor = .green
         INSDistributionView.backgroundColor = .orange
         
-        let topSpacing = 10.0 as CGFloat
         let distributionViewHeight = 40.0 as CGFloat
         
-        constrain(attributesInfoLabel, remainingPointsLabel, STYHeading) { attributes, points, heading in
-            attributes.top     == attributes.superview!.top + topSpacing
-            attributes.width   == attributes.superview!.width - TotalSideMargin
-            attributes.centerX == attributes.superview!.centerX
-            
-            points.top     == attributes.bottom + 15.0
-            points.centerX == points.superview!.centerX
-            
-            heading.top  == points.bottom + 15.0
-            heading.left == heading.superview!.left + SideMargin
-        }
-        
-        constrain(STYHeading, STYInfoLabel, STYDistributionView) { head, info, view in
-            info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - TotalSideMargin
-            info.centerX == info.superview!.centerX
-            
-            view.top     == info.bottom + topSpacing
-            view.width   == view.superview!.width
-            view.height  == distributionViewHeight
-            view.centerX == view.superview!.centerX
-        }
-        
-        constrain(STYDistributionView, KYLHeading) { view, head in
-            head.top  == view.bottom + topSpacing
-            head.left == head.superview!.left + SideMargin
-        }
-        
-        constrain(KYLHeading, KYLInfoLabel, KYLDistributionView) { head, info, view in
-            info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - TotalSideMargin
-            info.centerX == info.superview!.centerX
-            
-            view.top     == info.bottom + topSpacing
-            view.width   == view.superview!.width
-            view.height  == distributionViewHeight
-            view.centerX == view.superview!.centerX
-        }
-        
-        constrain(KYLDistributionView, SKPHeading) { view, head in
-            head.top  == view.bottom + topSpacing
-            head.left == head.superview!.left + SideMargin
-        }
-        
-        constrain(SKPHeading, SKPInfoLabel, SKPDistributionView) { head, info, view in
-            info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - TotalSideMargin
-            info.centerX == info.superview!.centerX
-            
-            view.top     == info.bottom + topSpacing
-            view.width   == view.superview!.width
-            view.height  == distributionViewHeight
-            view.centerX == view.superview!.centerX
-        }
-        
-        constrain(SKPDistributionView, INSHeading) { view, head in
-            head.top  == view.bottom + topSpacing
-            head.left == head.superview!.left + SideMargin
-        }
-        
-        constrain(INSHeading, INSInfoLabel, INSDistributionView) { head, info, view in
-            info.top     == head.bottom + topSpacing
-            info.width   == info.superview!.width - TotalSideMargin
-            info.centerX == info.superview!.centerX
-            
-            view.top     == info.bottom + topSpacing
-            view.width   == view.superview!.width
-            view.height  == distributionViewHeight
-            view.centerX == view.superview!.centerX
+        constrain(STYDistributionView, KYLDistributionView, SKPDistributionView, INSDistributionView) { STY, KYL, SKP, INS in
+            STY.height == distributionViewHeight
+            KYL.height == distributionViewHeight
+            SKP.height == distributionViewHeight
+            INS.height == distributionViewHeight
         }
         
         contentView.layoutIfNeeded()
@@ -100,6 +45,16 @@ class AttributesViewController: CharacterCreationStepViewController {
     }
     
     // MARK: - Views
+    
+    fileprivate lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10.0
+        
+        return stackView
+    }()
     
     fileprivate lazy var attributesInfoLabel: UILabel = {
         let attributesInfoLabel = UILabel(frame: .zero)
@@ -113,6 +68,7 @@ class AttributesViewController: CharacterCreationStepViewController {
     fileprivate lazy var remainingPointsLabel: UILabel = {
         let remainingPointsLabel = UILabel(frame: .zero)
         remainingPointsLabel.text = "Du har 6 poäng att placera ut."
+        remainingPointsLabel.textAlignment = .center
         
         return remainingPointsLabel
     }()
@@ -150,24 +106,25 @@ class AttributesViewController: CharacterCreationStepViewController {
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    fileprivate func populateContentView() {
-        contentView.addSubview(attributesInfoLabel)
-        contentView.addSubview(remainingPointsLabel)
+    fileprivate func populateStackView() {
+        stackView.addArrangedSubview(attributesInfoLabel)
+        stackView.addArrangedSubview(remainingPointsLabel) // Was 15pt from attributesInfoLabel before change to stack view
         
-        contentView.addSubview(STYHeading)
-        contentView.addSubview(KYLHeading)
-        contentView.addSubview(SKPHeading)
-        contentView.addSubview(INSHeading)
+        stackView.addArrangedSubview(STYHeading) // Was 15pt from remainingPointsLabel before change to stack view
+        stackView.addArrangedSubview(STYInfoLabel)
+        stackView.addArrangedSubview(STYDistributionView)
         
-        contentView.addSubview(STYInfoLabel)
-        contentView.addSubview(KYLInfoLabel)
-        contentView.addSubview(SKPInfoLabel)
-        contentView.addSubview(INSInfoLabel)
+        stackView.addArrangedSubview(KYLHeading)
+        stackView.addArrangedSubview(KYLInfoLabel)
+        stackView.addArrangedSubview(KYLDistributionView)
         
-        contentView.addSubview(STYDistributionView)
-        contentView.addSubview(KYLDistributionView)
-        contentView.addSubview(SKPDistributionView)
-        contentView.addSubview(INSDistributionView)
+        stackView.addArrangedSubview(SKPHeading)
+        stackView.addArrangedSubview(SKPInfoLabel)
+        stackView.addArrangedSubview(SKPDistributionView)
+        
+        stackView.addArrangedSubview(INSHeading)
+        stackView.addArrangedSubview(INSInfoLabel)
+        stackView.addArrangedSubview(INSDistributionView)
     }
 }
 
