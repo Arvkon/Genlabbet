@@ -136,7 +136,7 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         character.face = faceTextField.text
         character.body = bodyTextField.text
         character.wear = wearTextField.text

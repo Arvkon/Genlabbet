@@ -13,8 +13,8 @@ class SkipCreationStepLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
         super.init(frame: frame)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
-        activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
+        linkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]
+        activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
         
         setText("Du kan hoppa över detta steg.")
         addLink(to: URL(string: "skip://step"), with: NSMakeRange(7, 10))
@@ -36,4 +36,9 @@ class SkipCreationStepLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
             linkAction?()
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

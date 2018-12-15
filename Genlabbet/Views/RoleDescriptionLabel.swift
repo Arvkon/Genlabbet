@@ -23,7 +23,7 @@ class RoleDescriptionLabel: UILabel {
             
             let attrString = NSMutableAttributedString(string: labelText)
             let wholeRange = NSMakeRange(0, attrString.length)
-            attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:wholeRange)
+            attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: wholeRange)
             
             attributedText = attrString
         }
@@ -35,6 +35,6 @@ extension UIEdgeInsets {
         return UIEdgeInsets(top: -top, left: -left, bottom: -bottom, right: -right)
     }
     func apply(_ rect: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(rect, self)
+        return rect.inset(by: self)
     }
 }

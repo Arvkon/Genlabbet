@@ -30,7 +30,7 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
                 animalPower.centerX == animalPower.superview!.centerX
             }
             constrain(animalPowerView) { animalPower in
-                animalPower.height == animalPowerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+                animalPower.height == animalPowerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             }
             previousView = animalPowerView
         }
@@ -60,12 +60,12 @@ class AnimalPowersViewController: CharacterCreationStepViewController {
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         let viewController = RankRelationshipsDreamViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    func animalPowerButtonTapped(_ sender: UITapGestureRecognizer?) {
+    @objc func animalPowerButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedAnimalPowerView = sender?.view as? HeadingDescriptionOptionView else { return }
         
         if tappedAnimalPowerView.selected == true {

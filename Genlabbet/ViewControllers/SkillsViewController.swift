@@ -86,8 +86,8 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
             self.delegate = delegate
             
             let linkFont = UIFont(name: "Colfax-Regular", size: 22.0)!
-            linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
-            activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
+            linkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]
+            activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
             
             setText(skill.string)
             addLink(to: URL(string: "skill://\(skill.rawValue)"), with: NSMakeRange(0, skill.string.characters.count))
@@ -96,7 +96,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         let viewController = TalentViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }
@@ -123,4 +123,9 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
 
 private extension Selector {
     static let chooseButtonTapped = #selector(SkillsViewController.chooseButtonTapped(_:))
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

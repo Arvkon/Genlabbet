@@ -61,15 +61,15 @@ class RoleViewController: CharacterCreationStepViewController, UIPageViewControl
         pageViewController.dataSource = self
         pageViewController.delegate = self
         
-        self.addChildViewController(pageViewController)
-        pageViewController.didMove(toParentViewController: self)
+        self.addChild(pageViewController)
+        pageViewController.didMove(toParent: self)
         
         return pageViewController
     }()
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         character.role = viewControllerAtIndex(pageControl.currentPage)!.role
         let viewController = AppearanceViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)

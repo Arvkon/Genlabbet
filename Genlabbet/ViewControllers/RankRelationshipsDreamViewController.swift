@@ -76,11 +76,11 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     
     fileprivate lazy var rankValueLabel: UILabel = {
         let rankValueLabel = UILabel(frame: .zero)
-        let fontAttribute  = [NSFontAttributeName: UIFont.systemFont(ofSize: 19.0)]
-        let attributedText = NSMutableAttributedString(string: "Du har \(self.character.rank) i rang", attributes: fontAttribute)
+        let fontAttribute  = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: 19.0)]
+        let attributedText = NSMutableAttributedString(string: "Du har \(self.character.rank) i rang", attributes: convertToOptionalNSAttributedStringKeyDictionary(fontAttribute))
         
-        let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 22.0)]
-        attributedText.addAttributes(boldFontAttribute, range: NSRange(location: 7, length: 1))
+        let boldFontAttribute = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: 22.0)]
+        attributedText.addAttributes(convertToNSAttributedStringKeyDictionary(boldFontAttribute), range: NSRange(location: 7, length: 1))
         rankValueLabel.attributedText = attributedText
         
         return rankValueLabel
@@ -108,7 +108,7 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
     }
     
@@ -126,4 +126,20 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
 
 private extension Selector {
     static let chooseButtonTapped = #selector(RankRelationshipsDreamViewController.chooseButtonTapped(_:))
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

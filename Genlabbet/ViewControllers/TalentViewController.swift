@@ -30,7 +30,7 @@ class TalentViewController: CharacterCreationStepViewController {
                 talent.centerX == talent.superview!.centerX
             }
             constrain(talentView) { talent in
-                talent.height == talentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+                talent.height == talentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             }
             previousView = talentView
         }
@@ -57,7 +57,7 @@ class TalentViewController: CharacterCreationStepViewController {
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         for (index, talentView) in talentViews.enumerated() {
             if talentView.selected == true {
                 character.talent = character.role!.talents[index]
@@ -68,7 +68,7 @@ class TalentViewController: CharacterCreationStepViewController {
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    func talentButtonTapped(_ sender: UITapGestureRecognizer?) {
+    @objc func talentButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedTalentView = sender?.view as? HeadingDescriptionOptionView else { return }
         
         for talentView in talentViews {

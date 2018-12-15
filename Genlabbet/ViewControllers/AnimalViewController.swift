@@ -91,11 +91,11 @@ class AnimalViewController: CharacterCreationStepViewController {
     
     // MARK: - Methods
     
-    func closeButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func closeButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    func optionViewTapped(_ sender: UITapGestureRecognizer) {
+    @objc func optionViewTapped(_ sender: UITapGestureRecognizer) {
         guard let optionView = sender.view as? AnimalTypeOptionView else { return }
         
         optionView.select()

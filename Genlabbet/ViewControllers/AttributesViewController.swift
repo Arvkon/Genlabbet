@@ -101,7 +101,7 @@ class AttributesViewController: CharacterCreationStepViewController {
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         let viewController = SkillsViewController(character: character)
         navigationController!.pushViewController(viewController, animated: true)
     }

@@ -112,8 +112,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let keyAttributeLabel = TTTAttributedLabel(frame: .zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        keyAttributeLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
-        keyAttributeLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
+        keyAttributeLabel.linkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]
+        keyAttributeLabel.activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
         
         let keyAttribute = self.role.keyAttribute.string
         keyAttributeLabel.setText("Bästa grundegenskap: \(keyAttribute)")
@@ -127,8 +127,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let specialistSkillLabel = TTTAttributedLabel(frame: .zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        specialistSkillLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
-        specialistSkillLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
+        specialistSkillLabel.linkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]
+        specialistSkillLabel.activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
         
         let specialistSkill = self.role.specialistSkill.string
         specialistSkillLabel.setText("Specialfärdighet: \(specialistSkill)")
@@ -142,8 +142,8 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         let talentsLabel = TTTAttributedLabel(frame: .zero)
         
         let linkFont = UIFont(name: "Colfax-Regular", size: 16.0)!
-        talentsLabel.linkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.blue]
-        talentsLabel.activeLinkAttributes = [NSFontAttributeName: linkFont, NSForegroundColorAttributeName: UIColor.brown]
+        talentsLabel.linkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]
+        talentsLabel.activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
         
         let talentNames = self.role.talents.map { $0.string }
         let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
@@ -189,4 +189,9 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         
         UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

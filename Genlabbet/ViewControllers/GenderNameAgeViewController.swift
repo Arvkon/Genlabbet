@@ -194,7 +194,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
     
     // MARK: - Methods
     
-    func chooseButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
         if XYRadioButton.selected == true {
             character.gender = .male
         } else if XXRadioButton.selected == true {
@@ -215,7 +215,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         navigationController!.pushViewController(viewController, animated: true)
     }
     
-    func genderButtonTapped(_ sender: UITapGestureRecognizer?) {
+    @objc func genderButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedRadioButton = sender?.view as? RadioButtonView else { return }
         
         XYRadioButton.selected = false
@@ -226,7 +226,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         navigationItem.rightBarButtonItem!.isEnabled = allMandatoryInformationProvided()
     }
     
-    func ageButtonTapped(_ sender: UITapGestureRecognizer?) {
+    @objc func ageButtonTapped(_ sender: UITapGestureRecognizer?) {
         guard let tappedRadioButton = sender?.view as? RadioButtonView else { return }
         
         youngRadioButton.selected = false
