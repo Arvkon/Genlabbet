@@ -437,14 +437,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Genlabbet/Pods-Genlabbet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
-				"${BUILT_PRODUCTS_DIR}/PSTAlertController/PSTAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftColor/SwiftColor.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PSTAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftColor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);

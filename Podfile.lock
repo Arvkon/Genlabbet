@@ -1,28 +1,24 @@
 PODS:
   - Cartography (3.1.0)
-  - PSTAlertController (1.2.0)
   - SwiftColor (1.2.0)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Cartography
-  - PSTAlertController
   - SwiftColor
   - TTTAttributedLabel
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Cartography
-    - PSTAlertController
     - SwiftColor
     - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Cartography: 1988b7578871a56c036e7af17195cb2190edf18c
-  PSTAlertController: 9b802dfbda54fee2683bfd6dda7023a6de895d5b
   SwiftColor: a5be3ddacf3d1e36bdd914629ec64c4dd85e7a38
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: ed77e28cb526ae7fcfcbbc594a12e0e62fb74625
+PODFILE CHECKSUM: 9b0d1215afbff2a7f5201288825625484bd88859
 
 COCOAPODS: 1.5.3

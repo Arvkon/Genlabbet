@@ -4,7 +4,6 @@ target 'Genlabbet' do
     use_frameworks!
 
     pod 'Cartography'
-    pod 'PSTAlertController'
     pod 'SwiftColor'
     pod 'TTTAttributedLabel'
 end

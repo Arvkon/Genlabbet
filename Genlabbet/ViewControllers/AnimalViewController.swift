@@ -1,6 +1,5 @@
 import UIKit
 import Cartography
-import PSTAlertController
 
 class AnimalViewController: CharacterCreationStepViewController {
     
@@ -100,13 +99,12 @@ class AnimalViewController: CharacterCreationStepViewController {
         
         optionView.select()
         
-        let actionSheet = PSTAlertController(title: nil, message: "Välj art", preferredStyle: .actionSheet)
-        let deselectAction = { (action: PSTAlertAction!) in optionView.deselect() }
-        actionSheet.addAction(PSTAlertAction(title: "Välj annan djurtyp", style: .cancel, handler: deselectAction))
+        let actionSheet = UIAlertController(title: nil, message: "Välj art", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Välj annan djurtyp", style: .cancel) { _ in optionView.deselect() })
         
         // Helper function
-        func createPSTAlertActionForSpecies(_ species: Species) -> PSTAlertAction {
-            return PSTAlertAction(title: species.string, style: .default) { action in
+        func createAction(for species: Species) -> UIAlertAction {
+            return UIAlertAction(title: species.string, style: .default) { _ in
                 self.character.species = species
                 let viewController = RoleViewController(character: self.character)
                 self.navigationController!.pushViewController(viewController, animated: true)
@@ -115,49 +113,49 @@ class AnimalViewController: CharacterCreationStepViewController {
         
         switch optionView.animalType {
         case .ape:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.chimpanzee))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.gorilla))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.orangutan))
+            actionSheet.addAction(createAction(for: .chimpanzee))
+            actionSheet.addAction(createAction(for: .gorilla))
+            actionSheet.addAction(createAction(for: .orangutan))
 
         case .badger:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.badger))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.marten))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.weasel))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.wolverine))
+            actionSheet.addAction(createAction(for: .badger))
+            actionSheet.addAction(createAction(for: .marten))
+            actionSheet.addAction(createAction(for: .weasel))
+            actionSheet.addAction(createAction(for: .wolverine))
 
         case .bear:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.bear))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.raccoon))
+            actionSheet.addAction(createAction(for: .bear))
+            actionSheet.addAction(createAction(for: .raccoon))
 
         case .cat:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.cat))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.cougar))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.lynx))
+            actionSheet.addAction(createAction(for: .cat))
+            actionSheet.addAction(createAction(for: .cougar))
+            actionSheet.addAction(createAction(for: .lynx))
 
         case .dog:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.dog))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.fox))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.wolf))
+            actionSheet.addAction(createAction(for: .dog))
+            actionSheet.addAction(createAction(for: .fox))
+            actionSheet.addAction(createAction(for: .wolf))
 
         case .rabbit:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.hare))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.rabbit))
+            actionSheet.addAction(createAction(for: .hare))
+            actionSheet.addAction(createAction(for: .rabbit))
 
         case .rat:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.hamster))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.mouse))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.rat))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.squirrel))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.vole))
+            actionSheet.addAction(createAction(for: .hamster))
+            actionSheet.addAction(createAction(for: .mouse))
+            actionSheet.addAction(createAction(for: .rat))
+            actionSheet.addAction(createAction(for: .squirrel))
+            actionSheet.addAction(createAction(for: .vole))
 
         case .reptile:
-            actionSheet.addAction(createPSTAlertActionForSpecies(.frog))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.lizard))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.toad))
-            actionSheet.addAction(createPSTAlertActionForSpecies(.turtle))
+            actionSheet.addAction(createAction(for: .frog))
+            actionSheet.addAction(createAction(for: .lizard))
+            actionSheet.addAction(createAction(for: .toad))
+            actionSheet.addAction(createAction(for: .turtle))
         }
         
-        actionSheet.showWithSender(nil, controller: self, animated: true, completion: nil)
+        present(actionSheet, animated: true, completion: nil)
     }
     
     fileprivate func populateContentView() {
