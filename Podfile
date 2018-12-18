@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '11.4'
 
 target 'Genlabbet' do
     use_frameworks!
