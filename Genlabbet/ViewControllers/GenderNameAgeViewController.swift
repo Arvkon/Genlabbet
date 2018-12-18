@@ -242,7 +242,7 @@ class GenderNameAgeViewController: CharacterCreationStepViewController, UITextFi
         guard let labNameText = labNameTextField.text else { return false }
         
         let genderChosen  = XYRadioButton.selected == true || XXRadioButton.selected == true
-        let labNameChosen = labNameText.characters.count > 0
+        let labNameChosen = labNameText.count > 0
         let ageChosen     = youngRadioButton.selected == true || adultRadioButton.selected == true || elderRadioButton.selected == true
         
         return genderChosen && labNameChosen && ageChosen

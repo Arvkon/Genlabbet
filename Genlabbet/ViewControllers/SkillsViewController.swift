@@ -90,7 +90,7 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
             activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
             
             setText(skill.string)
-            addLink(to: URL(string: "skill://\(skill.rawValue)"), with: NSMakeRange(0, skill.string.characters.count))
+            addLink(to: URL(string: "skill://\(skill.rawValue)"), with: NSMakeRange(0, skill.string.count))
         }
     }
     
@@ -117,7 +117,9 @@ class SkillsViewController: CharacterCreationStepViewController, TTTAttributedLa
         guard url.scheme == "skill" else { return }
         guard let host = url.host, let rawValue = Int(host), let skill = Skill(rawValue: rawValue) else { return }
         
-        UIAlertView(title: skill.string, message: skill.description, delegate: nil, cancelButtonTitle: "Stäng").show()
+        let alert = UIAlertController(title: skill.string, message: skill.description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Stäng", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

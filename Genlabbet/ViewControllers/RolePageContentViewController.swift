@@ -117,7 +117,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         
         let keyAttribute = self.role.keyAttribute.string
         keyAttributeLabel.setText("Bästa grundegenskap: \(keyAttribute)")
-        keyAttributeLabel.addLink(to: URL(string: "info://attribute"), with: NSMakeRange(21, keyAttribute.characters.count))
+        keyAttributeLabel.addLink(to: URL(string: "info://attribute"), with: NSMakeRange(21, keyAttribute.count))
         keyAttributeLabel.delegate = self
         
         return keyAttributeLabel
@@ -132,7 +132,7 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         
         let specialistSkill = self.role.specialistSkill.string
         specialistSkillLabel.setText("Specialfärdighet: \(specialistSkill)")
-        specialistSkillLabel.addLink(to: URL(string: "info://skill"), with: NSMakeRange(18, specialistSkill.characters.count))
+        specialistSkillLabel.addLink(to: URL(string: "info://skill"), with: NSMakeRange(18, specialistSkill.count))
         specialistSkillLabel.delegate = self
         
         return specialistSkillLabel
@@ -146,14 +146,14 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
         talentsLabel.activeLinkAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): linkFont, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.brown]
         
         let talentNames = self.role.talents.map { $0.string }
-        let talentStart = [10, talentNames[0].characters.count + 12, talentNames[0].characters.count + talentNames[1].characters.count + 14]
+        let talentStart = [10, talentNames[0].count + 12, talentNames[0].count + talentNames[1].count + 14]
         
         talentsLabel.lineBreakMode = .byWordWrapping // Must be set before text is set to work
         talentsLabel.numberOfLines = 0
         talentsLabel.setText("Talanger: \(talentNames[0]), \(talentNames[1]), \(talentNames[2])")
-        talentsLabel.addLink(to: URL(string: "info://talent0"), with: NSMakeRange(talentStart[0], talentNames[0].characters.count))
-        talentsLabel.addLink(to: URL(string: "info://talent1"), with: NSMakeRange(talentStart[1], talentNames[1].characters.count))
-        talentsLabel.addLink(to: URL(string: "info://talent2"), with: NSMakeRange(talentStart[2], talentNames[2].characters.count))
+        talentsLabel.addLink(to: URL(string: "info://talent0"), with: NSMakeRange(talentStart[0], talentNames[0].count))
+        talentsLabel.addLink(to: URL(string: "info://talent1"), with: NSMakeRange(talentStart[1], talentNames[1].count))
+        talentsLabel.addLink(to: URL(string: "info://talent2"), with: NSMakeRange(talentStart[2], talentNames[2].count))
         talentsLabel.delegate = self
         
         return talentsLabel
@@ -182,12 +182,14 @@ class RolePageContentViewController: UIViewController, TTTAttributedLabelDelegat
             title   = role.specialistSkill.string
             message = role.specialistSkill.description
         } else if host.hasPrefix("talent") {
-            let index = Int("\(host.characters.last!)")!
+            let index = Int("\(host.last!)")!
             title   = role.talents[index].string
             message = role.talents[index].description
         }
         
-        UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Stäng", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

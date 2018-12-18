@@ -60,7 +60,9 @@ class CharacterListViewController: UIViewController, UICollectionViewDataSource,
             cell.setLabelText("Rollperson \(indexPath.row + 1)")
             cell.cellPressAction = {
                 let message = "Did press character cell at index: \(indexPath.row)"
-                UIAlertView(title: "Not implemented yet", message: message, delegate: nil, cancelButtonTitle: "Stäng").show()
+                let alert = UIAlertController(title: "Not implemented yet", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Stäng", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
         

@@ -150,9 +150,9 @@ class AppearanceViewController: CharacterCreationStepViewController, UITextField
         guard let bodyText = bodyTextField.text else { return false }
         guard let wearText = wearTextField.text else { return false }
         
-        let faceChosen = faceText.characters.count > 0
-        let bodyChosen = bodyText.characters.count > 0
-        let wearChosen = wearText.characters.count > 0
+        let faceChosen = faceText.count > 0
+        let bodyChosen = bodyText.count > 0
+        let wearChosen = wearText.count > 0
         
         return faceChosen && bodyChosen && wearChosen
     }

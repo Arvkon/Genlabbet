@@ -59,7 +59,9 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     fileprivate lazy var skipCreationStepLabel: SkipCreationStepLabel = {
         let skipCreationStepLabel = SkipCreationStepLabel(frame: .zero)
         skipCreationStepLabel.linkAction = {
-            UIAlertView(title: "Not implemented yet", message: "Did press skip button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+            let alert = UIAlertController(title: "Not implemented yet", message: "Did press skip button.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Stäng", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
         return skipCreationStepLabel
@@ -109,7 +111,9 @@ class RankRelationshipsDreamViewController: CharacterCreationStepViewController 
     // MARK: - Methods
     
     @objc func chooseButtonTapped(_ sender: UIBarButtonItem) {
-        UIAlertView(title: "Not implemented yet", message: "Did press choose button.", delegate: nil, cancelButtonTitle: "Stäng").show()
+        let alert = UIAlertController(title: "Not implemented yet", message: "Did press choose button.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Stäng", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func populateContentView() {
